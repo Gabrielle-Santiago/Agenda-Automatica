@@ -1,1 +1,3 @@
-# Agenda-Automatica
+# Sistema de Agendamento e Gerenciamento de Serviços com Integração em Nuvem e Automação
+## Objetivo
+<p>Desenvolver uma solução inovadora para o gerenciamento e agendamento de serviços, integrando tecnologias avançadas como Python, Java, e a nuvem do Microsoft Azure. O projeto busca automatizar e otimizar o processo de agendamento, garantindo eficiência operacional, escalabilidade e uma experiência de usuário superior. Além disso, o sistema será capaz de se integrar com dispositivos IoT para check-in automatizado e utilizar Big Data para análises preditivas, proporcionando insights estratégicos e personalização de serviços.</p>
