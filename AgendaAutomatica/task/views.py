@@ -1,5 +1,5 @@
-from urllib import request
-from django.shortcuts import render, redirect
+from django.views.generic import ListView
+from django.shortcuts import render
 from task.forms import CadastroForm
 from task.models import Cadastro
 
@@ -15,8 +15,8 @@ def agenda(request):
             context = {
                 'cadastro' : cadastro,
             }
-            # Alterar para mandar para lista de agendamento
-            return render(request, 'cadastro.html', context)
+            # Após cadastro encaminha para a lista de agendamento
+            return render(request, 'cadastrados.html', context)
         
         else:
             return render(request, 'cadastro.html', {
@@ -27,3 +27,11 @@ def agenda(request):
         form = CadastroForm()
 
     return render(request, 'cadastro.html', {'form':form})
+
+
+# Utiliza do Generic Views do próprio Django para visualizar a lista
+class visualizarLista(ListView):
+    model = Cadastro
+    template_name = 'cadastrados.html'
+    context_object_name = 'cadastrados'
+    
