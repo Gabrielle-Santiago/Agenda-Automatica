@@ -35,3 +35,6 @@ class visualizarLista(ListView):
     template_name = 'cadastrados.html'
     context_object_name = 'cadastrados'
     
+
+def pedidoPerfume(request):
+    return render(request, 'pedidoPerfume.html')
