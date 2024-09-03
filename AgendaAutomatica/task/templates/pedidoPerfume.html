@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<main class="container mt-5">
+    <main class="container mt-5">
         <div class="col-md-5 offset-md-4">
 
             <form method="POST" class="card card-body needs-validation" novalidate>
                 {% comment %} Depois troco o título {% endcomment %}
-                <h1>Coleta de dados</h1>
-                <h2 class="text-center">Dados Pessoais</h2>
+                <h1 class="text-center">Coleta de dados</h1>
                 
                     {{ error }}
 
@@ -34,7 +33,7 @@
         
                     <div class="mb-3">
                         <label for="adress" class="form-label">Endereço</label>
-                        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example" required>
+                        <input class="form-control" type="text" placeholder="Rua. Teste, Bairro 01, número 02" aria-label="default input example" required>
                         <div class="invalid-feedback">
                             Por favor, escreva um endereço válido.
                         </div>
@@ -42,6 +41,7 @@
 
                     <div class="mb-3">
                         <label for="adress" class="form-label"> Quais aromas você prefere?</label>
+                        {% comment %} Tem IDs e FOR iguais, trocar os nomes senão vai dar erro no backend {% endcomment %}
                             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
                                 <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
@@ -59,10 +59,65 @@
                                 <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="btncheck5">Outro</label>
                             </div>
+                    
+
+                            <label for="adress" class="form-label"> Qual a intensidade do perfume que você prefere?</label>
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+                                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck1">Fácil</label>
+                            
+                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck2">Moderado</label>
+                            
+                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck3">Forte</label>
+                            </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adress" class="form-label">Em que ocasiões você costuma usar perfume?</label>
+                        <input class="form-control" type="text" placeholder="Trabalho, Eventos, Cotidiano..." aria-label="default input example" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adress" class="form-label">Em que ocasiões você costuma usar perfume?</label>
+                        <input class="form-control" type="text" placeholder="Trabalho, Eventos, Cotidiano..." aria-label="default input example" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adress" class="form-label"> Com que frequência você compra perfumes?</label>
+
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">                           
+
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+                                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck1">Mensal</label>
+                            
+                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck2">Bimestral</label>
+
+                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck3">Semestral</label>
+
+                                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck4">Anual</label>
+                            </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">O que você mais gostou em perfumes anteriores que você comprou?</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">O que você mudaria nos perfumes que já usou?</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
 
                     <input class="btn btn-primary" type="submit" value="Enviar">
                 </form>
         </div>
-</main>
+    </main>
 {% endblock %}
