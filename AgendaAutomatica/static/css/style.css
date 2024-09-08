@@ -1,0 +1,61 @@
+body{
+    color: #f0f8ff;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Deixa o menu transparente e sem borda */
+#nav-bar {
+    background-color: transparent !important;
+    border: none;
+}
+
+nav a {
+    color: #d5dee6 !important;
+}
+
+/* Cria o desfoque e a transparência do formulário */
+#formulario{
+    background: #ffffff1a;
+    box-shadow: 0 8px 32px 0 rgb(17, 77, 17);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid #ffffff2e;
+}
+
+/* Configuração da imagem do fundo */
+#folhas {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Estilização do botão */
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #004f45;
+	background:linear-gradient(to bottom, #004e54 5%, #004e54 100%);
+	background-color:#004e54;
+	border-radius:6px;
+	border:1px solid #01373a;
+	display:inline-block;
+	cursor:pointer;
+	color:#e9e9e9;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #004f45;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #004e54 5%, #004e54 100%);
+	background-color:#004e54;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

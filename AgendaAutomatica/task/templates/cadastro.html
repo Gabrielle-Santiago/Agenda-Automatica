@@ -1,11 +1,13 @@
 {% extends "menu.html" %}
 
+{% load static %}
+
 {% block content %}
 
-<main class="container mt-5">
+<main class="container mt-1">
         <div class="col-md-5 offset-md-4">
 
-            <form method="POST" class="card card-body needs-validation" novalidate>
+            <form method="POST" class="card card-body needs-validation" id="formulario" novalidate>
 
                 <h1 class="text-center">Agendamento</h1>
                 
@@ -16,11 +18,10 @@
                     <div class="input-group mb-3">
 
                         <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" required>
+                        <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" required>
                         <div id="validationUsernameFeedback" class="invalid-feedback">
                             Por favor, adicione um nome.
                         </div>
-
                     </div>
                     
                     <div class="mb-3">
@@ -55,8 +56,12 @@
                         </div>
                     </div>
 
-                    <input class="btn btn-primary" type="submit" value="Agendar">
-                </form>
+                    <input class="myButton" class="btn btn-primary" type="submit" value="Agendar">
+                </form> 
         </div>
 </main>
+<div class="wave-background">
+<img src="{% static 'img/fundo/folhas.jpeg' %}" id="folhas" alt="Folha background">
+</div>
+
 {% endblock %}
