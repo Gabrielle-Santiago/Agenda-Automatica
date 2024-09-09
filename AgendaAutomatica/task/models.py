@@ -15,3 +15,12 @@ class Cadastro(models.Model):
     def __str__(self):
         # Retorna os tipos salvo no modelo
         return f"{self.username} - {self.data} - {self.time} - {self.email} - {self.contact}"
+    
+
+class modelPerfume(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    adress = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} - {self.email} - {self.adress}"

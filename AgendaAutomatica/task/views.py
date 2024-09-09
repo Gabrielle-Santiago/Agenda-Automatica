@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import render
-from task.forms import CadastroForm
+from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
 
 
@@ -35,3 +35,21 @@ class visualizarLista(ListView):
     template_name = 'cadastrados.html'
     context_object_name = 'cadastrados'
     
+
+def pedidoPerfume(request):
+    if request.method == 'POST':
+        form = formPerfume(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'cadastro.html')
+        
+        else:
+            return render(request, 'pedidoPerfume.html', {
+                'form': form,
+                'error': 'Algo deu errado, tente novamente!!'
+            })
+    else:
+        form = formPerfume()
+
+    return render(request, 'pedidoPerfume.html', {'form':form})

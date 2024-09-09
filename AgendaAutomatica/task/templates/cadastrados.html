@@ -1,66 +1,48 @@
-{% load static %}
+{% extends "menu.html" %}
 
 {% block content %}
 
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agendamento Cadastro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<main class="container mt-5">
+  <div class="container text-center">
+    <div class="row">
+       <h1>Agendados</h1>
 
-    <main class="container mt-5">
-          <div class="container text-center">
-              <div class="row">
-                <h1>Agendados</h1>
+          <div class="col">
+              <h2>Nome</h2>
+                {% for cadastro in cadastrados %}
+                    <li>{{ cadastro.username }}</li>
+                {% endfor %}
+          </div>
 
-                <div class="col">
-                    <h2>Nome</h2>
-                    {% for cadastro in cadastrados %}
-                      <li>{{ cadastro.username }}</li>
-                    {% endfor %}
-                </div>
+          <div class="col">
+              <h2>Data</h2>
+                {% for cadastro in cadastrados %}
+                     <li>{{ cadastro.data }}</li>
+                {% endfor %}
+          </div>
 
-                <div class="col">
-                    <h2>Data</h2>
-                    {% for cadastro in cadastrados %}
-                      <li>{{ cadastro.data }}</li>
-                    {% endfor %}
-                </div>
+          <div class="col">
+              <h2>Horário</h2>
+                {% for cadastro in cadastrados %}
+                   <li>{{ cadastro.time }}</li>
+                {% endfor %}
+          </div>
 
-                <div class="col">
-                    <h2>Horário</h2>
-                    {% for cadastro in cadastrados %}
-                      <li>{{ cadastro.time }}</li>
-                    {% endfor %}
-                </div>
+          <div class="col">
+              <h2>E-mail</h2>
+                {% for cadastro in cadastrados %}
+                   <li>{{ cadastro.email }}</li> 
+                {% endfor %}
+          </div>
 
-                <div class="col">
-                    <h2>E-mail</h2>
-                    {% for cadastro in cadastrados %}
-                      <li>{{ cadastro.email }}</li> 
-                    {% endfor %}
-                </div>
-
-                <div class="col">
-                    <h2>Contato</h2>
-                    {% for cadastro in cadastrados %}
-                      <li>{{ cadastro.contact }}</li>
-                    {% endfor %}
-                </div>
+          <div class="col">
+              <h2>Contato</h2>
+                  {% for cadastro in cadastrados %}
+                    <li>{{ cadastro.contact }}</li>
+                  {% endfor %}
+          </div>
                 
-            </div>
-        </div>
-    </main>    
-    
-    <script src="{% static 'js/index.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
-
+      </div>
+    </div>   
+</main>
 {% endblock %}

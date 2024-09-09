@@ -8,4 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.agenda, name='agenda'),
     path('cadastrados/', visualizarLista.as_view(), name='cadastrados'),
+    path('pedidoPerfume/', views.pedidoPerfume, name='pedidoPerfume'),
 ]
