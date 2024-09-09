@@ -1,6 +1,8 @@
 body{
     color: #f0f8ff;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #121212;
+    background: linear-gradient(90deg, #121212 8%, #358a70 90%);
 }
 
 /* Deixa o menu transparente e sem borda */
@@ -16,7 +18,6 @@ nav a {
 /* Cria o desfoque e a transparência do formulário */
 #formulario{
     background: #ffffff1a;
-    box-shadow: 0 8px 32px 0 rgb(17, 77, 17);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
@@ -58,4 +59,15 @@ nav a {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+/* Checkbox do pedido perfume */
+.btn-check:checked + .btn {
+    border-color: #600707; /* Cor da borda quando o checkbox estiver selecionado */
+    background-color: #862727;
+}
+
+.btn {
+    border-color: #02201c;
+    color: #d5dee6;
 }
