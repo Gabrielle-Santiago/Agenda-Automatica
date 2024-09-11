@@ -17,14 +17,14 @@
           <div class="col">
               <h2>Data</h2>
                 {% for cadastro in cadastrados %}
-                     <li>{{ cadastro.data }}</li>
+                     <li>{{ cadastro.data|date:"d/m/Y" }}</li>
                 {% endfor %}
           </div>
 
           <div class="col">
               <h2>Horário</h2>
                 {% for cadastro in cadastrados %}
-                   <li>{{ cadastro.time }}</li>
+                   <li>{{ cadastro.time|date:"H:i" }}</li>
                 {% endfor %}
           </div>
 
