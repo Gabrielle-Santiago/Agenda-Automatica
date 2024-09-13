@@ -1,0 +1,71 @@
+{% extends "menu.html" %}
+
+{% block content %}
+
+<main class="container mt-1">
+    <div class="col-md-5 offset-md-4">
+
+        <form method="POST" class="card card-body needs-validation" id="formulario" novalidate>
+
+            <h1 class="text-center">Cadastrar Produto</h1>
+            
+                {{ error }}
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Produto</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Selecione um produto</option>
+                        <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                        <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                        <option value="peelins" name="peelins" id="peelins">Peelins</option>
+                        <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                        <option value="outro" name="outro" id="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Aromas</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Selecione um aroma</option>
+                        <option value="floral" name="floral" id="floral">Floral</option>
+                        <option value="cítrico" name="cítrico" id="cítrico">Cítrico</option>
+                        <option value="amadeirado" name="amadeirado" id="amadeirado">Amadeirado</option>
+                        <option value="adocicado" name="adocicado" id="adocicado">Adocicado</option>
+                        <option value="outro1" name="outro1" id="outro1">Outro</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <div class="container text-center">
+                        <div class="row">
+                            
+                            <h2>Ingredientes</h2>
+
+                          <div class="col">
+                            <label for="nomeIngrediente" class="form-label">Nome do Ingrediente</label>
+                            <input type="text" class="form-control" id="nomeIngrediente" name="nomeIngrediente" placeholder="Adicione ingrediente">
+                          </div>                       
+
+                          <div class="col">
+                            <label for="quantidadeProduto" class="form-label">Quantidade</label>
+                            <input type="number" class="form-control" id="quantidadeProduto" name="quantidadeProduto" placeholder="Quantidade usada">
+                          </div>
+
+                          <div class="row mt-3">
+                            <div class="col">
+                                <button type="button" class="btn btn-success myButton" id="adicionarProduto">Adicionar Produto</button>
+                            </div>
+                          </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <input class="myButton btn btn-primary" type="submit" value="Agendar">
+            </form> 
+    </div>
+</main>
+
+{% endblock %}

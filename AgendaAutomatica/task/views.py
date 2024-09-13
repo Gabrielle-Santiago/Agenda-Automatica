@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
 
@@ -12,11 +12,8 @@ def agenda(request):
         if form.is_valid():
             form.save()
             cadastro = Cadastro.objects.all()
-            context = {
-                'cadastro' : cadastro,
-            }
             # Após cadastro encaminha para a lista de agendamento
-            return render(request, 'cadastrados.html', context)
+            return redirect('cadastrados')
         
         else:
             return render(request, 'cadastro.html', {
@@ -53,3 +50,11 @@ def pedidoPerfume(request):
         form = formPerfume()
 
     return render(request, 'pedidoPerfume.html', {'form':form})
+
+
+def cadastroProduto(request):
+    return render(request, 'cadastroProduto.html')
+
+
+def produtosCadastrados(request):
+    return render(request, 'produtosCadastrados.html')
