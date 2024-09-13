@@ -24,3 +24,22 @@ class modelPerfume(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.email} - {self.adress}"
+
+
+class modelProduto(models.Model):
+    OPTION_CHOICE = [
+        ('op1', 'Opcao 1'),
+        ('op2', 'Opcao 2'),
+        ('op3', 'Opcao 3'),
+        ('op4', 'Opcao 4'),
+        ('op5', 'Opcao 5'),
+    ]
+
+    option = models.CharField(
+    max_length=4,
+    choices=OPTION_CHOICE,
+    default='op1',
+    )
+
+    def __str__(self):
+        return f"{self.option}"

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cadastro, modelPerfume
+from .models import Cadastro, modelPerfume, modelProduto
 
 # Essa área possui o cadastro das informações do formulário
 
@@ -16,3 +16,10 @@ class formPerfume(forms.ModelForm):
     class Meta:
         model = modelPerfume
         fields = ['name', 'email', 'adress']
+
+
+class formProduto(forms.ModelForm):
+
+    class Meta:
+        model = modelProduto
+        fields = ['option']

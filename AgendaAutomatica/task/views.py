@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
-from task.forms import CadastroForm, formPerfume
+from task.forms import CadastroForm, formPerfume, formProduto
 from task.models import Cadastro
 
 
@@ -53,7 +53,26 @@ def pedidoPerfume(request):
 
 
 def cadastroProduto(request):
-    return render(request, 'cadastroProduto.html')
+    if request.method == 'POST':
+        form = formProduto(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'cadastroProduto.html', {
+                'form': form,
+                'success': 'Produto cadastrado com sucesso!'
+            })
+        
+        else:
+            return render(request, 'cadastroProduto.html', {
+                'form': form,
+                'error': 'Algo deu errado. Tente novamente!!'              
+            })
+        
+    else:
+        form = formProduto()
+
+    return render(request, 'cadastroProduto.html', {'form':form})
 
 
 def produtosCadastrados(request):
