@@ -27,19 +27,28 @@ class modelPerfume(models.Model):
 
 
 class modelProduto(models.Model):
-    OPTION_CHOICE = [
-        ('op1', 'Opcao 1'),
-        ('op2', 'Opcao 2'),
-        ('op3', 'Opcao 3'),
-        ('op4', 'Opcao 4'),
-        ('op5', 'Opcao 5'),
+    OPTION_CHOICES = [
+        ('perfume', 'Perfume'),
+        ('hidratante', 'Hidratante'),
+        ('peelins', 'Peelins'),
+        ('antioxidante', 'Antioxidante'),
+        ('outro', 'Outro'),
     ]
 
-    option = models.CharField(
-    max_length=4,
-    choices=OPTION_CHOICE,
-    default='op1',
-    )
+    # Aqui é referente aos cheiros
+    CATEGORY_CHOICES = [
+        ('floral','Floral'),
+        ('citrico','Citrico'),
+        ('amadeirado','Amadeirado'),
+        ('outro1','Outro1'),
+    ]
+
+    # produto vai ser caso clique em outro e adicione o nome
+    # produto = models.CharField(max_length=100, blank=True)
+
+    # Referente as opções que já existem
+    option = models.CharField(max_length=100, choices=OPTION_CHOICES)
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
 
     def __str__(self):
-        return f"{self.option}"
+        return f"{self.option} - {self.category}"

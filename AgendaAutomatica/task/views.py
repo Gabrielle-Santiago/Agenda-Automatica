@@ -57,9 +57,10 @@ def cadastroProduto(request):
         form = formProduto(request.POST)
 
         if form.is_valid():
+            print(form.cleaned_data)
             form.save()
             return render(request, 'cadastroProduto.html', {
-                'form': form,
+                'form': formProduto(),
                 'success': 'Produto cadastrado com sucesso!'
             })
         

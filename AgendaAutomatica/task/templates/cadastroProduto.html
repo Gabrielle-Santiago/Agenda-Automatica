@@ -14,23 +14,23 @@
                 {% csrf_token %}
 
                 <div class="mb-3">
-                    <label class="form-label">Produto</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="option" class="form-label">Produto</label>
+                    <select id="option" name="option" class="form-select" aria-label="Default select example">
                         <option selected>Selecione um produto</option>
-                        <option value="op1" name="perfume" id="perfume">Perfume</option>
-                        <option value="op2" name="hidratante" id="hidratante">Hidratante</option>
-                        <option value="op3" name="peelins" id="peelins">Peelins</option>
-                        <option value="op4" name="antioxidante" id="antioxidante">Antioxidante</option>
-                        <option value="op5" name="outro" id="outro">Outro</option>
+                        <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                        <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                        <option value="peelins" name="peelins" id="peelins">Peelins</option>
+                        <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                        <option value="outro" name="outro" id="outro">Outro</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Aromas</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="category" class="form-label">Aromas</label>
+                    <select id="category" name="category" class="form-select" aria-label="Default select example">
                         <option selected>Selecione um aroma</option>
                         <option value="floral" name="floral" id="floral">Floral</option>
-                        <option value="cítrico" name="cítrico" id="cítrico">Cítrico</option>
+                        <option value="citrico" name="citrico" id="citrico">Cítrico</option>
                         <option value="amadeirado" name="amadeirado" id="amadeirado">Amadeirado</option>
                         <option value="adocicado" name="adocicado" id="adocicado">Adocicado</option>
                         <option value="outro1" name="outro1" id="outro1">Outro</option>
