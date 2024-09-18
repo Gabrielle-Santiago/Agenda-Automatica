@@ -1,6 +1,13 @@
 body{
     color: #f0f8ff;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #121212;
+    background: linear-gradient(90deg, #121212 8%, #358a70 90%);
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 /* Deixa o menu transparente e sem borda */
@@ -16,7 +23,6 @@ nav a {
 /* Cria o desfoque e a transparência do formulário */
 #formulario{
     background: #ffffff1a;
-    box-shadow: 0 8px 32px 0 rgb(17, 77, 17);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
@@ -59,3 +65,118 @@ nav a {
 	position:relative;
 	top:1px;
 }
+
+/* Checkbox do pedido perfume */
+.btn-check:checked + .btn {
+    border-color: #600707; 
+    background-color: #862727;
+}
+
+.btn {
+    border-color: #02201c;
+    color: #d5dee6;
+}
+
+/* Estilização dos botões de produtos cadastrados */
+.selectButton {
+	box-shadow:inset 5px 5px 10px 0px #88b8af;
+	background:linear-gradient(to bottom, #00a583 5%, #00445b 100%);
+	background-color:#bddbfa;
+	border-radius:11px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:32px 35px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #05192b;
+    width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.selectButton:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+
+.selectButton:active {
+	position:relative;
+	top:1px;
+}
+
+.selectGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.selectProduto {
+    flex: 1 1 calc(22.22% - 10px); /* Cada botão ocupa 1/2 da largura, ajustando para o gap */
+    height: 200px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .selectProduto {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .selectProduto {
+        flex: 1 1 calc(100% - 10px);
+    }
+}
+
+/* A estilização da div que está as informações do produto */
+.effectPrompt {
+    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 90%; /* Usa 90% da largura da tela, adaptando-se automaticamente */
+}
+
+@media (min-width: 1024px) {
+    .effectPrompt {
+        margin: 130px auto;
+        width: 80%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .effectPrompt {
+        margin: 50px auto;
+        width: 85%;
+    }
+}
+
+@media (max-width: 767px) {
+    .effectPrompt {
+        margin: 20px auto;
+        width: 95%;
+    }
+}
+
+.enjoy-css {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 210px;
+    border: none;
+    -webkit-border-radius: 46px;
+    border-radius: 46px;
+    font: normal 16px/1 "Times New Roman", Times, serif;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+  }

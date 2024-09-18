@@ -5,7 +5,7 @@
     <main class="container mt-5">
         <div class="col-md-5 offset-md-4">
 
-            <form method="POST" class="card card-body needs-validation" novalidate>
+            <form method="POST" class="card card-body needs-validation" id="formulario" novalidate>
                 <h1 class="text-center">Coleta de dados</h1>
                 
                     {{ error }}
@@ -38,7 +38,7 @@
 
                     <div class="mb-3">
                         <label for="preferred_scents" class="form-label">Quais aromas você prefere?</label>
-                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"  id="aromas">
                             <input type="checkbox" class="btn-check" id="floral" name="preferred_scents[]" value="Floral" autocomplete="off">
                             <label class="btn btn-outline-primary" for="floral">Floral</label>
                     
@@ -103,7 +103,7 @@
                         <textarea class="form-control" id="feedbackInput2" rows="3" name="feedback_change"></textarea>
                     </div>
 
-                    <input class="btn btn-primary" type="submit" value="Enviar">
+                    <input class="btn btn-primary myButton" type="submit" value="Enviar" >
                 </form>
         </div>
     </main>
