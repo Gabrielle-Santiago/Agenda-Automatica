@@ -14,8 +14,8 @@
                 {% csrf_token %}
 
                 <div class="mb-3">
-                    <label class="form-label">Produto</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="option" class="form-label">Produto</label>
+                    <select id="option" name="option" class="form-select" aria-label="Default select example">
                         <option selected>Selecione um produto</option>
                         <option value="perfume" name="perfume" id="perfume">Perfume</option>
                         <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
@@ -26,11 +26,11 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Aromas</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="category" class="form-label">Aromas</label>
+                    <select id="category" name="category" class="form-select" aria-label="Default select example">
                         <option selected>Selecione um aroma</option>
                         <option value="floral" name="floral" id="floral">Floral</option>
-                        <option value="cítrico" name="cítrico" id="cítrico">Cítrico</option>
+                        <option value="citrico" name="citrico" id="citrico">Cítrico</option>
                         <option value="amadeirado" name="amadeirado" id="amadeirado">Amadeirado</option>
                         <option value="adocicado" name="adocicado" id="adocicado">Adocicado</option>
                         <option value="outro1" name="outro1" id="outro1">Outro</option>

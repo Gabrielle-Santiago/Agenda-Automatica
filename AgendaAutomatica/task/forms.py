@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cadastro, modelPerfume
+from .models import Cadastro, modelPerfume, modelProduto
 
 # Essa área possui o cadastro das informações do formulário
 
@@ -16,3 +16,23 @@ class formPerfume(forms.ModelForm):
     class Meta:
         model = modelPerfume
         fields = ['name', 'email', 'adress']
+
+
+class formProduto(forms.ModelForm):
+
+    class Meta:
+        model = modelProduto
+        fields = ['option', 'category']
+        widgets = {
+            'option': forms.Select(attrs={'class': 'form-select'})
+        }
+        category = {
+            'category': forms.Select(attrs={'class': 'form-select'})
+        }
+
+    # Foi o chatGPT que fez, depois reviso
+    def clean_option(self):
+        option = self.cleaned_data.get('option')
+        if len(option) > 50:  
+            raise forms.ValidationError("O tamanho do campo 'option' é muito longo.")
+        return option
