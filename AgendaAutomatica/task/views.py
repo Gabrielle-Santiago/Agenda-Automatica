@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
-from task.forms import CadastroForm, formPerfume, formProduto
+from task.forms import CadastroForm, IngredienteFormSet, formPerfume, formProduto
 from task.models import Cadastro
 
 
@@ -54,26 +54,28 @@ def pedidoPerfume(request):
 
 def cadastroProduto(request):
     if request.method == 'POST':
-        form = formProduto(request.POST)
+        produto_form = formProduto(request.POST)
+        ingrediente_formset = IngredienteFormSet(request.POST)
 
-        if form.is_valid():
-            print(form.cleaned_data)
-            form.save()
-            return render(request, 'cadastroProduto.html', {
-                'form': formProduto(),
-                'success': 'Produto cadastrado com sucesso!'
-            })
-        
-        else:
-            return render(request, 'cadastroProduto.html', {
-                'form': form,
-                'error': 'Algo deu errado. Tente novamente!!'              
-            })
-        
+        if produto_form.is_valid() and ingrediente_formset.is_valid():
+            produto = produto_form.save()
+            ingredientes = ingrediente_formset.save(commit=False)
+             # Usar um conjunto para evitar duplicatas
+            existing_ingredientes = set()
+            
+            for ingrediente in ingredientes:
+                ingrediente.produto = produto  # Associa o ingrediente ao produto
+                ingrediente.save() 
+            return redirect('produtosCadastrados')
+
     else:
-        form = formProduto()
+        produto_form = formProduto()
+        ingrediente_formset = IngredienteFormSet()
 
-    return render(request, 'cadastroProduto.html', {'form':form})
+    return render(request, 'cadastroProduto.html', {
+        'form': produto_form,
+        'ingrediente_formset': ingrediente_formset
+    })
 
 
 def produtosCadastrados(request):

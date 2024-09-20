@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cadastro, modelPerfume, modelProduto
+from .models import Cadastro, Ingrediente, modelPerfume, modelProduto
 
 # Essa área possui o cadastro das informações do formulário
 
@@ -36,3 +36,17 @@ class formProduto(forms.ModelForm):
         if len(option) > 50:  
             raise forms.ValidationError("O tamanho do campo 'option' é muito longo.")
         return option
+    
+# Formulário para o Produto
+class ProdutoForm(forms.ModelForm):
+    class Meta:
+        model = modelProduto
+        fields = ['option', 'category']
+
+# Inline formset para Ingredientes
+IngredienteFormSet = forms.inlineformset_factory(
+    modelProduto, Ingrediente, 
+    fields=['nome', 'quantidade'], 
+    extra=1,  # Quantidade de forms extras (você pode adicionar mais dinamicamente)
+    can_delete=True  # Permite que ingredientes possam ser removidos
+)

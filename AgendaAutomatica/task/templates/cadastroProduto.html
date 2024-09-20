@@ -43,21 +43,25 @@
                             
                             <h2>Ingredientes</h2>
 
-                            <div id="adicionarProdutoContainer" class="row">
-                                <div class="col-md-6">
-                                    <label class="form-label">Nome do Ingrediente</label>
-                                    <input type="text" class="form-control" id="nomeIngrediente-1" name="nomeIngrediente-1" placeholder="Adicione ingrediente">
-                                </div>                       
+                            {{ ingrediente_formset.management_form }}
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Quantidade</label>
-                                    <input type="number" class="form-control" id="quantidadeProduto-1" name="quantidadeProduto-1" placeholder="Quantidade usada">
-                                </div>
+                            <div id="ingredienteContainer">
+                                {% for form in ingrediente_formset %}
+                                    <div id="adicionarProdutoContainer" class="row">
+                                        <div class="col-md-6">
+                                            {{ form.nome.label_tag }} {{ form.nome }}
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            {{ form.quantidade.label_tag }} {{ form.quantidade }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
 
                             <div class="row mt-3">
                                 <div class="col">
-                                    <button type="button" class="btn btn-success myButton" id="adicionarProduto" onclick="addProduct()">Adicionar Produto</button>
+                                    <button type="button" class="btn btn-success myButton" id="adicionarProduto" onclick=addProduct()>Adicionar Produto</button>
                                 </div>
                             </div>
                         
