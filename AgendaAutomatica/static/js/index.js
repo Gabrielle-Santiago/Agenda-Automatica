@@ -1,8 +1,3 @@
-// Inicializa o contador de produtos com base na quantidade inicial de ingredientes do formset
-
-// Adiciona o listener ao botão
-document.getElementById('adicionarProduto').addEventListener('click', addProduct);
-
 let productCount = parseInt('{{ ingrediente_formset.total_form_count }}'); // Pegando o valor do formset
 
 function addProduct() {
@@ -12,7 +7,7 @@ function addProduct() {
 
     // Criar um novo elemento para o ingrediente
     const newRow = document.createElement('div');
-    newRow.classList.add('row', 'mt-3'); // Adiciona classes para formatar a nova linha
+    newRow.classList.add('row', 'mt-3');
 
     // Criar o novo campo "Nome do Ingrediente"
     const newIngredientDiv = document.createElement('div');
@@ -23,7 +18,8 @@ function addProduct() {
 
     const newInput1 = document.createElement('input');
     newInput1.setAttribute('type', 'text');
-    newInput1.setAttribute('name', `form-${productCount}-nome`); // Nome do input no formato esperado pelo Django
+    newInput1.setAttribute('name', `form-${productCount}-nome`);
+    newInput1.setAttribute('id', `id_form-${productCount}-nome`);
     newInput1.setAttribute('class', 'form-control');
     newInput1.setAttribute('placeholder', 'Adicione ingrediente');
 
@@ -40,6 +36,7 @@ function addProduct() {
     const newInput2 = document.createElement('input');
     newInput2.setAttribute('type', 'number');
     newInput2.setAttribute('name', `form-${productCount}-quantidade`);
+    newInput2.setAttribute('id', `id_form-${productCount}-quantidade`);
     newInput2.setAttribute('class', 'form-control');
     newInput2.setAttribute('placeholder', 'Quantidade usada');
 
@@ -57,4 +54,3 @@ function addProduct() {
     const totalForms = document.getElementById('id_form-TOTAL_FORMS');
     totalForms.setAttribute('value', productCount);
 }
-
