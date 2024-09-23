@@ -9,4 +9,6 @@ urlpatterns = [
     path('', views.agenda, name='agenda'),
     path('cadastrados/', visualizarLista.as_view(), name='cadastrados'),
     path('pedidoPerfume/', views.pedidoPerfume, name='pedidoPerfume'),
+    path('cadastroProduto/', views.cadastroProduto, name='cadastroProduto'),
+    path('produtosCadastrados/', views.produtosCadastrados, name='produtosCadastrados'),
 ]
