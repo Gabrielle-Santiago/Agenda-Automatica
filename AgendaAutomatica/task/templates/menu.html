@@ -18,16 +18,24 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
 
+                      {% if not user.is_authenticated %}
+
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Agendamento</a>
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link" href="/cadastrados">Lista de Agendados</a>
+                          <a class="nav-link" href="/pedidoPerfume">Pedido do Perfume</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/pedidoPerfume">Pedido do Perfume</a>
+                          <a class="nav-link" href="/login_view">Login</a>
+                        </li>
+
+                      {% else %}
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="/cadastrados">Lista de Agendados</a>
                         </li>
 
                         <li class="nav-item">
@@ -39,8 +47,11 @@
                         </li>
 
                         <li class="nav-item">
-                          <a class="nav-link" href="/login">Login</a>
-                      </li>
+                          <a class="nav-link" href="/sair">Sair</a>
+                        </li>
+                        
+                      {% endif %}
+                        
                     </ul>
                 </div>
             </div>
