@@ -16,20 +16,20 @@ def agenda(request):
             return redirect('cadastrados')
         
         else:
-            return render(request, 'cadastro.html', {
+            return render(request, 'cadastros/cadastro.html', {
                 'form': form,
                 'error' : 'Algo deu errado, tente novamente!!'
             })
     else:
         form = CadastroForm()
 
-    return render(request, 'cadastro.html', {'form':form})
+    return render(request, 'cadastros/cadastro.html', {'form':form})
 
 
 # Utiliza do Generic Views do próprio Django para visualizar a lista
 class visualizarLista(ListView):
     model = Cadastro
-    template_name = 'cadastrados.html'
+    template_name = 'cadastros/cadastrados.html'
     context_object_name = 'cadastrados'
     
 
@@ -39,22 +39,30 @@ def pedidoPerfume(request):
 
         if form.is_valid():
             form.save()
-            return render(request, 'cadastro.html')
+            return render(request, 'cadastros/cadastro.html')
         
         else:
-            return render(request, 'pedidoPerfume.html', {
+            return render(request, 'auth/pedidoPerfume.html', {
                 'form': form,
                 'error': 'Algo deu errado, tente novamente!!'
             })
     else:
         form = formPerfume()
 
-    return render(request, 'pedidoPerfume.html', {'form':form})
+    return render(request, 'auth/pedidoPerfume.html', {'form':form})
 
 
 def cadastroProduto(request):
-    return render(request, 'cadastroProduto.html')
+    return render(request, 'cadastros/cadastroProduto.html')
 
 
 def produtosCadastrados(request):
-    return render(request, 'produtosCadastrados.html')
+    return render(request, 'auth/produtosCadastrados.html')
+
+
+def login(request):
+    return render(request, 'main/login.html')
+
+
+def esqueciSenha(request):
+    return render(request, 'main/esqueciSenha.html')
