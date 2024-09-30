@@ -4,20 +4,20 @@
 
 {% block content %}
 
-<main class="container mt-1">
+    <main class="container mt-1">
         <div class="col-md-5 offset-md-4">
 
             <form method="POST" class="card card-body needs-validation" id="formulario" novalidate>
-
-                <h1 class="text-center">Agendamento</h1>
-                
+                <div id="center">
+                    
+                    <h1 class="text-center">Agendamento</h1>
+                    
                     {{ error }}
 
                     {% csrf_token %}
 
-                    <div class="input-group mb-3">
-
-                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
                         <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" required>
                         <div id="validationUsernameFeedback" class="invalid-feedback">
                             Por favor, adicione um nome.
@@ -57,11 +57,18 @@
                     </div>
 
                     <input class="myButton btn btn-primary" type="submit" value="Agendar">
-                </form> 
+                </div>
+            </form> 
         </div>
-</main>
+    </main>
+
+<div class="conserto">
+    <div class="camada">
+        <img src="{% static "img/out/Group.png" %}" id="camadaIMG" alt="Group background">
+    </div>
+</div>
 <div class="wave-background">
-<img src="{% static 'img/fundo/folhas.jpeg' %}" id="folhas" alt="Folha background">
+    <img src="{% static 'img/logo/logo.png' %}" id="logo" alt="Logo background">
 </div>
 
 {% endblock %}
