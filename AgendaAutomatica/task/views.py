@@ -1,7 +1,8 @@
+from django.http import JsonResponse
 from django.views.generic import ListView
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from task.forms import CadastroForm, IngredienteFormSet, formPerfume, formProduto
-from task.models import Cadastro
+from task.models import Cadastro, modelProduto
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -78,12 +79,46 @@ def cadastroProduto(request):
         produto_form = formProduto()
         ingrediente_formset = IngredienteFormSet()
 
-    return render(request, 'cadastros/cadastroProduto.html')
+    return render(request, 'cadastros/cadastroProduto.html', {
+        'form': produto_form,
+        'ingrediente_formset': ingrediente_formset
+    })
 
 
 @login_required
 def produtosCadastrados(request):
     return render(request, 'auth/produtosCadastrados.html')
+
+
+def filtrar_produtos(request):
+    produto = request.GET.get('produto', None)
+    aroma = request.GET.get('aroma', None)
+
+    # Filtrar os produtos baseado nas escolhas do usuário
+    produtos = modelProduto.objects.all()
+
+    if produto:
+        produtos = produtos.filter(option=produto)
+    if aroma:
+        produtos = produtos.filter(category=aroma)
+
+    # Retornar a lista de nomes dos produtos filtrados
+    produtos_filtrados = list(produtos.values_list('option', 'category'))
+
+    return JsonResponse({'produtos': produtos_filtrados})
+
+
+def produto_detalhes(request, produto_id):
+    produto = get_object_or_404(modelProduto, id=produto_id)
+    ingredientes = produto.ingredientes.all()
+
+    ingredientes_data = list(ingredientes.values('nome', 'quantidade'))
+
+    return JsonResponse({
+        'option': produto.option,
+        'category': produto.category,
+        'ingredientes': ingredientes_data
+    })
 
 
 def login_view(request):
@@ -111,6 +146,7 @@ def login_view(request):
                     'form': AuthenticationForm(),
                     'error': 'Acesso restrito ao administrador!'
                 })
+
 
 @login_required
 def sair(request):
