@@ -1,13 +1,13 @@
 body{
-    color: #f0f8ff;
+    color: #000000;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: #121212;
-    background: linear-gradient(90deg, #121212 8%, #358a70 90%);
+    background-color: #ffffff;
 }
 
 h1, h2 {
+    font-size: 25px;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* Deixa o menu transparente e sem borda */
@@ -20,50 +20,126 @@ nav a {
     color: #d5dee6 !important;
 }
 
+/* Configuração da logo na tela de agendamento */
+#logo {
+    position: fixed;
+    top: -60px;
+    left: -70px;
+    width: 32%;
+    height: auto;
+    background: url(/AgendaAutomatica/static/img/logo/logo.png); 
+    background-size: contain;
+    z-index: -1;   
+}
+
+/* Container pai para centralizar o formulário */
+#formulario {
+    display: flex; 
+    align-items: center; 
+    min-height: 100vh;   
+    margin: 0; 
+    padding: 0;
+    border-color: transparent;
+}
+
 /* Cria o desfoque e a transparência do formulário */
-#formulario{
-    background: #ffffff1a;
+#center {
+    position: relative;
+    width: 100%;
+    max-width: 635px;
+    height: auto;
+
+    background: rgba(102, 102, 102, 0.25);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
-    border: 1px solid #ffffff2e;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    opacity: 0.95; 
+    z-index: 1;
 }
 
-/* Configuração da imagem do fundo */
-#folhas {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    overflow: hidden;
+/* Estilos para os inputs dentro da section */
+input {
+    position: relative;       /* Evita conflitos com a section */
+    width: 80%; 
+    max-width: 525px; 
+    height: 38px;
+    
+    margin: 5px auto;
+    background: #FAF3F3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 3px;
+    box-sizing: border-box;
 }
-
+  
 /* Estilização do botão */
 .myButton {
-	box-shadow:inset 0px 1px 0px 0px #004f45;
-	background:linear-gradient(to bottom, #004e54 5%, #004e54 100%);
-	background-color:#004e54;
-	border-radius:6px;
-	border:1px solid #01373a;
-	display:inline-block;
-	cursor:pointer;
-	color:#e9e9e9;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #004f45;
+    position: relative;
+    width: 100%;
+    max-width: 525px;
+    height: 50px;
+    
+    margin: 20px auto;
+    background: #057E4C;
+    border: 1px solid #014026;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    
+    text-align: center;
+    font-size: 1.1rem; 
+    color: #fff; 
+    cursor: pointer;
+    padding: 10px;
+    box-sizing: border-box; /* Garante que padding e borda não afetem a largura total */
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #004e54 5%, #004e54 100%);
-	background-color:#004e54;
+
+/* Para telas menores */
+@media (max-width: 768px) {
+    button {
+        width: 90%;
+        height: 45px;
+        font-size: 0.9rem;
+    }
 }
-.myButton:active {
-	position:relative;
-	top:1px;
+
+/* Camadas da tela de agendamento */
+.camada {
+    position: fixed;
+    width: 50vw;
+    height: auto;
+    max-width: 100%;
+    right: 0;
+    bottom: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    object-fit: contain;
+    overflow: hidden; 
+    z-index: -2;
+}
+
+#camadaIMG {
+    width: 50vw;
+    height: auto; 
+    max-width: 1066px;
+    max-height: 732px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.conserto {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden;
 }
 
 /* Checkbox do pedido perfume */
