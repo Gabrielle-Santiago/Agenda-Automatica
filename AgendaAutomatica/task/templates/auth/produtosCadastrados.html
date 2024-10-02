@@ -43,18 +43,17 @@
          </div>
     </div>
 
-    <div class="effectPrompt">
+    <div>
         <div class="enjoy-css mb-3" id="resultados">
-            Aqui vai aparecer os produtos
+            {% comment %} Aqui aparece os produtos que estejam cadastrados {% endcomment %}
         </div>
     </div>
 
-    <div class="effectPrompt">
-        <div id="detalhes-produto" class="produto-detalhes enjoy-css mb-3">
-            Aqui vai aparecer a descrição e ingredientes do produto
-        </div>
-    </div> 
-    
+    <div id="detalhes-produto" class="produto-detalhes">
+        {% comment %} Aqui aparece os detalhes dos produtos {% endcomment %}
+    </div>
+
     <div id="ajax-url" data-url="{% url 'filtrar_produtos' %}"></div>
+    
 </main>
 {% endblock %}

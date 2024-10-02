@@ -94,7 +94,6 @@ def filtrar_produtos(request):
     produto = request.GET.get('produto', None)
     aroma = request.GET.get('aroma', None)
 
-    # Filtrar os produtos baseado nas escolhas do usuário
     produtos = modelProduto.objects.all()
 
     if produto:
@@ -102,12 +101,12 @@ def filtrar_produtos(request):
     if aroma:
         produtos = produtos.filter(category=aroma)
 
-    # Retornar a lista de nomes dos produtos filtrados
-    produtos_filtrados = list(produtos.values_list('option', 'category'))
+    produtos_filtrados = list(produtos.values_list('option', 'category', 'id'))
 
     return JsonResponse({'produtos': produtos_filtrados})
 
 
+# View para exibir os detalhes do produto, incluindo seus ingredientes
 def produto_detalhes(request, produto_id):
     produto = get_object_or_404(modelProduto, id=produto_id)
     ingredientes = produto.ingredientes.all()
@@ -152,6 +151,7 @@ def login_view(request):
 def sair(request):
     logout(request)
     return redirect('cadastros/cadastro')
+
 
 def esqueciSenha(request):
     return render(request, 'main/esqueciSenha.html')
