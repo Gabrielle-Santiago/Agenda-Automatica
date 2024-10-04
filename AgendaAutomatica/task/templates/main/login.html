@@ -4,13 +4,15 @@
 
 {% block content %}
 
-    <main class="container mt-5">
-        <div class="col-md-5 offset-md-3">
+<div class="wave2">
+    <img src="{% static "img/out/loginEstilo2.png" %}" alt="loginEstilo2 background">
+</div>
+
+    <main class="container mt-1">
+        <div class="col-md-5 offset-md-4">
             <div class="container text-center">
-                <div class="row">
-
-                    <form id="formulario" method="POST" class="card card-body needs-validation">
-
+                <form method="POST" class="card card-body needs-validation formulario login">
+                    <div class="form">
                         <title>Tela de Login</title>
 
                         {{ error }}
@@ -20,7 +22,7 @@
                         <h1 class="text-center">Login</h1>
 
                         <div class="mb-3">
-                            <label for="username" class="form-label">Nome</label>
+                            <label for="username" class="form-label">Usuário</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Nome do usuário" required>
                         </div>
 
@@ -31,11 +33,16 @@
                         <a href="esqueciSenha">Esqueci Senha</a>
 
                         <input type="submit" class="btn btn-primary myButton btn btn-primary" value="Enviar"></input>
-                    </form>
-
-                </div>
+                    </div>
+                </form>                               
             </div>
         </div>
     </main>
+
+<div class="consertoWave">
+    <div class="wave">
+        <img src="{% static "img/out/loginEstilo.png" %}" alt="loginEstilo background">
+    </div>
+</div>
 
 {% endblock %}

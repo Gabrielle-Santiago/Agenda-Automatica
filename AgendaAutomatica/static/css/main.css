@@ -1,0 +1,39 @@
+/* Foca nas estilizações das telas dentro da pasta main */
+
+
+/* Estilização da página de login */
+.wave {
+    position: fixed;
+    height: 70vh;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    object-fit: cover;
+    overflow: hidden; 
+    z-index: -2;
+}
+
+.wave2 {
+    position: fixed;
+    height: 80vh;
+    width: 45vw;
+    right: 0;
+    top: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    object-fit: cover;
+    overflow: hidden; 
+    z-index: -2;
+}
+
+.login {
+    position: static;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: #000000;
+}

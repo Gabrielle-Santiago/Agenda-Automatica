@@ -1,112 +1,98 @@
 {% extends "menu.html" %}
 
+{% load static %}
+
 {% block content %}
 
-{% comment %} Fiz essa pag com outro intuito mas vai ficar para feedback do cliente {% endcomment %}
-
-    <main class="container mt-5">
+    <main class="container mt-1">
+        <div class="parent">
         <div class="col-md-5 offset-md-4">
+            
+                <form method="POST" class="card card-body needs-validation formulario" novalidate>
+                    <div class="formPerfume">
+                        <title> Pedido Perfume </title>
 
-            <form method="POST" class="card card-body needs-validation" id="formulario" novalidate>
-                <h1 class="text-center">Coleta de dados</h1>
+                        <h1 class="text-center">Pedido Perfume</h1>
+                        
+                            {{ error }}
+
+                            {% csrf_token %}
+
+                        <div class="div1">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroupPrepend1">@</span>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
+                                <div id="validationUsernameFeedback" class="invalid-feedback">
+                                    Por favor, adicione um nome.
+                                </div>
+                            </div>             
                 
-                    {{ error }}
-
-                    {% csrf_token %}
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroupPrepend1">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
-                        <div id="validationUsernameFeedback" class="invalid-feedback">
-                            Por favor, adicione um nome.
-                        </div>
-                    </div>             
-        
-                    <div class="mb-3">
-                        <label for="emailInput" class="form-label">Endereço do Email</label>
-                        <input type="email" class="form-control" id="emailInput" placeholder="nome@example.com" name="email" required>
-                        <div class="invalid-feedback">
-                            Por favor, selecione um email válido.
-                        </div>
-                    </div>
-        
-                    <div class="mb-3">
-                        <label for="addressInput" class="form-label">Endereço</label>
-                        <input class="form-control" type="text" id="addressInput" placeholder="Rua. Teste, Bairro 01, número 02" aria-label="default input example" name="adress" required>
-                        <div class="invalid-feedback">
-                            Por favor, escreva um endereço válido.
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="preferred_scents" class="form-label">Quais aromas você prefere?</label>
-                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"  id="aromas">
-                            <input type="checkbox" class="btn-check" id="floral" name="preferred_scents[]" value="Floral" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="floral">Floral</label>
-                    
-                            <input type="checkbox" class="btn-check" id="citrico" name="preferred_scents[]" value="Cítrico" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="citrico">Cítrico</label>
-                    
-                            <input type="checkbox" class="btn-check" id="amadeirado" name="preferred_scents[]" value="Amadeirado" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="amadeirado">Amadeirado</label>
-                    
-                            <input type="checkbox" class="btn-check" id="adocicado" name="preferred_scents[]" value="Adocicado" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="adocicado">Adocicado</label>
-                    
-                            <input type="checkbox" class="btn-check" id="outro" name="preferred_scents[]" value="Outro" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="outro">Outro</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="preferred_intensity" class="form-label">Qual a intensidade do perfume que você prefere?</label>
-                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="leve" name="preferred_intensity[]" value="Leve" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="leve">Leve</label>
-                    
-                            <input type="checkbox" class="btn-check" id="moderado" name="preferred_intensity[]" value="Moderado" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="moderado">Moderado</label>
-                    
-                            <input type="checkbox" class="btn-check" id="forte" name="preferred_intensity[]" value="Forte" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="forte">Forte</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="occasionsInput1" class="form-label">Em que ocasiões você costuma usar perfume?</label>
-                        <input class="form-control" type="text" id="occasionsInput1" placeholder="Trabalho, Eventos, Cotidiano..." aria-label="default input example" name="occasions" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="frequencyInput" class="form-label">Com que frequência você compra perfumes?</label>
-                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-
-                                <input type="checkbox" class="btn-check" id="frequencyMensal" name="frequency" value="Mensal" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="frequencyMensal">Mensal</label>
-                            
-                                <input type="checkbox" class="btn-check" id="frequencyBimestral" name="frequency" value="Bimestral" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="frequencyBimestral">Bimestral</label>
-
-                                <input type="checkbox" class="btn-check" id="frequencySemestral" name="frequency" value="Semestral" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="frequencySemestral">Semestral</label>
-
-                                <input type="checkbox" class="btn-check" id="frequencyAnual" name="frequency" value="Anual" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="frequencyAnual">Anual</label>
+                            <div class="mb-3">
+                                <label for="emailInput" class="form-label">Endereço do Email</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="nome@example.com" name="email" required>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione um email válido.
+                                </div>
                             </div>
-                    </div>
+                
+                            <div class="mb-3">
+                                <label for="addressInput" class="form-label">Endereço</label>
+                                <input class="form-control" type="text" id="addressInput" placeholder="Rua. Teste, Bairro 01, número 02" aria-label="default input example" name="adress" required>
+                                <div class="invalid-feedback">
+                                    Por favor, escreva um endereço válido.
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="feedbackInput1" class="form-label">O que você mais gostou em perfumes anteriores que você comprou?</label>
-                        <textarea class="form-control" id="feedbackInput1" rows="3" name="feedback_like"></textarea>
-                    </div>
+                        <div clas="div2">
+                            <div class="mb-3">
+                                <label for="preferred_scents" class="form-label">Quais aromas você prefere?</label>
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"  id="aromas">
+                                    <input type="checkbox" class="btn-check" id="floral" name="preferred_scents[]" value="Floral" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="floral">Floral</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="citrico" name="preferred_scents[]" value="Cítrico" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="citrico">Cítrico</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="amadeirado" name="preferred_scents[]" value="Amadeirado" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="amadeirado">Amadeirado</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="adocicado" name="preferred_scents[]" value="Adocicado" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="adocicado">Adocicado</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="outro" name="preferred_scents[]" value="Outro" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="outro">Outro</label>
+                                </div>
+                            </div>
 
-                    <div class="mb-3">
-                        <label for="feedbackInput2" class="form-label">O que você mudaria nos perfumes que já usou?</label>
-                        <textarea class="form-control" id="feedbackInput2" rows="3" name="feedback_change"></textarea>
-                    </div>
+                            <div class="mb-3">
+                                <label for="preferred_intensity" class="form-label">Qual a intensidade do perfume que você prefere?</label>
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="leve" name="preferred_intensity[]" value="Leve" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="leve">Leve</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="moderado" name="preferred_intensity[]" value="Moderado" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="moderado">Moderado</label>
+                            
+                                    <input type="checkbox" class="btn-check" id="forte" name="preferred_intensity[]" value="Forte" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="forte">Forte</label>
+                                </div>
+                            </div>
 
-                    <input class="btn btn-primary myButton" type="submit" value="Enviar" >
+                            <div class="mb-3">
+                                <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
+                                <input type="number" class="form-control" id="appointmentNumber" name="number" required>
+                            </div>
+
+                            <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido" >
+                        </div>
+                    </div>
                 </form>
+            </div>
         </div>
     </main>
+
+    <div class="">
+        <img src="{% static 'img/logo/logo.png' %}" id="logoPerfume" alt="LogoP background">
+    </div>
 {% endblock %}
