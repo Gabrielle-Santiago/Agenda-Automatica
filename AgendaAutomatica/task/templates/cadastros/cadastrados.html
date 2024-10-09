@@ -1,5 +1,7 @@
 {% extends "menu.html" %}
 
+{% load static %}
+
 {% block content %}
 
 {% comment %} 
@@ -7,46 +9,50 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
 {% endcomment %}
 
 <main class="container mt-3">
-  <div class="container text-center">
+  <div class="container text-center form">
     <div class="row">
        <h1>Agendados</h1>
 
           <div class="col">
               <h2>Nome</h2>
                 {% for cadastro in cadastrados %}
-                    <li>{{ cadastro.username }}</li>
+                  <li>{{ cadastro.username }}</li>
                 {% endfor %}
           </div>
 
           <div class="col">
               <h2>Data</h2>
                 {% for cadastro in cadastrados %}
-                     <li>{{ cadastro.data|date:"d/m/Y" }}</li>
+                    <li>{{ cadastro.data|date:"d/m/Y" }}</li>
                 {% endfor %}
           </div>
 
           <div class="col">
               <h2>Horário</h2>
                 {% for cadastro in cadastrados %}
-                   <li>{{ cadastro.time|date:"H:i" }}</li>
+                  <li>{{ cadastro.time|date:"H:i" }}</li>
                 {% endfor %}
           </div>
 
           <div class="col">
               <h2>E-mail</h2>
                 {% for cadastro in cadastrados %}
-                   <li>{{ cadastro.email }}</li> 
+                  <li>{{ cadastro.email }}</li> 
                 {% endfor %}
           </div>
 
           <div class="col">
               <h2>Contato</h2>
-                  {% for cadastro in cadastrados %}
-                    <li>{{ cadastro.contact }}</li>
-                  {% endfor %}
-          </div>
-                
+                {% for cadastro in cadastrados %}
+                  <li>{{ cadastro.contact }}</li>
+                {% endfor %}
+          </div>                
       </div>
     </div>   
 </main>
+
+<div class="imgCadastrados">
+  <img src="{% static 'img/out/Desktop.png' %}" id="desktop" alt="desktop background">
+</div>
+
 {% endblock %}

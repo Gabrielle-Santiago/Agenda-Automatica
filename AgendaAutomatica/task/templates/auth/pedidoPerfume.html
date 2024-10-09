@@ -6,88 +6,79 @@
 
     <main class="container mt-1">
         <div class="parent">
-        <div class="col-md-5 offset-md-4">
-            
+            <div class="col-md-5 offset-md-4">
                 <form method="POST" class="card card-body needs-validation formulario" novalidate>
                     <div class="formPerfume">
                         <title> Pedido Perfume </title>
-
+                
                         <h1 class="text-center">Pedido Perfume</h1>
+                
+                        {{ error }}
+                        {% csrf_token %}
+
+                        <div class="grid-container">
+                
+                            <div class="grid-item">
+                                <div class="mb-3">
+                                    <label for="preferred_scents" class="form-label">Selecione um aroma</label>
+                                    <select class="form-select input-styled" id="preferred_scents" name="preferred_scents[]">
+                                        <option value="Floral">Floral</option>
+                                        <option value="Cítrico">Cítrico</option>
+                                        <option value="Amadeirado">Amadeirado</option>
+                                        <option value="Adocicado">Adocicado</option>
+                                        <option value="Outro">Outro</option>
+                                    </select>
+                                </div>
+                            
+                                <div class="mb-3">
+                                    <label for="preferred_intensity" class="form-label">Escolha a intensidade</label>
+                                    <select class="form-select input-styled" id="preferred_intensity" name="preferred_intensity[]">
+                                        <option value="Leve">Leve</option>
+                                        <option value="Moderado">Moderado</option>
+                                        <option value="Forte">Forte</option>
+                                    </select>
+                                </div>
                         
-                            {{ error }}
-
-                            {% csrf_token %}
-
-                        <div class="div1">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="inputGroupPrepend1">@</span>
-                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
-                                <div id="validationUsernameFeedback" class="invalid-feedback">
-                                    Por favor, adicione um nome.
+                                <div class="mb-3">
+                                    <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
+                                    <select class="form-select input-styled" id="appointmentNumber" name="number" required>
+                                        <option value="15">15ml</option>
+                                        <option value="20">20ml</option>
+                                        <option value="30">30ml</option>
+                                        <option value="40">40ml</option>
+                                    </select>
                                 </div>
-                            </div>             
-                
-                            <div class="mb-3">
-                                <label for="emailInput" class="form-label">Endereço do Email</label>
-                                <input type="email" class="form-control" id="emailInput" placeholder="nome@example.com" name="email" required>
-                                <div class="invalid-feedback">
-                                    Por favor, selecione um email válido.
+                            </div>               
+                            
+                            <div class="grid-item">
+                                <div class="mb-3">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control input-styled" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
+                                    <div id="validationUsernameFeedback" class="invalid-feedback">
+                                        Por favor, adicione um nome.
+                                    </div>
+                                </div>             
+                            
+                                <div class="mb-3">
+                                    <label for="emailInput" class="form-label">Endereço do Email</label>
+                                    <input type="email" class="form-control input-styled" id="emailInput" placeholder="nome@example.com" name="email" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, selecione um email válido.
+                                    </div>
                                 </div>
+                        
+                                <div class="mb-3">
+                                    <label for="contactNumber" class="form-label">Número de Contato</label>
+                                    <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="contact" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira um número de contato válido.
+                                    </div>
+                                </div> 
+                                <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido">                    
                             </div>
-                
-                            <div class="mb-3">
-                                <label for="addressInput" class="form-label">Endereço</label>
-                                <input class="form-control" type="text" id="addressInput" placeholder="Rua. Teste, Bairro 01, número 02" aria-label="default input example" name="adress" required>
-                                <div class="invalid-feedback">
-                                    Por favor, escreva um endereço válido.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div clas="div2">
-                            <div class="mb-3">
-                                <label for="preferred_scents" class="form-label">Quais aromas você prefere?</label>
-                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"  id="aromas">
-                                    <input type="checkbox" class="btn-check" id="floral" name="preferred_scents[]" value="Floral" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="floral">Floral</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="citrico" name="preferred_scents[]" value="Cítrico" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="citrico">Cítrico</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="amadeirado" name="preferred_scents[]" value="Amadeirado" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="amadeirado">Amadeirado</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="adocicado" name="preferred_scents[]" value="Adocicado" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="adocicado">Adocicado</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="outro" name="preferred_scents[]" value="Outro" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="outro">Outro</label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="preferred_intensity" class="form-label">Qual a intensidade do perfume que você prefere?</label>
-                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                    <input type="checkbox" class="btn-check" id="leve" name="preferred_intensity[]" value="Leve" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="leve">Leve</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="moderado" name="preferred_intensity[]" value="Moderado" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="moderado">Moderado</label>
-                            
-                                    <input type="checkbox" class="btn-check" id="forte" name="preferred_intensity[]" value="Forte" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="forte">Forte</label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
-                                <input type="number" class="form-control" id="appointmentNumber" name="number" required>
-                            </div>
-
-                            <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido" >
                         </div>
                     </div>
-                </form>
+                </form>                                         
             </div>
         </div>
     </main>
