@@ -44,3 +44,51 @@
     height: 100vh; 
     overflow: hidden;
 }
+
+/* Tela dos cadastrados/agendados */
+
+#mainBody {
+    height: 100%; 
+    padding: 0;
+}
+
+.imgCadastrados {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    min-height: 100vh;
+    background-color: #000000;
+    background-image: url('/AgendaAutomatica/static/img/out/Desktop.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.row {
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+    text-decoration: none;
+}
+
+/* Referente a página de cadastrar produtos */
+
+.backgroundProduto {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(154.03deg, rgba(49, 95, 84, 0.7) 22.34%, rgba(0, 68, 53, 0.853) 44.71%, rgba(32, 49, 60, 0.7) 65.37%);
+    z-index: -1;
+}
+
+#consertoForm {
+    margin-top: 60px;
+}

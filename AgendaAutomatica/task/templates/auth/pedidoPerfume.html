@@ -5,7 +5,6 @@
 {% block content %}
 
     <main class="container mt-1">
-        <div class="parent">
             <div class="col-md-5 offset-md-4">
                 <form method="POST" class="card card-body needs-validation formulario" novalidate>
                     <div class="formPerfume">
@@ -22,6 +21,7 @@
                                 <div class="mb-3">
                                     <label for="preferred_scents" class="form-label">Selecione um aroma</label>
                                     <select class="form-select input-styled" id="preferred_scents" name="preferred_scents[]">
+                                        <option selected>Selecione</option>
                                         <option value="Floral">Floral</option>
                                         <option value="Cítrico">Cítrico</option>
                                         <option value="Amadeirado">Amadeirado</option>
@@ -33,6 +33,7 @@
                                 <div class="mb-3">
                                     <label for="preferred_intensity" class="form-label">Escolha a intensidade</label>
                                     <select class="form-select input-styled" id="preferred_intensity" name="preferred_intensity[]">
+                                        <option selected>Selecione</option>
                                         <option value="Leve">Leve</option>
                                         <option value="Moderado">Moderado</option>
                                         <option value="Forte">Forte</option>
@@ -42,6 +43,7 @@
                                 <div class="mb-3">
                                     <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
                                     <select class="form-select input-styled" id="appointmentNumber" name="number" required>
+                                        <option selected>Selecione</option>
                                         <option value="15">15ml</option>
                                         <option value="20">20ml</option>
                                         <option value="30">30ml</option>
@@ -77,7 +79,6 @@
                                 <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido">                    
                             </div>
                         </div>
-                    </div>
                 </form>                                         
             </div>
         </div>

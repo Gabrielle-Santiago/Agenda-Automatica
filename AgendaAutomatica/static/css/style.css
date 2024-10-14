@@ -35,9 +35,10 @@ nav a {
 
 /* Cria o desfoque e a transparência do formulário */
 .form {
+    list-style-type: none;
     position: relative;
     width: 100%;
-    max-width: 635px;
+    max-width: 1000px;
     height: auto;
 
     background: rgba(102, 102, 102, 0.25);
@@ -46,9 +47,8 @@ nav a {
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 15px;
+    padding: 20px 40px 20px 40px;
+    
     box-sizing: border-box;
     margin: 0 auto;
     opacity: 0.95; 
