@@ -77,6 +77,10 @@
     text-decoration: none;
 }
 
+.conteudo {
+    display: none;
+}
+
 /* Referente a página de cadastrar produtos */
 
 .backgroundProduto {
