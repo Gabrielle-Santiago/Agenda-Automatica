@@ -1,0 +1,94 @@
+/* Essa página foca nas estilizações das telas que envolvam cadastro */
+
+/* Configuração da logo na tela de agendamento */
+#logo {
+    position: fixed;
+    top: -60px;
+    left: -70px;
+    width: 32%;
+    height: auto;
+    background: url(/AgendaAutomatica/static/img/logo/logo.png); 
+    background-size: contain;
+    z-index: -1;   
+}
+
+/* Camadas da tela de agendamento */
+.camada {
+    position: fixed;
+    width: 50vw;
+    height: auto;
+    max-width: 100%;
+    right: 0;
+    bottom: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    object-fit: contain;
+    overflow: hidden; 
+    z-index: -2;
+}
+
+#camadaIMG {
+    width: 50vw;
+    height: auto; 
+    max-width: 1066px;
+    max-height: 732px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.conserto {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden;
+}
+
+/* Tela dos cadastrados/agendados */
+
+#mainBody {
+    height: 100%; 
+    padding: 0;
+}
+
+.imgCadastrados {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    min-height: 100vh;
+    background-color: #000000;
+    background-image: url('/AgendaAutomatica/static/img/out/Desktop.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.row {
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+    text-decoration: none;
+}
+
+/* Referente a página de cadastrar produtos */
+
+.backgroundProduto {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(154.03deg, rgba(49, 95, 84, 0.7) 22.34%, rgba(0, 68, 53, 0.853) 44.71%, rgba(32, 49, 60, 0.7) 65.37%);
+    z-index: -1;
+}
+
+#consertoForm {
+    margin-top: 60px;
+}

@@ -1,0 +1,40 @@
+{% extends 'menu.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main class="container mt-5">
+        <div class="col-md-5 offset-md-3">
+            <div class="container text-center">
+                <div class="row">
+
+                    <form id="formulario" method="POST" class="card card-body needs-validation">
+
+                        <title>Tela de Login</title>
+
+                        {{ error }}
+
+                        {% csrf_token %}
+
+                        <h1 class="text-center">Recuperação da Senha</h1>
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="email@examplo.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" name="password" class="form-control" id="password"  placeholder="Digite sua senha" required>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary myButton btn btn-primary" value="Enviar"></input>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

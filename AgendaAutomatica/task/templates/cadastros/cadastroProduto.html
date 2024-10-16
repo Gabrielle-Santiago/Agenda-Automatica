@@ -1,0 +1,80 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class=" backgroundProduto">
+    <main class="container mt-1" id="mainBody">
+        <div class="col-md-5 offset-md-4">
+            <form method="POST" class="card card-body needs-validation formulario" 
+            id="consertoForm" novalidate>
+                <div class="formPerfume">
+                    <h1 class="text-center">Cadastrar Produto</h1>
+                    
+                        {{ error }}
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="option" class="form-label">Produto</label>
+                            <select id="option" name="option" class="form-select" aria-label="Default select example">
+                                <option selected>Selecione um produto</option>
+                                <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                                <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                                <option value="peelins" name="peelins" id="peelins">Peelins</option>
+                                <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Aromas</label>
+                            <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                <option selected>Selecione um aroma</option>
+                                <option value="floral" name="floral" id="floral">Floral</option>
+                                <option value="citrico" name="citrico" id="citrico">Cítrico</option>
+                                <option value="amadeirado" name="amadeirado" id="amadeirado">Amadeirado</option>
+                                <option value="adocicado" name="adocicado" id="adocicado">Adocicado</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="container text-center">
+                                <div class="row">
+                                    
+                                    <h2>Ingredientes</h2>
+
+                                    {{ ingrediente_formset.management_form }}
+
+                                    <div id="ingredienteContainer">
+                                        {% for form in ingrediente_formset %}
+                                            <div id="adicionarProdutoContainer" class="row">
+                                                <div class="col-md-6">
+                                                    {{ form.nome.label_tag }} {{ form.nome }}
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    {{ form.quantidade.label_tag }} {{ form.quantidade }}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-success myButton" id="adicionarProduto" onclick=addProduct()>Adicionar Produto</button>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <input class="myButton btn btn-primary" type="submit" value="Agendar">
+                    </div>
+                </form> 
+        </div>
+    </main>
+</div>
+
+{% endblock %}

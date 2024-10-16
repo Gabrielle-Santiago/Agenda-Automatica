@@ -75,15 +75,15 @@ WSGI_APPLICATION = 'AgendaAutomatica.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Conexão com banco de dados MySQL
+# Conexão com banco de dados Postgre
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'trabalho_extensao',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': 'Sq$98bys',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 
@@ -134,3 +134,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/main/login_view/'
