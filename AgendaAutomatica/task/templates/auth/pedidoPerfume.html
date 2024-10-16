@@ -8,15 +8,27 @@
             <div class="col-md-5 offset-md-4">
                 <form method="POST" class="card card-body needs-validation formulario" novalidate>
                     <div class="formPerfume">
-                        <title> Pedido Perfume </title>
+                        <title> Pedido Produto </title>
                 
-                        <h1 class="text-center">Pedido Perfume</h1>
+                        <h1 class="text-center">Pedido Produto</h1>
                 
                         {{ error }}
                         {% csrf_token %}
+                        
+                        <div class="grid-item">
+                            <div class="mb-3">
+                                <label for="option" class="form-label">Produto</label>
+                                <select id="option" name="option" class="form-select" aria-label="Default select example">
+                                    <option selected>Selecione</option>
+                                    <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                                    <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                                    <option value="peelins" name="peelins" id="peelins">Peelins</option>
+                                    <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="grid-container">
-                
                             <div class="grid-item">
                                 <div class="mb-3">
                                     <label for="preferred_scents" class="form-label">Selecione um aroma</label>
@@ -26,7 +38,6 @@
                                         <option value="Cítrico">Cítrico</option>
                                         <option value="Amadeirado">Amadeirado</option>
                                         <option value="Adocicado">Adocicado</option>
-                                        <option value="Outro">Outro</option>
                                     </select>
                                 </div>
                             
