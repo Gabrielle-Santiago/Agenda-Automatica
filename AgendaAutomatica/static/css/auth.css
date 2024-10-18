@@ -1,35 +1,21 @@
 /* As páginas dentro de auth */
 
+/* A estilização da página de produto cadastrados */
+.Produto {
+    background-color: #163932;
+}
+
 /* Estilização dos botões de produtos cadastrados */
 .selectButton {
-	box-shadow:inset 5px 5px 10px 0px #88b8af;
-	background:linear-gradient(to bottom, #00a583 5%, #00445b 100%);
-	background-color:#bddbfa;
-	border-radius:11px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:32px 35px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #05192b;
-    width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 200px;
+    height: 430px;
+    background: #284D5B;
+    border-radius: 100px 100px 8px 8px;
 }
 
 .selectButton:hover {
 	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
 	background-color:#80b5ea;
-}
-
-.selectButton:active {
-	position:relative;
-	top:1px;
 }
 
 .selectGrid {
@@ -56,6 +42,38 @@
         flex: 1 1 calc(100% - 10px);
     }
 }
+
+/* As divs redondas com as imagens */
+.circle {
+    background-color: #FEF4F4;
+    border-radius: 50%;
+    margin: 10px auto;
+    position: relative;
+    top: -100px;
+    width: 11vw;
+    height: 11vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgProduto {
+    width: 40px;
+    background-color: #FEF4F4;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .circle {
+        width: 20vw; 
+        height: 20vw;
+    }
+
+    .imgProduto {
+        width: 50%;
+    }
+}
+
 
 /* A estilização da div que está as informações do produto */
 .effectPrompt {

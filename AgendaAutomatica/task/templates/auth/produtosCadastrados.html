@@ -4,58 +4,83 @@
 
 {% block content %}
 
-<main class="container mt-4">
+<div class="Produto">
+    <main class="container mt-4">
 
-    <h1>Produtos</h1>
-
-    <div class="selectGrid">
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarProduto('perfume')">Perfume</button>
-        </div>
-
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarProduto('hidratante')">Hidratante</button>
+        <h1>Produtos</h1>
+    
+        <div class="selectGrid">
+            <div class="selectProduto">          
+                <button type="button" class="selectButton" onclick="selecionarProduto('perfume')">
+                    <div class="circle">
+                        <img src="{% static 'img/out/perfume.png' %}" class="imgProduto" id="perf" alt="Perfume">
+                    </div>
+                    <h2>Perfume</h2>
+                </button>
+            </div>
+    
+            <div class="selectProduto">
+                <button type="button" class="selectButton" onclick="selecionarProduto('hidratante')">
+                    <div class="circle">
+                        <img src="{% static 'img/out/hidratante.png' %}" class="imgProduto" id="hidrat" alt="Hidratante">
+                    </div>
+                    <h2>Hidratante</h2>
+                </button>
+            </div>
+            
+            <div class="selectProduto">
+                <button type="button" class="selectButton" onclick="selecionarProduto('peelins')">
+                    <div class="circle">
+                        <img src="{% static 'img/out/peeling.png' %}" class="imgProduto" id="peel" alt="Peelins">
+                    </div>
+                    <h2>Peelins</h2>
+                </button>
+            </div>
+    
+            <div class="selectProduto">
+                <button type="button" class="selectButton" onclick="selecionarProduto('prodPele')">
+                    <div class="circle">
+                        <img src="{% static 'img/out/antioxidante.png' %}" class="imgProduto" id="antiox" alt="Antioxidante">
+                    </div>
+                    <h2>Antioxidante</h2>
+                </button>
+             </div>
         </div>
         
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarProduto('peelins')">Peelins</button>
-        </div>
-
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarProduto('prodPele')">Produto para Pele</button>
-         </div>
-    </div>
-    
-    <h2>Aromas</h2>
-    <div class="selectGrid">
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarAroma('floral')">Floral</button>
-        </div>
-
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarAroma('citrico')">Cítrico</button>
-        </div>
+        {% comment %} Tem que trocar o nome do conteudo, pois está igual ao outro {% endcomment %}
+        <div class="conteudo">
+            <h2>Aromas</h2>
+            <div class="selectGrid">
+                <div class="selectProduto">
+                    <button type="button" class="selectButton" onclick="selecionarAroma('floral')">Floral</button>
+                </div>
         
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarAroma('adocicado')">Adocicado</button>
+                <div class="selectProduto">
+                    <button type="button" class="selectButton" onclick="selecionarAroma('citrico')">Cítrico</button>
+                </div>
+                
+                <div class="selectProduto">
+                    <button type="button" class="selectButton" onclick="selecionarAroma('adocicado')">Adocicado</button>
+                </div>
+        
+                <div class="selectProduto">
+                    <button type="button" class="selectButton" onclick="selecionarAroma('amadeirado')">Amadeirado</button>
+                </div>
+            </div>
         </div>
-
-        <div class="selectProduto">
-            <button type="button" class="selectButton" onclick="selecionarAroma('amadeirado')">Amadeirado</button>
-         </div>
-    </div>
-
-    <div>
-        <div class="enjoy-css mb-3" id="resultados">
-            {% comment %} Aqui aparece os produtos que estejam cadastrados {% endcomment %}
-        </div>
-    </div>
-
-    <div id="detalhes-produto" class="produto-detalhes">
-        {% comment %} Aqui aparece os detalhes dos produtos {% endcomment %}
-    </div>
-
-    <div id="ajax-url" data-url="{% url 'filtrar_produtos' %}"></div>
     
-</main>
+        <div class="conteudo">
+            <div class="enjoy-css mb-3" id="resultados">
+                {% comment %} Aqui aparece os produtos que estejam cadastrados {% endcomment %}
+            </div>
+        </div>
+    
+        <div id="detalhes-produto" class="produto-detalhes">
+            {% comment %} Aqui aparece os detalhes dos produtos {% endcomment %}
+        </div>
+    
+        <div id="ajax-url" data-url="{% url 'filtrar_produtos' %}"></div>
+        
+    </main>
+</div>
 {% endblock %}
