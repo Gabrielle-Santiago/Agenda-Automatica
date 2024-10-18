@@ -1,16 +1,17 @@
 // A função desta página é alternar as respostas ao clicar no botão de mais na tela onde mostra a lista dos agendados
 
-document.getElementById("sinal").onclick = function(){esconde(); mostra();}
-let conteudo = document.getElementsByClassName("conteudo")
-
-function mostra(el) {
-    if (conteudo.style.display == 'none') {
-        document.querySelector(el).style.display = 'block';
+// Função para mostrar o conteúdo
+function mostra() {
+    let conteudos = document.getElementsByClassName("conteudo");
+    for (let i = 0; i < conteudos.length; i++) {
+        conteudos[i].style.display = 'block';
     }
 }
 
-function esconde(el) {
-    if (conteudo.style.display == 'block') {
-        document.querySelector(el).style.display = 'none';
+// Função para esconder o conteúdo
+function esconde() {
+    let conteudos = document.getElementsByClassName("conteudo");
+    for (let i = 0; i < conteudos.length; i++) {
+        conteudos[i].style.display = 'none'; 
     }
 }

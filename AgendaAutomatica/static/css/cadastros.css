@@ -81,6 +81,21 @@
     display: none;
 }
 
+@media (max-width: 768px) {
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #sinalMais {
+        display: inline-block;
+    }
+
+    #sinalMenos {
+        display: inline-block;
+    }
+}
+
 /* Referente a página de cadastrar produtos */
 
 .backgroundProduto {
