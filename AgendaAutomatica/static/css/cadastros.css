@@ -47,11 +47,6 @@
 
 /* Tela dos cadastrados/agendados */
 
-#mainBody {
-    height: 100%; 
-    padding: 0;
-}
-
 .imgCadastrados {
     position: fixed;
     top: 0;
@@ -97,16 +92,6 @@
 }
 
 /* Referente a página de cadastrar produtos */
-
-.backgroundProduto {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(154.03deg, rgba(49, 95, 84, 0.7) 22.34%, rgba(0, 68, 53, 0.853) 44.71%, rgba(32, 49, 60, 0.7) 65.37%);
-    z-index: -1;
-}
 
 #consertoForm {
     margin-top: 60px;

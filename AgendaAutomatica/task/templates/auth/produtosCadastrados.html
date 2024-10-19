@@ -5,9 +5,9 @@
 {% block content %}
 
 <div class="Produto">
-    <main class="container mt-4">
+    <main class="container mt-4 mainProduto">
 
-        <h1>Produtos</h1>
+        <h1 id="produtoTitle">Produtos</h1>
     
         <div class="selectGrid">
             <div class="selectProduto">          
@@ -15,7 +15,10 @@
                     <div class="circle">
                         <img src="{% static 'img/out/perfume.png' %}" class="imgProduto" id="perf" alt="Perfume">
                     </div>
-                    <h2>Perfume</h2>
+                    <h2 class="produtoSubtitulo">Perfume</h2>
+                    <p class="textProduto">
+                        São produtos cosméticos que emitem fragrâncias agradáveis, usados principalmente para dar um cheiro distinto ao corpo, sendo cada tipo adequado para diferentes momentos.
+                    </p>
                 </button>
             </div>
     
@@ -24,7 +27,10 @@
                     <div class="circle">
                         <img src="{% static 'img/out/hidratante.png' %}" class="imgProduto" id="hidrat" alt="Hidratante">
                     </div>
-                    <h2>Hidratante</h2>
+                    <h2 class="produtoSubtitulo">Hidratante</h2>
+                    <p class="textProduto">
+                        Serve para manter a pele macia, saudável e protegida, prevenindo a perda de água e promovendo a hidratação. Podem ser usados em todas as áreas do corpo e diariamente para manter a saúde da pele.
+                    </p>
                 </button>
             </div>
             
@@ -33,7 +39,10 @@
                     <div class="circle">
                         <img src="{% static 'img/out/peeling.png' %}" class="imgProduto" id="peel" alt="Peelins">
                     </div>
-                    <h2>Peelins</h2>
+                    <h2 class="produtoSubtitulo">Peelins</h2>
+                    <p class="textProduto">
+                        Combate a manchas, cicatrizes, acne ou sinais de envelhecimento. O peeling deve ser aplicado com moderação e, em muitos casos, sob supervisão profissional.
+                    </p>
                 </button>
             </div>
     
@@ -42,7 +51,10 @@
                     <div class="circle">
                         <img src="{% static 'img/out/antioxidante.png' %}" class="imgProduto" id="antiox" alt="Antioxidante">
                     </div>
-                    <h2>Antioxidante</h2>
+                    <h2 class="produtoSubtitulo">Antioxidante</h2>
+                    <p class="textProduto">
+                        Esse procedimento é indicado para quem busca uma pele mais uniforme, reduzindo a hiperpigmentação e promovendo um brilho saudável. 
+                    </p>
                 </button>
              </div>
         </div>
