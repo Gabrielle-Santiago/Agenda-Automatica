@@ -96,3 +96,50 @@
 #consertoForm {
     margin-top: 60px;
 }
+
+.selecaoProduto {
+    height: 38px;
+    margin: 5px auto;
+    background: #FAF3F3;
+    border-radius: 8px;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+/* O grid daqui é para as partes em geral */
+.cont {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.contFilho {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.contFilhoUm {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Já o daqui é para o nome e o quantidade dos ingredientes */
+.containerProduto {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.itemUm {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.itemDois {
+    grid-column:  2;
+    grid-row: 1;
+}

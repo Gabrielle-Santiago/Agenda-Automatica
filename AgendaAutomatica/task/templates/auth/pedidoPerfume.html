@@ -15,21 +15,19 @@
                         {{ error }}
                         {% csrf_token %}
                         
-                        <div class="grid-item">
-                            <div class="mb-3">
-                                <label for="option" class="form-label">Produto</label>
-                                <select id="option" name="option" class="form-select" aria-label="Default select example">
-                                    <option selected>Selecione</option>
-                                    <option value="perfume" name="perfume" id="perfume">Perfume</option>
-                                    <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
-                                    <option value="peelins" name="peelins" id="peelins">Peelins</option>
-                                    <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
-                                </select>
-                            </div>
-                        </div>
+                        <div class="cont" id="gridConsertProduto">
+                            <div class="contFilho">
+                                <div class="mb-3">
+                                    <label for="option" class="form-label">Produto</label>
+                                    <select id="option" name="option" class="form-select" aria-label="Default select example">
+                                        <option selected>Selecione</option>
+                                        <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                                        <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                                        <option value="peelins" name="peelins" id="peelins">Peelins</option>
+                                        <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                                    </select>
+                                </div>
 
-                        <div class="grid-container">
-                            <div class="grid-item">
                                 <div class="mb-3">
                                     <label for="preferred_scents" class="form-label">Selecione um aroma</label>
                                     <select class="form-select input-styled" id="preferred_scents" name="preferred_scents[]">
@@ -40,56 +38,46 @@
                                         <option value="Adocicado">Adocicado</option>
                                     </select>
                                 </div>
-                            
-                                <div class="mb-3">
-                                    <label for="preferred_intensity" class="form-label">Escolha a intensidade</label>
-                                    <select class="form-select input-styled" id="preferred_intensity" name="preferred_intensity[]">
-                                        <option selected>Selecione</option>
-                                        <option value="Leve">Leve</option>
-                                        <option value="Moderado">Moderado</option>
-                                        <option value="Forte">Forte</option>
-                                    </select>
-                                </div>
                         
                                 <div class="mb-3">
                                     <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
                                     <select class="form-select input-styled" id="appointmentNumber" name="number" required>
                                         <option selected>Selecione</option>
-                                        <option value="15">15ml</option>
-                                        <option value="20">20ml</option>
+                                        <option value="10">10ml</option>
                                         <option value="30">30ml</option>
-                                        <option value="40">40ml</option>
+                                        <option value="50">50ml</option>
                                     </select>
                                 </div>
-                            </div>               
-                            
-                            <div class="grid-item">
+                            </div>
+
+                            <div class="contFilhoUm">               
                                 <div class="mb-3">
-                                    <label>Nome</label>
-                                    <input type="text" class="form-control input-styled" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
-                                    <div id="validationUsernameFeedback" class="invalid-feedback">
-                                        Por favor, adicione um nome.
-                                    </div>
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control input-styled" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
+                                        <div id="validationUsernameFeedback" class="invalid-feedback">
+                                            Por favor, adicione um nome.
+                                        </div>
                                 </div>             
+                                
+                                <div class="mb-3">
+                                        <label for="emailInput" class="form-label">Endereço do Email</label>
+                                        <input type="email" class="form-control input-styled" id="emailInput" placeholder="nome@example.com" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecione um email válido.
+                                        </div>
+                                </div>
                             
                                 <div class="mb-3">
-                                    <label for="emailInput" class="form-label">Endereço do Email</label>
-                                    <input type="email" class="form-control input-styled" id="emailInput" placeholder="nome@example.com" name="email" required>
-                                    <div class="invalid-feedback">
-                                        Por favor, selecione um email válido.
-                                    </div>
-                                </div>
-                        
-                                <div class="mb-3">
-                                    <label for="contactNumber" class="form-label">Número de Contato</label>
-                                    <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="contact" required>
-                                    <div class="invalid-feedback">
-                                        Por favor, insira um número de contato válido.
-                                    </div>
+                                        <label for="contactNumber" class="form-label">Número de Contato</label>
+                                        <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="contact" required>
+                                        <div class="invalid-feedback">
+                                            Por favor, insira um número de contato válido.
+                                        </div>
                                 </div> 
                                 <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido">                    
                             </div>
                         </div>
+                    </div>
                 </form>                                         
             </div>
         </div>

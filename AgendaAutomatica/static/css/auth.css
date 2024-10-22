@@ -4,6 +4,7 @@
 .mainProduto {
     height: 100%;
     padding: 0;
+    margin-left: 10%;
 }
 
 .Produto {
@@ -219,19 +220,6 @@
     transform: translateX(50%);
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start; 
-}
-
-.grid-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-}
-
 .input-styled { 
     width: 100%;
     padding: 6px;
@@ -241,8 +229,7 @@
     border-radius: var(--bs-border-radius);
 }
 
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr; 
-    }
+#gridConsertProduto {
+    justify-items: stretch;
+    align-items: start;
 }

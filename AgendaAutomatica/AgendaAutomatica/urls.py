@@ -18,4 +18,5 @@ urlpatterns = [
     path('login/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('sair/', views.sair, name='sair'),
     path('sair/cadastros/cadastro', views.agenda, name='sair'),
+    path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
 ]
