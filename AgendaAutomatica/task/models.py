@@ -24,40 +24,4 @@ class modelPerfume(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.email} - {self.adress}"
-
-
-class modelProduto(models.Model):
-    OPTION_CHOICES = [
-        ('perfume', 'Perfume'),
-        ('hidratante', 'Hidratante'),
-        ('peelins', 'Peelins'),
-        ('antioxidante', 'Antioxidante'),
-        ('outro', 'Outro'),
-    ]
-
-    # Aqui é referente aos cheiros
-    CATEGORY_CHOICES = [
-        ('floral','Floral'),
-        ('citrico','Citrico'),
-        ('amadeirado','Amadeirado'),
-        ('outro1','Outro1'),
-    ]
-
-    # produto vai ser caso clique em outro e adicione o nome
-    # produto = models.CharField(max_length=100, blank=True)
-
-    # Referente as opções que já existem
-    option = models.CharField(max_length=100, choices=OPTION_CHOICES)
-    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
-
-    def __str__(self):
-        return f"{self.option} - {self.category}"
     
-
-class Ingrediente(models.Model):
-    produto = models.ForeignKey(modelProduto, on_delete=models.CASCADE, related_name='ingredientes')
-    nome = models.CharField(max_length=100)
-    quantidade = models.DecimalField(max_digits=6, decimal_places=2)
-
-    def __str__(self):
-        return f"{self.nome} - {self.quantidade}"
