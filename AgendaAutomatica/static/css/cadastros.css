@@ -45,6 +45,29 @@
     overflow: hidden;
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+    #logo {
+        top: -40px;
+        left: -50px;
+        width: 40%; 
+    }
+
+    .camada {
+        width: 80vw; 
+    }
+
+    #camadaIMG {
+        width: 80vw;
+        max-width: 800px;
+        max-height: 550px;
+    }
+
+    .conserto {
+        align-items: center;
+    }
+}
+
 /* Tela dos cadastrados/agendados */
 
 .imgCadastrados {
