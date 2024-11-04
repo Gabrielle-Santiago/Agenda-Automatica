@@ -1,6 +1,6 @@
-# Sistema de Agendamento
+# Sistema de Agenda Automática
 ## Objetivo
-<p> A principal funcionalidade da aplicação é desenvolver uma solução para o gerenciamento e agendamento de serviços, integrando tecnologias como Python e Javascript. O projeto busca automatizar e otimizar o processo de agendamento, garantindo eficiência operacional, escalabilidade e uma experiência de usuário superior. Além disso, o sistema será capaz de se integrar com dispositivos IoT para informação de quando produtos cadastrados no sistema estiverem a baixo do nível, emitir um aviso via e-mail.</p>
+<p> A aplicação Agenda Automática visa gerenciar e otimizar o agendamento de serviços, integrando tecnologias como Python, Django, e JavaScript para uma experiência de usuário eficiente e automatizada. O sistema permite aos clientes agendarem compromissos e envia automaticamente um e-mail de lembrete 24 horas antes do compromisso. As datas passadas são removidas automaticamente, mantendo uma agenda organizada. O proprietário também pode bloquear dias ou horários específicos sem necessidade de conhecimento técnico e adicionar ou remover clientes manualmente conforme necessário, reduzindo notificações desnecessárias aos clientes e facilitando a administraçãoA principal funcionalidade da aplicação é desenvolver uma solução para o gerenciamento e agendamento de serviços, integrando tecnologias como Python e Javascript. O projeto busca automatizar e otimizar o processo de agendamento, garantindo eficiência operacional, escalabilidade e uma experiência de usuário superior. Além disso, o sistema será capaz de emitir um aviso via e-mail para os clientes agendados 24h antecipadamente para relembra-lo do compromisso marcado, e após o dia acabar as datas passadas serão retiradas automaticamente da agenda, mantendo uma organização viável para o usuário. E em casos do usuário necessitar retirar um dia útil da agenda, haverá uma tela para remover dias e horários necessários ou em casos que precisam da adição/remoção de um cliente manualmente. Acarretando na diminuição da quantidade de avisos que seriam feitos para informar aos clientes. </p>
 
 ## Organização da arquitetura
 
@@ -9,35 +9,30 @@
 Onde encontra-se a conclusão do projeto e suas funcionalidades, que foram desenvolvidas em branchs específicas, aprovadas e unidas ao main.
 
 #### FronEnd-Agendamento
-Foca na criação e estilização dos templates. Abaixa encontrasse as funções realizadas
-- Criação das páginas HTML
-- Adição do conteúdo de cada página
-- Organização das pastas do projeto
-- Conexão com CSS
-- Estilização das páginas, acrescentando imagens, logo empresarial, mantendo de forma extensível e afins
+Focado na criação e estilização dos templates, incluindo:
+- Criação das páginas HTML e organização do conteúdo
+- Estruturação e organização das pastas do projeto
+- Conexão e integração com CSS para estilização
+- Design extensível e inclusão de logotipos e outros elementos visuais
 
 #### BackEnd-Agendamento
-Tem como intuito a integração do front-end à suas devidas funcionalidades e manter o devido funcionamento das respostas enviadas.
-- Desenvolvimento da lógica do cadastro, autenticação e gerenciamento de perfis de usuários
-- Verificação do envio dos formulários
-- Recebimento e encaminhamento das respostas enviadas através do Front-End
-- Organização e criação da lógica por trás da aplicação como o views, forms, models...
+Responsável por integrar o front-end às funcionalidades, assegurando que as respostas e os dados enviados sejam processados corretamente:
+- Desenvolvimento da lógica do cadastro, autenticação e gerenciamento de horários
+- Verificação do envio dos formulários e recebimento pelo banco de dados
+- Controle das views, models, forms e configuração de URLs
 
 #### Cloud-Integration
 Visa a integração com o banco de dados
-- Banco de dados selecionado foi o MySQL
-- Recebimento e armazenamento das informações provinda dos formulários
+- Integração com o PostgreSQL para armazenamento seguro e escalável
+- Configuração de segurança e backups periódicos dos dados
 
 #### JavaScript
 Concentra-se em deixar o layout do usuário dinâmico
-- Na página cadastroProduto, cria novas divs para acrescentar novos ingredientes e suas respectivas quantidades
-- Captura a interação do usuário com a seleção dos produtos, acrescenta e busca detalhes do mesmo no banco de dados (a página que ocorre é a 'produtosCadastrados.html')
-
-#### Arduino
-É dedicado à incorporar os dispositivos iot para a aplicação, utilizando de um simulador de placa de circuíto para utilizar sensores que monitoram as quantidades de produtos e enviam dados para o sistema
+- Na página de "Agendados", oculta e acrescenta informações sobre os clientes de forma interativa
 
 #### Email
-Desenvolvimento do script do email e a lógica do envio do mesmo para o usuário 24h antecipadas para relembrar do comprimisso agendado
+Responsável pelo desenvolvimento do sistema de notificação:
+- Lógica de envio de e-mails automatizados 24 horas antes do compromisso, alertando os clientes
 
 ### Pastas
 
@@ -46,11 +41,21 @@ Agenda-Automática/
 - `AgendaAutomatica/`
   - `AgendaAutomatica/` (contém as configurações do Django, como settings, URLs, etc.)
   - `static/`
-    - `css/`
-      - `style.css` (estilização das páginas)
+    - `css/` (estilização das páginas)
+      - `auth.css` (referente as páginas dentro de auth, os outros seguem a mesma lógica)
+      - `cadastros.css`
+      - `icon.css`
+      - `main.css`
+      - `styles.css` (estilizações gerais, como a fonte, o tamanho das letras e afins)
+    - `img/`
+      - `icon/`
+        - Ícones como sinal de mais e menos
+      - `logo/`
+        - Contém a logo da empresa
+      - `out/`
+        - Imagens utilizadas ao fundo para design atrativo
     - `js/`
-      - `configProduto.js` 
-      - `index.js`
+      - `agendados.js`
 - `task/`
   - `migrations/`
     - informações específicas salvas do banco de dados, como pro exemplo: cadastro do Produto, agendamento do horário...
@@ -62,6 +67,7 @@ Agenda-Automática/
       - `cadastrados.html`
       - `cadastro.html`
       - `cadastroProduto.html`
+      - `indisponivel.html`
     - `main/`
       -  `esqueciSenha.html`
       -  `login.html`
@@ -79,14 +85,32 @@ Agenda-Automática/
 - `requirements.txt` (contém as instalações que foram utilizadas)
 
 ## Frameworks e Bibliotecas
-* Django é um framework para desenvolvimento rápido para web, escrito em Python, que foi aplicado para desenvolvimentos e configurações dos templates e de seus respectivos retornos
-* Bootstrap é um framework web com código-fonte aberto para desenvolvimento de componentes de interface, o qual foi aplicado para organização dos formulários, na lista dos agendamentos marcados e no menu da aplicação
+***Django***
+Framework principal para a criação das funcionalidades do sistema, incluindo a gestão de templates, controle de autenticação, e processamento de agendamentos.
+
+***Bootstrap*** 
+Utilizado para o desenvolvimento responsivo dos formulários, organização dos agendamentos e elementos no menu, facilitando a navegação tanto no desktop quanto em dispositivos móveis.
 
 ## Visualização
-Abaixo encontrasse imagens feitas no Figma que possuem intuito de mostrar como deve ocorrer a visualização das páginas
+Aqui estão algumas imagens criadas no Figma, ilustrando o design esperado para as páginas principais do sistema:
 
-Aqui mostra a tela com o que o cliente possue o primeiro contato
-![Agendamento](https://github.com/user-attachments/assets/675ec8a0-b5ce-4ecc-8833-f14b57339785)
+Tela Inicial do Cliente: Primeira interface de contato, com opções de agendamento e visualização de compromissos.
+Tela do Proprietário: Interface de administração, onde é possível gerenciar a agenda e realizar cadastros de novos clientes ou compromissos.
 
-Já nesse é focado no proprietário, onde possa cadastrar ou visualizar a agenda do dia
-![AgendamentoDois](https://github.com/user-attachments/assets/9a81807b-2e95-4990-b0bc-e06157cfc959)
+## Requisitos de Sistema
+<p> Python 3.8+ <br>
+PostgreSQL (configurar base de dados com credenciais seguras) <br>
+Bootstrap (integrado via CDN no HTML) <br>
+</p>
+
+## Guia do Usuário
+1. Agendamento pelo Cliente: O cliente acessa a tela inicial, seleciona o dia,horário e procedimento desejado e preenche os dados de contato.
+2. Notificação de E-mail: 24 horas antes do compromisso, um e-mail de lembrete é enviado automaticamente ao cliente.
+3. Gestão de Dias e Horários pelo Proprietário: O proprietário pode acessar a tela de gerenciamento e desativar dias ou horários para agendamento, além de adicionar novos compromissos manualmente quando necessário.
+
+## Suporte e Contribuição
+### Reportar Problemas
+Para reportar problemas, abrir uma issue no GitHub detalhando o erro, contexto e possíveis passos para replicar o problema.
+
+### Contato para Suporte
+Disponibilizamos um canal de comunicação por e-mail (gabriellesantisilva@gmail.com) para questões técnicas e suporte ao usuário.
