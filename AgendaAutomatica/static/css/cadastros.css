@@ -9,7 +9,22 @@
     height: auto;
     background: url(/AgendaAutomatica/static/img/logo/logo.png); 
     background-size: contain;
-    z-index: -1;   
+    z-index: -2;   
+}
+
+#nomeBelaBerillo {
+    z-index: -1;
+    position: fixed;
+    top: 0px;
+    width: 32%;
+    height: auto;
+}
+
+/* Esconde a logo nas telas menores */
+@media (max-width: 600px) {
+    #nomeBelaBerillo {
+        display: none;
+    }
 }
 
 /* Camadas da tela de agendamento */
@@ -97,19 +112,4 @@
 
 .conteudo {
     display: none;
-}
-
-@media (max-width: 768px) {
-    .info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #sinalMais {
-        display: inline-block;
-    }
-
-    #sinalMenos {
-        display: inline-block;
-    }
 }

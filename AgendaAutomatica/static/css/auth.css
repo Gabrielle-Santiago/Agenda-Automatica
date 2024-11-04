@@ -15,17 +15,34 @@
 }
 
 #logoPerfume {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 50vw;
+    position: absolute;
     height: auto;
-    max-width: 1066px;
-    max-height: 732px;
-    z-index: -1;
     object-fit: contain; 
     background-color: transparent;
-    transform: translateX(50%);
+
+    bottom: 0;
+    width: 50vw;
+    max-width: 1066px;
+    max-height: 732px;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Move para o centro horizontal */
+    z-index: -1;
+}
+
+@media (max-width: 970px) {
+    #logoPerfume {
+        width: 80vw;
+        max-width: 90%;
+        bottom: 240px;
+    }
+}
+
+@media (max-width: 500px) {
+    #logoPerfume {
+        width: 80vw;
+        max-width: 90%;
+        bottom: 440px;
+    }
 }
 
 .input-styled { 

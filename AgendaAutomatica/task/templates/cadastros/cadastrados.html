@@ -20,14 +20,14 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
                 {% endfor %}
           </div>
 
-          <div class="col info">
+          <div class="col">
               <h2>Data</h2>
                 {% for cadastro in cadastrados %}
                     <li>{{ cadastro.data|date:"d/m/Y" }}</li>
                 {% endfor %}
           </div>
 
-          <div class="col info">
+          <div class="col">
               <h2>Horário</h2>
                 {% for cadastro in cadastrados %}
                   <li>{{ cadastro.time|date:"H:i" }}</li>

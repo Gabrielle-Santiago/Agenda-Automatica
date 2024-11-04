@@ -1,6 +1,5 @@
 /* Foca nas estilizações das telas dentro da pasta main */
 
-
 /* Estilização da página de login */
 .wave {
     position: fixed;
@@ -26,6 +25,22 @@
     z-index: -2;
 }
 
+@media (max-width: 800px) {
+    .wave {
+        bottom: -30vw;
+    }
+
+    .wave2 {
+        width: 75vw;
+    }
+ }
+
+@media (max-width: 600px) {
+    .wave2 {
+        width: 100vw;
+    }
+}
+
 .login {
     position: static;
     font-family: 'Inter';
@@ -36,4 +51,21 @@
     align-items: center;
     text-align: left;
     color: #000000;
+}
+
+/* Para o menu aparecer em telas menores */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+
+    .navbar-nav .nav-item {
+        padding: 0 10px;
+    }
 }
