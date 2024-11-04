@@ -1,0 +1,88 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <main class="container mt-1">
+            <div class="col-md-5 offset-md-4">
+                <form method="POST" class="card card-body needs-validation formulario" novalidate>
+                    <div class="formPerfume form">
+                        <title> Pedido Produto </title>
+                
+                        <h1 class="text-center">Pedido Produto</h1>
+                
+                        {{ error }}
+                        {% csrf_token %}
+                        
+                        <div class="cont" id="gridConsertProduto">
+                            <div class="contFilho">
+                                <div class="mb-3">
+                                    <label for="option" class="form-label">Produto</label>
+                                    <select id="option" name="option" class="form-select" aria-label="Default select example">
+                                        <option selected>Selecione</option>
+                                        <option value="perfume" name="perfume" id="perfume">Perfume</option>
+                                        <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
+                                        <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="preferred_scents" class="form-label">Selecione um aroma</label>
+                                    <select class="form-select input-styled" id="preferred_scents" name="preferred_scents[]">
+                                        <option selected>Selecione</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Cítrico">Cítrico</option>
+                                        <option value="Amadeirado">Amadeirado</option>
+                                        <option value="Adocicado">Adocicado</option>
+                                    </select>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
+                                    <select class="form-select input-styled" id="appointmentNumber" name="number" required>
+                                        <option selected>Selecione</option>
+                                        <option value="10">10ml</option>
+                                        <option value="30">30ml</option>
+                                        <option value="50">50ml</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="contFilhoUm">               
+                                <div class="mb-3">
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control input-styled" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
+                                        <div id="validationUsernameFeedback" class="invalid-feedback">
+                                            Por favor, adicione um nome.
+                                        </div>
+                                </div>             
+                                
+                                <div class="mb-3">
+                                        <label for="emailInput" class="form-label">Endereço do Email</label>
+                                        <input type="email" class="form-control input-styled" id="emailInput" placeholder="nome@example.com" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecione um email válido.
+                                        </div>
+                                </div>
+                            
+                                <div class="mb-3">
+                                        <label for="contactNumber" class="form-label">Número de Contato</label>
+                                        <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="contact" required>
+                                        <div class="invalid-feedback">
+                                            Por favor, insira um número de contato válido.
+                                        </div>
+                                </div> 
+                                <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido">                    
+                            </div>
+                        </div>
+                    </div>
+                </form>                                         
+            </div>
+        </div>
+    </main>
+
+    <div class="">
+        <img src="{% static 'img/logo/logo.png' %}" id="logoPerfume" alt="LogoP background">
+    </div>
+{% endblock %}

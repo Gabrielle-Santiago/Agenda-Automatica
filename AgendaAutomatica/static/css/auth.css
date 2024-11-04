@@ -1,0 +1,60 @@
+/* As páginas dentro de auth */
+
+/* Tela pedido perfume */
+
+.formPerfume {
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: rgba(102, 102, 102, 0.25);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 20px;
+}
+
+#logoPerfume {
+    position: absolute;
+    height: auto;
+    object-fit: contain; 
+    background-color: transparent;
+
+    bottom: 0;
+    width: 50vw;
+    max-width: 1066px;
+    max-height: 732px;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Move para o centro horizontal */
+    z-index: -1;
+}
+
+@media (max-width: 970px) {
+    #logoPerfume {
+        width: 80vw;
+        max-width: 90%;
+        bottom: 240px;
+    }
+}
+
+@media (max-width: 500px) {
+    #logoPerfume {
+        width: 80vw;
+        max-width: 90%;
+        bottom: 440px;
+    }
+}
+
+.input-styled { 
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    margin: 5px auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--bs-border-radius);
+}
+
+#gridConsertProduto {
+    justify-items: stretch;
+    align-items: start;
+}
