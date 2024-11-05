@@ -11,10 +11,30 @@ class Cadastro(models.Model):
     time = models.TimeField()
     email = models.EmailField(max_length=240)
     contact = models.CharField(max_length=16)
+    procediments = [
+        ("CH", "sobrancelhas COM henna"),
+        ("SH", "sobrancelhas SEM henna"),
+        ("MH", "Micro Henna"),
+        ("LP", "Limpeza de Pele"),
+        ("SL", "SPA Labial"),
+        ("DE", "Depilação Buço e Axila"),
+        ("LA", "Laminação dos fios"),
+        ("PE", "Peeling facial superficial"),        
+        ("ES", "Estriderme"),
+        ("NF", "Nano Fios"),
+        ("RE", "Revitalização Facial"),
+        ("DF", "Default"),
+    ]
+
+    proced = models.CharField(
+        max_length = 2,
+        choices = procediments,
+        default = "DF",
+    )
 
     def __str__(self):
         # Retorna os tipos salvo no modelo
-        return f"{self.username} - {self.data} - {self.time} - {self.email} - {self.contact}"
+        return f"{self.username} - {self.data} - {self.time} - {self.proced} - {self.email} - {self.contact}"
     
 
 class modelPerfume(models.Model):

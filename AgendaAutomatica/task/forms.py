@@ -8,7 +8,7 @@ class CadastroForm(forms.ModelForm):
     
     class Meta:
         model = Cadastro
-        fields = ['username', 'data', 'time', 'email', 'contact']
+        fields = ['username', 'data', 'time', 'proced', 'email', 'contact']
 
 
 class formPerfume(forms.ModelForm):
