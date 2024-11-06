@@ -38,10 +38,50 @@ class Cadastro(models.Model):
     
 
 class modelPerfume(models.Model):
+    PRODUCT_CHOICES = [
+        ("P", "Perfume"),
+        ("H", "Hidratante"),
+        ("A", "Antioxidante"),
+        ("D", "Default"),
+    ]
+    
+    AROMA_CHOICES = [
+        ("F", "Floral"),
+        ("C", "Citrico"),
+        ("AM", "Amadeirado"),
+        ("AD", "Adocidado"),
+        ("D", "Default"),
+    ]
+    
+    QUANT_CHOICES = [
+        ("1", "10 ml"),
+        ("3", "30 ml"),
+        ("5", "50 ml"),
+        ("0", "0 ml"),
+    ]
+    
+    product = models.CharField(
+        max_length=1,
+        choices=PRODUCT_CHOICES,
+        default="D",
+    )
+    
+    aroma = models.CharField(
+        max_length=2,
+        choices=AROMA_CHOICES,
+        default="D",
+    )
+    
+    quant = models.CharField(
+        max_length=1,
+        choices=QUANT_CHOICES,
+        default="0",
+    )
+
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    adress = models.TextField()
+    numberContact = models.CharField(max_length=16, default="000000000")
 
     def __str__(self):
-        return f"{self.name} - {self.email} - {self.adress}"
+        return f"{self.product} - {self.aroma} - {self.quant} - {self.name} - {self.email} - {self.numberContact}"
     

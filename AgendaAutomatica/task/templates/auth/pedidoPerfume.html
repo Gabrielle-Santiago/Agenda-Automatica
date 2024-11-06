@@ -18,33 +18,33 @@
                         <div class="cont" id="gridConsertProduto">
                             <div class="contFilho">
                                 <div class="mb-3">
-                                    <label for="option" class="form-label">Produto</label>
-                                    <select id="option" name="option" class="form-select" aria-label="Default select example">
+                                    <label class="form-label">Produto</label>
+                                    <select name="product" class="form-select" aria-label="Default select example">
                                         <option selected>Selecione</option>
-                                        <option value="perfume" name="perfume" id="perfume">Perfume</option>
-                                        <option value="hidratante" name="hidratante" id="hidratante">Hidratante</option>
-                                        <option value="antioxidante" name="antioxidante" id="antioxidante">Antioxidante</option>
+                                        <option value="P">Perfume</option>
+                                        <option value="H">Hidratante</option>
+                                        <option value="A">Antioxidante</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="preferred_scents" class="form-label">Selecione um aroma</label>
-                                    <select class="form-select input-styled" id="preferred_scents" name="preferred_scents[]">
+                                    <label class="form-label">Selecione um aroma</label>
+                                    <select class="form-select input-styled" name="aroma">
                                         <option selected>Selecione</option>
-                                        <option value="Floral">Floral</option>
-                                        <option value="Cítrico">Cítrico</option>
-                                        <option value="Amadeirado">Amadeirado</option>
-                                        <option value="Adocicado">Adocicado</option>
+                                        <option value="F">Floral</option>
+                                        <option value="C">Cítrico</option>
+                                        <option value="AM">Amadeirado</option>
+                                        <option value="AD">Adocicado</option>
                                     </select>
                                 </div>
                         
                                 <div class="mb-3">
                                     <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
-                                    <select class="form-select input-styled" id="appointmentNumber" name="number" required>
+                                    <select class="form-select input-styled" name="quant" required>
                                         <option selected>Selecione</option>
-                                        <option value="10">10ml</option>
-                                        <option value="30">30ml</option>
-                                        <option value="50">50ml</option>
+                                        <option value="1">10ml</option>
+                                        <option value="3">30ml</option>
+                                        <option value="5">50ml</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                             
                                 <div class="mb-3">
                                         <label for="contactNumber" class="form-label">Número de Contato</label>
-                                        <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="contact" required>
+                                        <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="numberContact" required>
                                         <div class="invalid-feedback">
                                             Por favor, insira um número de contato válido.
                                         </div>

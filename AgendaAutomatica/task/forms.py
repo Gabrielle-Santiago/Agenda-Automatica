@@ -15,4 +15,4 @@ class formPerfume(forms.ModelForm):
     
     class Meta:
         model = modelPerfume
-        fields = ['name', 'email', 'adress']
+        fields = ['product', 'aroma', 'quant', 'name', 'email', 'numberContact']
