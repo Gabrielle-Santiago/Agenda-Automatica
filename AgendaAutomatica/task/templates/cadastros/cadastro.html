@@ -32,6 +32,24 @@
                             Selecione um data disponível
                         </div>
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Procedimento</label>
+                        <select class="form-control" name="proced">
+                            <option selected>Selecione</option>
+                            <option value="CH">Design de sobrancelhas COM henna</option>
+                            <option value="SH">Design de sobrancelhas SEM henna</option>
+                            <option value="MH">Micro henna</option>
+                            <option value="LP">Limpeza de pele</option>
+                            <option value="SL">SPA labial</option>
+                            <option value="DE"> Depilação Buço e Axila</option>
+                            <option value="LA">Laminação dos fios</option>
+                            <option value="PE">Peeling facial superficial</option>            
+                            <option value="ES">Estriderme</option>
+                            <option value="NF">Nano fios</option>
+                            <option value="RF">Revitalização facial</option>
+                        </select>
+                    </div>
                     
                     <div class="mb-3">
                         <label for="appointmentTime" class="form-label">Horário do Agendamento</label>
@@ -70,5 +88,6 @@
 </div>
 
 <img src="{% static 'img/logo/logo.png' %}" id="logo" alt="Logo background">
+<img src="{% static 'img/logo/nome.png' %}" id="nomeBelaBerillo" alt="Nome da empresa">
 
 {% endblock %}

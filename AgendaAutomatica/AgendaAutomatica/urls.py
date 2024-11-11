@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from task import views
 from task.views import visualizarLista
 
@@ -10,12 +10,11 @@ urlpatterns = [
     path('login_view/cadastros/cadastrados/', visualizarLista.as_view(), name='cadastrados'),
     path('cadastrados/', visualizarLista.as_view(), name='cadastrados'),
     path('pedidoPerfume/', views.pedidoPerfume, name='pedidoPerfume'),
-    path('cadastroProduto/', views.cadastroProduto, name='cadastroProduto'),
-    path('produtosCadastrados/', views.produtosCadastrados, name='produtosCadastrados'),
-    path('filtrar-produtos/', views.filtrar_produtos, name='filtrar_produtos'),
-    path('produto-detalhes/<int:produto_id>/', views.produto_detalhes, name='produto_detalhes'),
     path('login_view/', views.login_view, name='login_view'),
     path('login/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('sair/', views.sair, name='sair'),
     path('sair/cadastros/cadastro', views.agenda, name='sair'),
+    path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
+    path('indisponivel/', views.indisponivel, name='sair'),
+    path('enviarEmail/', include('enviarEmail.urls')),
 ]

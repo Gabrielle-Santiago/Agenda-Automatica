@@ -9,7 +9,22 @@
     height: auto;
     background: url(/AgendaAutomatica/static/img/logo/logo.png); 
     background-size: contain;
-    z-index: -1;   
+    z-index: -2;   
+}
+
+#nomeBelaBerillo {
+    z-index: -1;
+    position: fixed;
+    top: 0px;
+    width: 32%;
+    height: auto;
+}
+
+/* Esconde a logo nas telas menores */
+@media (max-width: 600px) {
+    #nomeBelaBerillo {
+        display: none;
+    }
 }
 
 /* Camadas da tela de agendamento */
@@ -45,12 +60,30 @@
     overflow: hidden;
 }
 
-/* Tela dos cadastrados/agendados */
+/* Responsividade */
+@media (max-width: 768px) {
+    #logo {
+        top: -40px;
+        left: -50px;
+        width: 40%; 
+    }
 
-#mainBody {
-    height: 100%; 
-    padding: 0;
+    .camada {
+        width: 80vw; 
+    }
+
+    #camadaIMG {
+        width: 80vw;
+        max-width: 800px;
+        max-height: 550px;
+    }
+
+    .conserto {
+        align-items: center;
+    }
 }
+
+/* Tela dos cadastrados/agendados */
 
 .imgCadastrados {
     position: fixed;
@@ -79,35 +112,4 @@
 
 .conteudo {
     display: none;
-}
-
-@media (max-width: 768px) {
-    .info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #sinalMais {
-        display: inline-block;
-    }
-
-    #sinalMenos {
-        display: inline-block;
-    }
-}
-
-/* Referente a página de cadastrar produtos */
-
-.backgroundProduto {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(154.03deg, rgba(49, 95, 84, 0.7) 22.34%, rgba(0, 68, 53, 0.853) 44.71%, rgba(32, 49, 60, 0.7) 65.37%);
-    z-index: -1;
-}
-
-#consertoForm {
-    margin-top: 60px;
 }
