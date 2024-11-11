@@ -57,6 +57,7 @@ class modelPerfume(models.Model):
         ("1", "10 ml"),
         ("3", "30 ml"),
         ("5", "50 ml"),
+        ("10", "100 ml"),
         ("0", "0 ml"),
     ]
     
@@ -73,7 +74,7 @@ class modelPerfume(models.Model):
     )
     
     quant = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=QUANT_CHOICES,
         default="0",
     )

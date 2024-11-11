@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from task import views
 from task.views import visualizarLista
 
@@ -16,4 +16,5 @@ urlpatterns = [
     path('sair/cadastros/cadastro', views.agenda, name='sair'),
     path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('indisponivel/', views.indisponivel, name='sair'),
+    path('enviarEmail/', include('enviarEmail.urls')),
 ]
