@@ -7,7 +7,7 @@
     <main class="container mt-1">
         <div class="col-md-5 offset-md-4">
 
-            <form method="POST" class="card card-body needs-validation formulario" novalidate>
+            <form id="formulario" method="POST" class="card card-body needs-validation formulario" novalidate>
                 <div class="form">
                     <title>Agendamento</title>
                     
@@ -19,23 +19,20 @@
 
                     <div class="mb-3">
                         <label class="form-label">Nome</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" required>
-                        <div id="validationUsernameFeedback" class="invalid-feedback">
-                            Por favor, adicione um nome.
-                        </div>
+                        <input type="text" class="form-control required" placeholder="Nome Completo" aria-label="Username"
+                            aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" oninput="nameValidate()" required>
+                        <span class="span-required"></span>
                     </div>
                     
                     <div class="mb-3">
                         <label for="appointmentDate" class="form-label">Data do Agendamento</label>
-                        <input type="date" class="form-control" id="appointmentDate" name="data" required>
-                        <div class="invalid-feedback">
-                            Selecione um data disponível
-                        </div>
+                        <input type="date" class="form-control required" id="appointmentDate" name="data" required>
+                        <span class="span-required"></span>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Procedimento</label>
-                        <select class="form-control" name="proced">
+                        <select class="form-control required" name="proced" required>
                             <option selected>Selecione</option>
                             <option value="CH">Design de sobrancelhas COM henna</option>
                             <option value="SH">Design de sobrancelhas SEM henna</option>
@@ -49,33 +46,28 @@
                             <option value="NF">Nano fios</option>
                             <option value="RF">Revitalização facial</option>
                         </select>
+                        <span class="span-required"></span>
                     </div>
                     
                     <div class="mb-3">
                         <label for="appointmentTime" class="form-label">Horário do Agendamento</label>
-                        <input type="time" class="form-control" id="appointmentTime" name="time" required>
-                        <div class="invalid-feedback">
-                            Selecione um horário disponível.
-                        </div>
+                        <input type="time" class="form-control required" id="appointmentTime" name="time" required>
+                        <span class="span-required"></span>
                     </div>             
         
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@example.com" name="email" required>
-                        <div class="invalid-feedback">
-                            Por favor, selecione um email válido.
-                        </div>
+                        <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@example.com" name="email" oninput="emailValidate()" required>
+                        <span class="span-required"></span>
                     </div>
         
                     <div class="mb-3">
                         <label for="contactNumber" class="form-label">Número de Contato</label>
-                        <input type="tel" class="form-control" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" required>
-                        <div class="invalid-feedback">
-                            Por favor, selecione um número válido.
-                        </div>
+                        <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
+                        <span class="span-required"></span>
                     </div>
 
-                    <input class="myButton btn btn-primary" type="submit" value="Agendar">
+                    <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick=confirmacao()>
                 </div>
             </form> 
         </div>
