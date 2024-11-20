@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
-from task.models import modelPerfume
+from task.models import Cadastro, modelPerfume
+from datetime import datetime
 
 # Envia o e-mail para o proprietário sobre a realização de um produto
 def enviarEmail(request):
@@ -24,22 +25,22 @@ def enviarEmail(request):
 
         Nome do cliente: {ultimoPedido.name}
         Número de contato: {ultimoPedido.numberContact}
-        Email: {ultimoPedido.email}
+        E-mail: {ultimoPedido.email}
         """
         
         send_mail(
             subject='Novo produto realizado',
             message=mensagem,
-            from_email='email@gmail.com',  
-            recipient_list=['email@gmail.com'],  
+            from_email='email@gmail.com',  #troca pelo de July
+            recipient_list=['email@gmail.com'],  # O daqui tbm
             fail_silently=False    
         )
         
-        return HttpResponse('Email Enviado')
+        return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
     
-
+# Email confirmando o pedido do cliente
 def emailCliente(request):
     ultimoPedido = modelPerfume.objects.last()
 
@@ -52,8 +53,7 @@ def emailCliente(request):
         mensagem = f"""
             Prezado(a), {ultimoPedido.name}!
 
-            Informamos que seu pedido foi realizado com sucesso. Lembresse de que o produto comecará
-            a ser produzido após o pagamento de 50% do valor total.
+            Informamos que seu pedido foi realizado com sucesso. Lembresse de que o produto comecará a ser produzido após o pagamento de 50% do valor total.
 
             Abaixo seguem as informações detalhadas do produto:
 
@@ -61,12 +61,11 @@ def emailCliente(request):
             Aroma: {aroma}
             Quantidade: {quant}
 
-            Agradecemos pela confiança em nossos produtos. Estamos à disposição para qualquer dúvida
-            ou informação adicional.
+            Agradecemos pela confiança em nossos produtos. Estamos à disposição para qualquer dúvida ou informação adicional.
             Em caso de não ter efetuado o pagamento, entre em contato:
 
             Número de contato: (73) 98873-4003
-            Email: Julianawacanda@outlook.com
+            E-mail: Julianawacanda@outlook.com
 
             Atenciosamente,
             Espaço Bela Berillo
@@ -75,30 +74,33 @@ def emailCliente(request):
         send_mail(
             subject='Confirmação do pedido!!',
             message=mensagem,
-            from_email='email@gmail.com',  
-            recipient_list=['email@gmail.com'],  
+            from_email='email@gmail.com',  # Trocar tbm
+            recipient_list=[ultimoPedido.email],  
             fail_silently=False    
         )
         
-        return HttpResponse('Email Enviado')
+        return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
     
 
 # Envia o email para o cliente relembrando do agendamento
 def confirmAgend(request):
-    pedido = modelPerfume.objects.last()
+    user = Cadastro.objects.last()
+    proced = user.get_proced_display()
+    data = user.data.strftime('%d/%m/%Y') # Formata a data pro padrão BR
+    horario = user.time.strftime('%H:%M')
 
-    if pedido:
+    if user:
 
         mensagem = f"""
-            Prezado(a) {pedido.name},
+            Prezado(a) {user.username}!!
 
             Gostaríamos de confirmar o seu compromisso agendado com a profissional Juliana, conforme os detalhes a seguir:
 
-            Data: ?
-            Horário: ?
-            Procedimento: ?
+            Data: {data}
+            Horário: {horario}
+            Procedimento: {proced}
 
             Informações Importantes
 
@@ -117,7 +119,7 @@ def confirmAgend(request):
             Em caso de dúvidas, pagamentos antecipados ou informações adicionais, entre em contato:
 
             Número de contato: (73) 98873-4003
-            Email: Julianawacanda@outlook.com
+            E-mail: Julianawacanda@outlook.com
 
             Atenciosamente,
             Espaço Bela Berillo
@@ -126,11 +128,11 @@ def confirmAgend(request):
         send_mail(
             subject='Confirmação de Agendamento!!',
             message=mensagem,
-            from_email='gabytestes659@gmail.com',  
-            recipient_list=['gabytestes659@gmail.com'],  
+            from_email='email@gmail.com',  
+            recipient_list=['email@gmail.com'],  
             fail_silently=False    
         )
         
-        return HttpResponse('Email Enviado')
+        return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
