@@ -1,5 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
+from enviarEmail.views import confirmAgend, emailCliente, enviarEmail
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
 from django.contrib.auth.forms import AuthenticationForm
@@ -13,11 +14,12 @@ def agenda(request):
 
         if form.is_valid():
             form.save()
-            cadastro = Cadastro.objects.all()
+            confirmAgend(request)
             # Após cadastro encaminha para a lista de agendamento
             return redirect('cadastrados')
         
         else:
+            print("Formulário inválido:", form.errors)
             return render(request, 'cadastros/cadastro.html', {
                 'form': form,
                 'error' : 'Algo deu errado, tente novamente!!'
@@ -42,6 +44,8 @@ def pedidoPerfume(request):
 
         if form.is_valid():
             form.save()
+            enviarEmail(request)
+            emailCliente(request)
             return render(request, 'cadastros/cadastro.html')
         
         else:
