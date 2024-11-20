@@ -19,6 +19,7 @@ def agenda(request):
             return redirect('cadastrados')
         
         else:
+            print("Formulário inválido:", form.errors)
             return render(request, 'cadastros/cadastro.html', {
                 'form': form,
                 'error' : 'Algo deu errado, tente novamente!!'

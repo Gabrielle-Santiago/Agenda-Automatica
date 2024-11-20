@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#appointmentDate", {
         locale: "pt",
-        dateFormat: "d/m/Y",
         minDate: "today",
         "disable": [
         function(date) {
