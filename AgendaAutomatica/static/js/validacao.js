@@ -29,11 +29,6 @@ function nameValidate() {
     }
 }
 
-// Validação da data
-
-
-// Validação do horário
-
 
 // Validação do formato do email
 function emailValidate() {

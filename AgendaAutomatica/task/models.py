@@ -8,7 +8,7 @@ class Cadastro(models.Model):
 
     username = models.CharField(max_length=100)
     data = models.DateField()
-    time = models.TimeField()
+    horario = models.TimeField()
     email = models.EmailField(max_length=240)
     contact = models.CharField(max_length=16)
     procediments = [
@@ -34,7 +34,7 @@ class Cadastro(models.Model):
 
     def __str__(self):
         # Retorna os tipos salvo no modelo
-        return f"{self.username} - {self.data} - {self.time} - {self.proced} - {self.email} - {self.contact}"
+        return f"{self.username} - {self.data} - {self.horario} - {self.proced} - {self.email} - {self.contact}"
     
 
 class modelPerfume(models.Model):
