@@ -2,6 +2,7 @@ const camposInput = document.getElementsByClassName("required")
 const spans = document.getElementsByClassName("span-required")
 const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}(?:\.[a-z]{2,})?$/i;
 
+// Essa área foca na validação do formulário agendamento
 
 // Função para aplicar borda de erro e mostrar a mensagem
 function setError(index, message) {

@@ -49,7 +49,7 @@ def pedidoPerfume(request):
             return render(request, 'cadastros/cadastro.html')
         
         else:
-            return render(request, 'auth/pedidoPerfume.html', {+
+            return render(request, 'auth/pedidoPerfume.html', {
                 'form': form,
                 'error': 'Algo deu errado, tente novamente!!'
             })
