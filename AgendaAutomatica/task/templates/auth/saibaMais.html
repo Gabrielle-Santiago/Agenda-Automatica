@@ -1,0 +1,29 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="rectangle">
+        <img src="{% static "img/out/Rectangle.png" %}" alt="Triângulo no menu">
+    </div>
+
+    <main>
+        <div class="saibaMaisFundo"></div>        
+        
+        <div class="flex-container">
+            <div class="perguntasFreq">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+    
+            <div class="suporteClient">
+                <h2>Suporte ao Cliente</h2>
+            </div>
+    
+            <div class="creditos">
+                <h2>Créditos</h2>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

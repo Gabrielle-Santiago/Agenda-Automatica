@@ -16,5 +16,6 @@ urlpatterns = [
     path('sair/cadastros/cadastro', views.agenda, name='sair'),
     path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('indisponivel/', views.indisponivel, name='sair'),
+    path('saibaMais/', views.saibaMais, name='saibaMais'),
     path('enviarEmail/', include('enviarEmail.urls')),
 ]

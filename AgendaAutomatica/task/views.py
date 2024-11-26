@@ -129,3 +129,7 @@ def esqueciSenha(request):
 
 def indisponivel(request):
     return render(request, 'cadastros/indisponivel.html')
+
+
+def saibaMais(request):
+    return render(request, 'auth/saibaMais.html')
