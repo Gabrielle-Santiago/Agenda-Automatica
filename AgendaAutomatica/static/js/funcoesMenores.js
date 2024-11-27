@@ -1,6 +1,5 @@
 // As funções abaixo servem para alternar as respostas ao clicar no botão de mais na tela onde mostra a lista dos agendados
 
-// Função para mostrar o conteúdo
 function mostra() {
     let conteudos = document.getElementsByClassName("conteudo");
     for (let i = 0; i < conteudos.length; i++) {
@@ -8,7 +7,6 @@ function mostra() {
     }
 }
 
-// Função para esconder o conteúdo
 function esconde() {
     let conteudos = document.getElementsByClassName("conteudo");
     for (let i = 0; i < conteudos.length; i++) {
@@ -23,8 +21,7 @@ function atualizarML() {
     const quantidade = document.getElementById("quantidade"); 
 
     // O H é de hidratante
-    if (produto == "H") {
-        //remove itens     
+    if (produto == "H") {    
         while (quantidade.options.length > 0) {
             quantidade.remove(0);
         }        
@@ -35,12 +32,9 @@ function atualizarML() {
 
         quantidade.add(option);
     } else {
-         // Remove todas as opções existentes
          while (quantidade.options.length > 0) {
             quantidade.remove(0);
         }
-
-        // Adiciona as opções iniciais ao select
         const opcoesIniciais = [
             { value: "1", text: "10ml" },
             { value: "3", text: "30ml" },

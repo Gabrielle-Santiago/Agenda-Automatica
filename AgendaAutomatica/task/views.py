@@ -17,28 +17,22 @@ def agenda(request):
         form = CadastroForm(request.POST)
 
         if form.is_valid():
-            # Extraindo os dados para validação
             data = form.cleaned_data['data']
             horario = form.cleaned_data['horario']
             proced = form.cleaned_data['proced']
 
             try:
-                # Chama a função de validação
                 validar_agendamento(data, horario, proced)
                 form.save()
-                return redirect('cadastrados')
+                return JsonResponse({'success': True, 'message': 'Agendamento Confirmado! Qualquer dúvida entre em contato: (73) 98873-4003.'})
 
             except ValidationError as e:
-                # Captura erros de validação e exibe no template
-                return render(request, 'cadastros/cadastro.html', {
-                    'form': form,
-                    'error': e.message,
-                })
-
+                return JsonResponse({'success': False, 'message': e.message})
+            
         else:
             return render(request, 'cadastros/cadastro.html', {
                 'form': form,
-                'error': 'Algo deu errado, tente novamente!',
+                'error': 'Houve um erro. Tente Novamente!! Se persistir entre em contato: (73) 98873-4003.',
             })
     else:
         form = CadastroForm()
@@ -46,23 +40,6 @@ def agenda(request):
     return render(request, 'cadastros/cadastro.html', {'form': form})
 
 
-# Retorna os horários disponíveis
-def disponibilidade(request):
-    data_str = request.GET.get('data')  # Recebe a data do front-end
-    try:
-        data = datetime.strptime(data_str, "%Y-%m-%d").date()
-        horarios_disponiveis = obter_disponibilidade(data)
-
-        return JsonResponse({
-            'data': data_str,
-            'horarios_disponiveis': [horario.strftime("%H:%M") for horario in horarios_disponiveis]
-        })
-
-    except ValueError:
-        return JsonResponse({'erro': 'Data inválida'}, status=400)
-
-
-# Utiliza do Generic Views do próprio Django para visualizar a lista
 class visualizarLista(ListView):
     model = Cadastro
     template_name = 'cadastros/cadastrados.html'
@@ -74,15 +51,20 @@ def pedidoPerfume(request):
         form = formPerfume(request.POST)
 
         if form.is_valid():
-            form.save()
             enviarEmail(request)
             emailCliente(request)
-            return render(request, 'cadastros/cadastro.html')
+        
+            try:
+                form.save()
+                return JsonResponse({'success': True, 'message': 'Pedido Confirmado! Lembresse que o pedido só começará a ser feito mediante pagamento. Qualquer dúvida entre em contato: (73) 98873-4003.'})
+
+            except ValidationError as e:
+                return JsonResponse({'success': False, 'message': e.message})
         
         else:
             return render(request, 'auth/pedidoPerfume.html', {
                 'form': form,
-                'error': 'Algo deu errado, tente novamente!!'
+                'error': 'Houve um erro. Tente Novamente!! Se persistir entre em contato: (73) 98873-4003.',
             })
     else:
         form = formPerfume()
@@ -107,7 +89,7 @@ def login_view(request):
                 'error': 'Email ou senha estão incorretos!!'
             })
         else:
-            if user.is_superuser:  # Verifica se é o superusuário
+            if user.is_superuser:
                 login(request, user)
                 return redirect('cadastros/cadastrados')
             else:

@@ -1,5 +1,3 @@
-// Utilizando flatpickr para configurar o horário e a data
-
 document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#appointmentTime", {
         // Formatação do horário para ficar de 13:30 à 19:00, com pausa (15:40 à 16:20)
@@ -11,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         maxTime: "19:00",
         minuteIncrement: 10,
 
-        // Abaixo é para aparecer um alerta pois o horário não pode
         onChange: (selectedDates, dateStr, instance) => {
             const disabledIntervals = [
                 { from: "15:40", to: "16:20" }
