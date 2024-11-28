@@ -6,7 +6,7 @@
 
     <main class="container mt-1">
             <div class="col-md-5 offset-md-4">
-                <form method="POST" class="card card-body needs-validation formulario" novalidate>
+                <form id="formProduto" method="POST" class="card card-body needs-validation formulario" novalidate>
                     <div class="formPerfume form">
                         <title> Pedido Produto </title>
                 
@@ -19,7 +19,7 @@
                             <div class="contFilho">
                                 <div class="mb-3">
                                     <label class="form-label">Produto</label>
-                                    <select name="product" class="form-select" aria-label="Default select example">
+                                    <select id="produto" name="product" class="form-select" aria-label="Default select example" onchange="atualizarML()">
                                         <option selected>Selecione</option>
                                         <option value="P">Perfume</option>
                                         <option value="H">Hidratante</option>
@@ -40,7 +40,7 @@
                         
                                 <div class="mb-3">
                                     <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
-                                    <select class="form-select input-styled" name="quant" required>
+                                    <select class="form-select input-styled" name="quant" id="quantidade" required>
                                         <option selected>Selecione</option>
                                         <option value="1">10ml</option>
                                         <option value="3">30ml</option>
@@ -73,11 +73,21 @@
                                             Por favor, insira um número de contato válido.
                                         </div>
                                 </div> 
-                                <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido">                    
+                                <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido" onclick="confirmacaoProduto()">                    
                             </div>
                         </div>
                     </div>
-                </form>                                         
+                </form>     
+                
+                <div id="confirmacaoPrompt" class="confirmacaoPrompt" style="display: none;">
+                    <div id="loadingProduto" style="display: none;">
+                        <p>Processando... Aguarde!</p>
+                    </div>
+                    
+                    <div id="responseMessageProduto" style="display: none;">
+                        <p id="messageText"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

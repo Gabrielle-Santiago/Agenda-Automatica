@@ -3,7 +3,6 @@ from django.urls import path, include
 from task import views
 from task.views import visualizarLista
 
-# Caminhos utilizados durante o projeto
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.agenda, name='agenda'),

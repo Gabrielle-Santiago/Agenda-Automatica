@@ -5,8 +5,7 @@
 {% block content %}
 
     <main class="container mt-1">
-        <div class="col-md-5 offset-md-4">
-
+        <div class="col-md-5 offset-md-4"> 
             <form id="formulario" method="POST" class="card card-body needs-validation formulario" novalidate>
                 <div class="form">
                     <title>Agendamento</title>
@@ -51,7 +50,7 @@
                     
                     <div class="mb-3">
                         <label for="appointmentTime" class="form-label">Horário</label>
-                        <input type="time" class="form-control required" id="appointmentTime" name="time" placeholder="XX:XX" required>
+                        <input type="time" class="form-control required" id="appointmentTime" name="horario" placeholder="XX:XX" required>
                         <span class="span-required"></span>
                     </div>             
         
@@ -67,9 +66,19 @@
                         <span class="span-required"></span>
                     </div>
 
-                    <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick=confirmacao()>
+                    <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick="confirmacao()">       
                 </div>
             </form> 
+
+            <div id="confirmacaoPrompt" class="confirmacaoPrompt" style="display: none;">
+                <div id="loading" style="display: none;">
+                    <p>Processando... Aguarde!</p>
+                </div>
+                
+                <div id="responseMessage" style="display: none;">
+                    <p id="messageText"></p>
+                </div>
+            </div>
         </div>
     </main>
 

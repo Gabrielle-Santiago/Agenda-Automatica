@@ -17,7 +17,6 @@ h2 {
     font-family: 'Inter';
 }
 
-/* Deixa o menu transparente e sem borda */
 #nav-bar {
     background-color: transparent !important;
     border: none;
@@ -27,7 +26,6 @@ nav a {
     color: #d5dee6 !important;
 }
 
-/* Container pai para centralizar o formulário */
 .formulario {
     display: flex; 
     align-items: center; 
@@ -60,9 +58,8 @@ nav a {
     z-index: 1;
 }
 
-/* Estilos para os inputs dentro da section */
 input {
-    position: relative; /* Evita conflitos com a section */
+    position: relative;
     width: 100px; 
     max-width: 1000px; 
     height: 38px;
@@ -75,7 +72,6 @@ input {
     box-sizing: border-box;
 }
   
-/* Estilização do botão */
 .myButton {
     position: relative;
     width: 100%;
@@ -93,14 +89,31 @@ input {
     color: #fff; 
     cursor: pointer;
     padding: 10px;
-    box-sizing: border-box; /* Garante que padding e borda não afetem a largura total */
+    box-sizing: border-box;
 }
 
-/* Para telas menores */
 @media (max-width: 250px) {
     button {
         width: 90%;
         height: 45px;
         font-size: 0.9rem;
     }
+}
+
+.confirmacaoPrompt {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: #f5f4f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 5px;
+    font-family: auto;
+    font-size: 18px;
+    text-align: center;
+    width: auto;
+    max-width: 90%;
 }
