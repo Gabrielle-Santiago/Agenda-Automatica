@@ -58,3 +58,115 @@
     justify-items: stretch;
     align-items: start;
 }
+
+/* Saiba Mais */
+
+/* Imagem do fundo */
+.rectangle {
+    position: fixed;
+    width: auto;
+    height: 70vh;
+    top: 0; 
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    object-fit: cover;
+    overflow: hidden; 
+    z-index: -1;
+}
+
+/* Para telas menores (smartphones) */
+@media screen and (max-width: 768px) {
+    .rectangle {
+        height: 50vh;
+        top: 0;
+    }
+}
+
+/* Para telas muito pequenas (menores que 480px) */
+@media screen and (max-width: 480px) {
+    .rectangle {
+        height: 40vh;
+        top: 0;
+    }
+}
+
+/* Para telas grandes (desktops ou TVs) */
+@media screen and (min-width: 1600px) {
+    .rectangle {
+        height: 80vh; /* Altura maior para preencher melhor a tela */
+        top: 0;
+    }
+}
+
+/* Referente as divs que contém as informações: Perguntas frequentes, suporte ao cliente e créditos */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens no topo de suas caixas */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 15px;
+    gap: 10px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flex-container > div {
+    flex: 1; /* Faz com que os elementos internos ocupem espaço igual */
+    margin: 0 5px; 
+    background: transparent; 
+    padding: 8px;
+    text-align: center; 
+    overflow-wrap: break-word; /* Garante que o texto não ultrapasse os limites */
+}
+
+.flex-container h2 {
+    margin: 0 0 10px; /* Adiciona espaço abaixo do título */
+    font-size: 16px; 
+}
+
+/* Ajuste responsivo para telas menores */
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; /* Empilha os itens em telas menores */
+        align-items: center; 
+        padding: 10px;
+    }
+
+    .flex-container > div {
+        flex: none; /* Permite que cada item ocupe toda a largura */
+        width: 100%; /* Garante que os itens fiquem alinhados ao centro */
+        margin-bottom: 10px; 
+    }
+}
+
+/* Parte que contém as informações do proprietário */
+.saibaMaisFundo {
+    background-color: #A7A3A3;
+    width: 100%; 
+    height: auto; 
+    min-height: 300px; 
+    padding: 5%;
+    z-index: -2;
+    position: relative;
+    margin-top: 150px;
+    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho */
+}
+
+/* Ajustes responsivos para telas menores */
+@media screen and (max-width: 768px) {
+    .saibaMaisFundo {
+        padding: 20px; 
+        margin-top: 130px;
+        min-height: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .saibaMaisFundo {
+        padding: 15px;
+        margin-top: 50px; 
+        min-height: 150px; 
+    }
+}
