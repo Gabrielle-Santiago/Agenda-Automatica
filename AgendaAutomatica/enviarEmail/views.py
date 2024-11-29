@@ -1,45 +1,46 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from task.models import Cadastro, modelPerfume
-from datetime import datetime
 
 # Envia o e-mail para o proprietário sobre a realização de um produto
 def enviarEmail(request):
     ultimoPedido = modelPerfume.objects.last()
 
     if ultimoPedido:
-        # Coloca as informações, pois foram salvas somentes as iniciais no BD
-        produto = ultimoPedido.get_product_display()
-        aroma = ultimoPedido.get_aroma_display()
-        quant = ultimoPedido.get_quant_display()
+        try:
+            produto = ultimoPedido.get_product_display()
+            aroma = ultimoPedido.get_aroma_display()
+            quant = ultimoPedido.get_quant_display()
 
-        mensagem = f"""
-        Um novo pedido foi realizado, abaixo seguem as informações do produto:
+            mensagem = f"""
+            Um novo pedido foi realizado, abaixo seguem as informações do produto:
 
-        Produto: {produto}
-        Aroma: {aroma}
-        Quantidade: {quant}
+            Produto: {produto}
+            Aroma: {aroma}
+            Quantidade: {quant}
 
-        Aqui encontrassem as informações do cliente:
+            Aqui encontrassem as informações do cliente:
 
-        Nome do cliente: {ultimoPedido.name}
-        Número de contato: {ultimoPedido.numberContact}
-        E-mail: {ultimoPedido.email}
-        """
-        
-        send_mail(
-            subject='Novo produto realizado',
-            message=mensagem,
-            from_email='email@gmail.com',  #troca pelo de July
-            recipient_list=['email@gmail.com'],  # O daqui tbm
-            fail_silently=False    
-        )
-        
-        return HttpResponse('E-mail Enviado')
+            Nome do cliente: {ultimoPedido.name}
+            Número de contato: {ultimoPedido.numberContact}
+            E-mail: {ultimoPedido.email}
+            """
+            
+            send_mail(
+                subject='Novo produto realizado',
+                message=mensagem,
+                from_email='gabytestes659@gmail.com',
+                recipient_list=['gabytestes659@gmail.com'],
+                fail_silently=False    
+            )
+            
+            return HttpResponse('E-mail Enviado')
+        except Exception as e:
+            return HttpResponse(f'Ocorreu um erro ao enviar o e-mail: {e}')
     else:
         return HttpResponse('Nenhum pedido encontrado')
     
-# Email confirmando o pedido do cliente
+
 def emailCliente(request):
     ultimoPedido = modelPerfume.objects.last()
 
@@ -63,7 +64,7 @@ def emailCliente(request):
             Em caso de não ter efetuado o pagamento, entre em contato:
 
             Número de contato: (73) 98873-4003
-            E-mail: Julianawacanda@outlook.com
+            E-mail: ju.bela.berillo@outlook.com
 
             Atenciosamente,
             Espaço Bela Berillo
@@ -72,7 +73,7 @@ def emailCliente(request):
         send_mail(
             subject='Confirmação do pedido!!',
             message=mensagem,
-            from_email='email@gmail.com',  # Trocar tbm
+            from_email='gabytestes659@gmail.com', 
             recipient_list=[ultimoPedido.email],  
             fail_silently=False    
         )
@@ -82,11 +83,10 @@ def emailCliente(request):
         return HttpResponse('Nenhum pedido encontrado')
     
 
-# Envia o email para o cliente relembrando do agendamento
 def confirmAgend(request):
     user = Cadastro.objects.last()
     proced = user.get_proced_display()
-    data = user.data.strftime('%d/%m/%Y') # Formata a data pro padrão BR
+    data = user.data.strftime('%d/%m/%Y')
     horario = user.time.strftime('%H:%M')
 
     if user:
@@ -117,7 +117,7 @@ def confirmAgend(request):
             Em caso de dúvidas, pagamentos antecipados ou informações adicionais, entre em contato:
 
             Número de contato: (73) 98873-4003
-            E-mail: Julianawacanda@outlook.com
+            E-mail: ju.bela.berillo@outlook.com
 
             Atenciosamente,
             Espaço Bela Berillo
@@ -126,11 +126,22 @@ def confirmAgend(request):
         send_mail(
             subject='Confirmação de Agendamento!!',
             message=mensagem,
-            from_email='email@gmail.com',  
-            recipient_list=['email@gmail.com'],  
+            from_email='gabytestes659@gmail.com',  
+            recipient_list=[user.email],  
             fail_silently=False    
         )
         
         return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
+    
+
+def excluirPedido(pedido_id):
+    try:
+        pedido = modelPerfume.objects.get(id=pedido_id)
+        pedido.delete()
+        print(f"Pedido com ID {pedido_id} foi excluído com sucesso.")
+    except modelPerfume.DoesNotExist:
+        print(f"Pedido com ID {pedido_id} não encontrado para exclusão.")
+    except Exception as e:
+        print(f"Ocorreu um erro ao tentar excluir o pedido: {e}")

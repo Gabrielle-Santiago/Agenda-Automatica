@@ -16,4 +16,5 @@ urlpatterns = [
     path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('indisponivel/', views.indisponivel, name='sair'),
     path('enviarEmail/', include('enviarEmail.urls')),
+    path('enviarEmail/', views.enviarEmail, name='enviarEmail'),
 ]
