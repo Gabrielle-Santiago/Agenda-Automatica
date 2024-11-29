@@ -30,7 +30,7 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
           <div class="col">
               <h2>Horário</h2>
                 {% for cadastro in cadastrados %}
-                  <li>{{ cadastro.time|date:"H:i" }}</li>
+                  <li>{{ cadastro.horario|date:"H:i" }}</li>
                 {% endfor %}
           </div>
 

@@ -1,11 +1,15 @@
+from datetime import datetime
+from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
-from enviarEmail.views import confirmAgend, emailCliente, enviarEmail
-from task.forms import CadastroForm, formPerfume
-from task.models import Cadastro
+from enviarEmail.views import emailCliente, enviarEmail
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
+from task.forms import CadastroForm, formPerfume
+from task.models import Cadastro
+from .utils import validar_agendamento
 
 # Função para registrar o cadastro no BD
 def agenda(request):
@@ -13,22 +17,49 @@ def agenda(request):
         form = CadastroForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            confirmAgend(request)
-            # Após cadastro encaminha para a lista de agendamento
-            return redirect('cadastrados')
-        
+            # Extraindo os dados para validação
+            data = form.cleaned_data['data']
+            horario = form.cleaned_data['horario']
+            proced = form.cleaned_data['proced']
+
+            try:
+                # Chama a função de validação
+                validar_agendamento(data, horario, proced)
+                form.save()
+                return redirect('cadastrados')
+
+            except ValidationError as e:
+                # Captura erros de validação e exibe no template
+                return render(request, 'cadastros/cadastro.html', {
+                    'form': form,
+                    'error': e.message,
+                })
+
         else:
-            print("Formulário inválido:", form.errors)
             return render(request, 'cadastros/cadastro.html', {
                 'form': form,
-                'error' : 'Algo deu errado, tente novamente!!'
+                'error': 'Algo deu errado, tente novamente!',
             })
     else:
         form = CadastroForm()
 
-    return render(request, 'cadastros/cadastro.html', {'form':form})
+    return render(request, 'cadastros/cadastro.html', {'form': form})
 
+
+# Retorna os horários disponíveis
+def disponibilidade(request):
+    data_str = request.GET.get('data')  # Recebe a data do front-end
+    try:
+        data = datetime.strptime(data_str, "%Y-%m-%d").date()
+        horarios_disponiveis = obter_disponibilidade(data)
+
+        return JsonResponse({
+            'data': data_str,
+            'horarios_disponiveis': [horario.strftime("%H:%M") for horario in horarios_disponiveis]
+        })
+
+    except ValueError:
+        return JsonResponse({'erro': 'Data inválida'}, status=400)
 
 
 # Utiliza do Generic Views do próprio Django para visualizar a lista
