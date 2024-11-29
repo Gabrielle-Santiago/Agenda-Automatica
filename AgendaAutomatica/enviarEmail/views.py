@@ -5,7 +5,6 @@ from datetime import datetime
 
 # Envia o e-mail para o proprietário sobre a realização de um produto
 def enviarEmail(request):
-    # Obtém o último pedido de modelPerfume
     ultimoPedido = modelPerfume.objects.last()
 
     if ultimoPedido:
@@ -45,7 +44,6 @@ def emailCliente(request):
     ultimoPedido = modelPerfume.objects.last()
 
     if ultimoPedido:
-        # Coloca as informações, pois foram salvas somentes as iniciais no BD
         produto = ultimoPedido.get_product_display()
         aroma = ultimoPedido.get_aroma_display()
         quant = ultimoPedido.get_quant_display()
