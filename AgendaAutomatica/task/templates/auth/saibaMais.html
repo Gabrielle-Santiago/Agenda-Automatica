@@ -5,23 +5,48 @@
 {% block content %}
 
     <div class="rectangle">
-        <img src="{% static "img/out/Rectangle.png" %}" alt="Triângulo no menu">
+        <img src="{% static "img/out/Rectangle.png" %}" alt="Retângulo no menu">
     </div>
 
     <main>
-        <div class="saibaMaisFundo"></div>        
+        <div class="saibaMaisFundo">
+            <div class="gridSobreMim">
+                <div class="div1">
+                    <h1>Juliana Xavier</h1>
+                </div>
+                <div class="div2">
+                    <h1>Sobre Mim</h1>
+                </div>
+                <div class="div3">
+                    <div class="fundoImagem">
+                        <img src="{% static 'img/logo/logo.png' %}" ></img>
+                    </div>
+                </div>
+                <div class="div4 contextoSobreMim">
+                    <p> Tenho experiência a 11 anos na área das sobrancelhas e formada a 2 anos em Estética e cosmética. Desde muito nova já sentia que nasci para essa profissão aos 15 anos trabalhei como auxiliar de cabeleireira e aos 21 anos fiz meu primeiro curso em design de sobrancelhas. Isso me trouxe mais certeza que queria ir além, então iniciei o curso de graduação em Estética e cosmética. Hoje busco atuar na área de maneira reversa e integrativa.
+                    </p>
+                </div>             
+            </div>
+        </div>        
         
         <div class="flex-container">
             <div class="perguntasFreq">
                 <h2>Perguntas Frequentes</h2>
+                {% comment %} <p>Quais os valores dos procedimentos?</p>
+                <p>Quanto tempo leva cada procedimento?</p>
+                <p>Existem quais formas de pagamento?</p>
+                <p>Em caso de não comparecer, existe alguma taxa?</p> {% endcomment %}
             </div>
     
             <div class="suporteClient">
                 <h2>Suporte ao Cliente</h2>
+                {% comment %} <p>Meios de contato</p>
+                <p>Redes Sociais</p> {% endcomment %}
             </div>
     
             <div class="creditos">
                 <h2>Créditos</h2>
+                <p>Portfólio aqui</p>
             </div>
         </div>
     </main>

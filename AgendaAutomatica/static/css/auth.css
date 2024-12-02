@@ -24,8 +24,8 @@
     width: 50vw;
     max-width: 1066px;
     max-height: 732px;
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Move para o centro horizontal */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: -1;
 }
 
@@ -61,20 +61,18 @@
 
 /* Saiba Mais */
 
-/* Imagem do fundo */
 .rectangle {
     position: fixed;
     width: auto;
-    height: 70vh;
+    height: 30vh;
     top: 0; 
-    left: 50%; /* Centraliza horizontalmente */
+    left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
     overflow: hidden; 
     z-index: -1;
 }
 
-/* Para telas menores (smartphones) */
 @media screen and (max-width: 768px) {
     .rectangle {
         height: 50vh;
@@ -82,7 +80,6 @@
     }
 }
 
-/* Para telas muito pequenas (menores que 480px) */
 @media screen and (max-width: 480px) {
     .rectangle {
         height: 40vh;
@@ -90,71 +87,65 @@
     }
 }
 
-/* Para telas grandes (desktops ou TVs) */
 @media screen and (min-width: 1600px) {
     .rectangle {
-        height: 80vh; /* Altura maior para preencher melhor a tela */
+        height: 80vh;
         top: 0;
     }
 }
 
-/* Referente as divs que contém as informações: Perguntas frequentes, suporte ao cliente e créditos */
 .flex-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha os itens no topo de suas caixas */
+    align-items: flex-start;
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #f8f9fa;
-    padding: 15px;
+    padding: 25px;
     gap: 10px;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .flex-container > div {
-    flex: 1; /* Faz com que os elementos internos ocupem espaço igual */
+    flex: 1;
     margin: 0 5px; 
     background: transparent; 
     padding: 8px;
     text-align: center; 
-    overflow-wrap: break-word; /* Garante que o texto não ultrapasse os limites */
+    overflow-wrap: break-word; 
 }
 
 .flex-container h2 {
-    margin: 0 0 10px; /* Adiciona espaço abaixo do título */
+    margin: 0 0 10px; 
     font-size: 16px; 
 }
 
-/* Ajuste responsivo para telas menores */
 @media screen and (max-width: 768px) {
     .flex-container {
-        flex-direction: column; /* Empilha os itens em telas menores */
+        flex-direction: column;
         align-items: center; 
         padding: 10px;
     }
 
     .flex-container > div {
-        flex: none; /* Permite que cada item ocupe toda a largura */
-        width: 100%; /* Garante que os itens fiquem alinhados ao centro */
+        flex: none;
+        width: 100%; 
         margin-bottom: 10px; 
     }
 }
 
-/* Parte que contém as informações do proprietário */
 .saibaMaisFundo {
     background-color: #A7A3A3;
     width: 100%; 
     height: auto; 
     min-height: 300px; 
-    padding: 5%;
-    z-index: -2;
+    padding: 15px;
+    z-index: 2;
     position: relative;
-    margin-top: 150px;
-    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho */
+    margin-top: 120px;
+    box-sizing: border-box; 
 }
 
-/* Ajustes responsivos para telas menores */
 @media screen and (max-width: 768px) {
     .saibaMaisFundo {
         padding: 20px; 
@@ -168,5 +159,79 @@
         padding: 15px;
         margin-top: 50px; 
         min-height: 150px; 
+    }
+}
+
+.gridSobreMim {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 2px;
+    text-align: center;
+    }
+    
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { 
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.div4 { 
+    grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: left;
+}
+    
+.fundoImagem {
+    background-color: #f8f9fa;
+    height: 30vh;
+    width: 60vh;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.fundoImagem img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .gridSobreMim {
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+    }
+    .fundoImagem {
+        width: 90%;
+         height: 20vh;
+         margin: auto;
+    }
+}
+    
+@media (max-width: 480px) {
+    .gridSobreMim {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .fundoImagem {
+        width: 100%;
+        height: 15vh;
+    }
+    
+    h1 {
+        font-size: 15px;
+    }
+    
+    p {
+        font-size: 12px;
+        margin: 10px;
     }
 }
