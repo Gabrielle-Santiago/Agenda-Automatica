@@ -13,7 +13,6 @@ h1 {
 
 h2 {
     font-size: 20px;
-    color: #ffffff;
     font-family: 'Inter';
 }
 
@@ -23,7 +22,8 @@ h2 {
 }
 
 nav a {
-    color: #d5dee6 !important;
+    color: #f5f4f4 !important;
+    text-shadow:  0 0 3px #0e0e0e, 0 0 5px #0e0e0e;
 }
 
 .formulario {
