@@ -1,4 +1,4 @@
-// Essa área foca na validação do formulário agendamento
+// Essa área foca na validação dos formulários
 
 const camposInput = document.getElementsByClassName("required")
 const spans = document.getElementsByClassName("span-required")
@@ -28,19 +28,18 @@ function nameValidate() {
 
 
 function emailValidate() {
-    if (emailRegex.test(camposInput[4].value)) {
-        clearError(4);
+
+    if (emailRegex.test(camposInput[1].value)) {
+        clearError(1);
     } else {
-        setError(4, "Por favor, acrescente um email válido");
-        
+        setError(1, "Por favor, acrescente um email válido");
     }
 }
 
-
 function contactValidate() {
-    if (camposInput[5].value.length < 10) {
-        setError(5, "Por favor, adicione um número corretamente ex: (73) 95555-4444");
+    if (camposInput[2].value.length < 10) {
+        setError(2, "Por favor, adicione um número corretamente ex: (73) 95555-4444");  
     } else {
-        clearError(5);
+        clearError(2);
     }
 }

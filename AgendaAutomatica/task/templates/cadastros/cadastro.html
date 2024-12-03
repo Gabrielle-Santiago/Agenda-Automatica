@@ -22,11 +22,22 @@
                             aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" oninput="nameValidate()" required>
                         <span class="span-required"></span>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
+                        <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@exemplo.com" name="email" oninput="emailValidate()" required>
+                        <span class="span-required"></span>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="contactNumber" class="form-label">Número de Contato</label>
+                        <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
+                        <span class="span-required"></span>
+                    </div>
                     
                     <div class="mb-3">
                         <label for="appointmentDate" class="form-label">Data</label>
                         <input type="date" class="form-control required" id="appointmentDate" name="data" placeholder="XX/XX/XXXX"  required>
-                        <span class="span-required"></span>
                     </div>
 
                     <div class="mb-3">
@@ -45,26 +56,12 @@
                             <option value="NF">Nano fios</option>
                             <option value="RF">Revitalização facial</option>
                         </select>
-                        <span class="span-required"></span>
                     </div>
                     
                     <div class="mb-3">
                         <label for="appointmentTime" class="form-label">Horário</label>
                         <input type="time" class="form-control required" id="appointmentTime" name="horario" placeholder="XX:XX" required>
-                        <span class="span-required"></span>
                     </div>             
-        
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
-                        <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@exemplo.com" name="email" oninput="emailValidate()" required>
-                        <span class="span-required"></span>
-                    </div>
-        
-                    <div class="mb-3">
-                        <label for="contactNumber" class="form-label">Número de Contato</label>
-                        <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
-                        <span class="span-required"></span>
-                    </div>
 
                     <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick="confirmacao()">       
                 </div>

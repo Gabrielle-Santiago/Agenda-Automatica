@@ -51,27 +51,21 @@
 
                             <div class="contFilhoUm">               
                                 <div class="mb-3">
-                                        <label>Nome</label>
-                                        <input type="text" class="form-control input-styled" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" required>
-                                        <div id="validationUsernameFeedback" class="invalid-feedback">
-                                            Por favor, adicione um nome.
-                                        </div>
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control input-styled required" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" oninput="nameValidate()" required>
+                                    <span class="span-required"></span>
                                 </div>             
                                 
                                 <div class="mb-3">
-                                        <label for="emailInput" class="form-label">Endereço do Email</label>
-                                        <input type="email" class="form-control input-styled" id="emailInput" placeholder="nome@example.com" name="email" required>
-                                        <div class="invalid-feedback">
-                                            Por favor, selecione um email válido.
-                                        </div>
+                                    <label for="emailInput" class="form-label">Endereço do Email</label>
+                                    <input type="email" class="form-control input-styled required" id="emailInput" placeholder="nome@examplo.com" name="email" oninput="emailValidate()" required>
+                                    <span class="span-required"></span>
                                 </div>
                             
                                 <div class="mb-3">
-                                        <label for="contactNumber" class="form-label">Número de Contato</label>
-                                        <input class="form-control input-styled" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="numberContact" required>
-                                        <div class="invalid-feedback">
-                                            Por favor, insira um número de contato válido.
-                                        </div>
+                                    <label for="contactNumber" class="form-label">Número de Contato</label>
+                                    <input class="form-control input-styled required" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="numberContact" oninput="contactValidate()" required>
+                                    <span class="span-required"></span>
                                 </div> 
                                 <input class="btn btn-primary myButton" type="submit" value="Fazer Pedido" onclick="confirmacaoProduto()">                    
                             </div>

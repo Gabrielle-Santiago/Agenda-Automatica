@@ -2,7 +2,7 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
-from enviarEmail.views import emailCliente, enviarEmail
+from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -24,6 +24,8 @@ def agenda(request):
             try:
                 validar_agendamento(data, horario, proced)
                 form.save()
+                confirmAgend(request)
+
                 return JsonResponse({'success': True, 'message': 'Agendamento Confirmado! Qualquer dúvida entre em contato: (73) 98873-4003.'})
 
             except ValidationError as e:
@@ -50,12 +52,13 @@ def pedidoPerfume(request):
     if request.method == 'POST':
         form = formPerfume(request.POST)
 
-        if form.is_valid():
-            enviarEmail(request)
-            emailCliente(request)
-        
+        if form.is_valid():   
             try:
-                form.save()
+                novoPedido = form.save()
+                enviarEmail(novoPedido.id)
+                emailCliente(request)
+                excluirPedido(novoPedido.id)
+                
                 return JsonResponse({'success': True, 'message': 'Pedido Confirmado! Lembresse que o pedido só começará a ser feito mediante pagamento. Qualquer dúvida entre em contato: (73) 98873-4003.'})
 
             except ValidationError as e:

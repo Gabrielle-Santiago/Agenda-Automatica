@@ -3,8 +3,8 @@ from django.core.mail import send_mail
 from task.models import Cadastro, modelPerfume
 
 # Envia o e-mail para o proprietário sobre a realização de um produto
-def enviarEmail(request):
-    ultimoPedido = modelPerfume.objects.last()
+def enviarEmail(ID):
+    ultimoPedido = modelPerfume.objects.get(id=ID)
 
     if ultimoPedido:
         try:
@@ -34,6 +34,7 @@ def enviarEmail(request):
                 fail_silently=False    
             )
             
+            excluirPedido()
             return HttpResponse('E-mail Enviado')
         except Exception as e:
             return HttpResponse(f'Ocorreu um erro ao enviar o e-mail: {e}')
@@ -78,6 +79,7 @@ def emailCliente(request):
             fail_silently=False    
         )
         
+        excluirPedido()
         return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
@@ -87,7 +89,7 @@ def confirmAgend(request):
     user = Cadastro.objects.last()
     proced = user.get_proced_display()
     data = user.data.strftime('%d/%m/%Y')
-    horario = user.time.strftime('%H:%M')
+    horario = user.horario.strftime('%H:%M')
 
     if user:
 
@@ -131,17 +133,25 @@ def confirmAgend(request):
             fail_silently=False    
         )
         
+        excluirPedido()
         return HttpResponse('E-mail Enviado')
     else:
         return HttpResponse('Nenhum pedido encontrado')
     
 
-def excluirPedido(pedido_id):
+def excluirPedido(ID=None):
     try:
-        pedido = modelPerfume.objects.get(id=pedido_id)
-        pedido.delete()
-        print(f"Pedido com ID {pedido_id} foi excluído com sucesso.")
+        pedido = modelPerfume.objects.get(id=ID) if ID else modelPerfume.objects.last()
+
+        if not pedido:
+            print("Nenhum pedido encontrado para exclusão.")
+            return
+        
+        pedido = modelPerfume.objects.get(id=ID)
+        pedido.delete() 
+        print(f"Pedido com ID {ID} foi excluído com sucesso.")
     except modelPerfume.DoesNotExist:
-        print(f"Pedido com ID {pedido_id} não encontrado para exclusão.")
+        print(f"Pedido com ID {ID} não encontrado para exclusão.")
     except Exception as e:
         print(f"Ocorreu um erro ao tentar excluir o pedido: {e}")
+
