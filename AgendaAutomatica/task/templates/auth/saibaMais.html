@@ -9,44 +9,76 @@
     </div>
 
     <main>
-        <div class="saibaMaisFundo">
-            <div class="gridSobreMim">
-                <div class="div1">
-                    <h1>Juliana Xavier</h1>
-                </div>
-                <div class="div2">
-                    <h1>Sobre Mim</h1>
-                </div>
-                <div class="div3">
-                    <div class="fundoImagem">
-                        <img src="{% static 'img/logo/logo.png' %}" ></img>
+        <div class="gridSaibaMais">
+            <div class="saibaMaisFundo gridFilhoSM">
+                <div class="gridSobreMim">
+                    <div class="div1">
+                        <h1>Juliana Xavier</h1>
                     </div>
+                    <div class="div2">
+                        <h1>Sobre Mim</h1>
+                    </div>
+                    <div class="div3">
+                        <div class="fundoImagem">
+                            <img src="{% static 'img/logo/logo.png' %}" ></img>
+                        </div>
+                    </div>
+                    <div class="div4 contextoSobreMim">
+                        <p> Tenho experiência a 11 anos na área das sobrancelhas e formada a 2 anos em Estética e cosmética. Desde muito nova já sentia que nasci para essa profissão aos 15 anos trabalhei como auxiliar de cabeleireira e aos 21 anos fiz meu primeiro curso em design de sobrancelhas. Isso me trouxe mais certeza que queria ir além, então iniciei o curso de graduação em Estética e cosmética. Hoje busco atuar na área de maneira reversa e integrativa.
+                        </p>
+                    </div>             
                 </div>
-                <div class="div4 contextoSobreMim">
-                    <p> Tenho experiência a 11 anos na área das sobrancelhas e formada a 2 anos em Estética e cosmética. Desde muito nova já sentia que nasci para essa profissão aos 15 anos trabalhei como auxiliar de cabeleireira e aos 21 anos fiz meu primeiro curso em design de sobrancelhas. Isso me trouxe mais certeza que queria ir além, então iniciei o curso de graduação em Estética e cosmética. Hoje busco atuar na área de maneira reversa e integrativa.
-                    </p>
-                </div>             
-            </div>
-        </div>        
+            </div>        
+            
+            <div class="flex-container gridFilhoSB">
+                <div class="perguntasFreq">
+                    <h2 class="tituloSaibaMais">Perguntas Frequentes</h2>
+
+                    <div onclick="mostraID('procedimento')">Quais os valores dos procedimentos?</div>
+                    <p id="procedimento" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="procedimentoMenos" class="conteudo" onclick="escondeID('procedimento')">Ver menos</div>
+
+                    <div class="linha"></div>
+
+                    <div onclick="mostraID('tempoProced')">Quanto tempo leva cada procedimento?</div>
+                    <p id="tempoProced" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="tempoProcedMenos" class="conteudo" onclick="escondeID('tempoProced')">Ver menos</div>
+
+                    <div class="linha"></div>
+
+                    <div onclick="mostraID('pagamento')">Existem quais formas de pagamento?</div>
+                    <p id="pagamento" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="pagamentoMenos" class="conteudo" onclick="escondeID('pagamento')">Ver menos</div>
+
+                    <div class="linha"></div>
+
+                    <div onclick="mostraID('taxa')">Em caso de não comparecer, existe alguma taxa?</div >
+                    <p id="taxa" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="taxaMenos" class="conteudo" onclick="escondeID('taxa')">Ver menos</div>
+                </div>
         
-        <div class="flex-container">
-            <div class="perguntasFreq">
-                <h2>Perguntas Frequentes</h2>
-                {% comment %} <p>Quais os valores dos procedimentos?</p>
-                <p>Quanto tempo leva cada procedimento?</p>
-                <p>Existem quais formas de pagamento?</p>
-                <p>Em caso de não comparecer, existe alguma taxa?</p> {% endcomment %}
-            </div>
-    
-            <div class="suporteClient">
-                <h2>Suporte ao Cliente</h2>
-                {% comment %} <p>Meios de contato</p>
-                <p>Redes Sociais</p> {% endcomment %}
-            </div>
-    
-            <div class="creditos">
-                <h2>Créditos</h2>
-                <p>Portfólio aqui</p>
+                <div class="suporteClient">
+                    <h2 class="tituloSaibaMais">Suporte ao Cliente</h2>
+                
+                    <div onclick="mostraID('contato')">Meios de contato</div>
+                    <p id="contato" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="contatoMenos" class="conteudo" onclick="escondeID('contato')">Ver menos</div>
+                
+                    <div class="linha"></div>
+
+                    <div onclick="mostraID('redes')">Redes Sociais</div>
+                    <p id="redes" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="redesMenos" class="conteudo" onclick="escondeID('redes')">Ver menos</div>
+                </div>
+        
+                <div class="creditos">
+                    <h2 class="tituloSaibaMais">Créditos</h2>
+                    <div onclick="mostraID('portfolio')">Portfólio aqui</div>
+                    <p id="portfolio" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div id="portfolioMenos" class="conteudo" onclick="escondeID('portfolio')">Ver menos</div>
+
+                    <div class="linha"></div>
+                </div>
             </div>
         </div>
     </main>

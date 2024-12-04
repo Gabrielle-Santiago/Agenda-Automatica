@@ -97,8 +97,7 @@
 .flex-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    position: fixed;
+    align-items: left;
     bottom: 0;
     width: 100%;
     background-color: #f8f9fa;
@@ -111,7 +110,7 @@
     margin: 0 5px; 
     background: transparent; 
     padding: 8px;
-    text-align: center; 
+    text-align: left; 
     overflow-wrap: break-word; 
 }
 
@@ -233,5 +232,58 @@
     p {
         font-size: 12px;
         margin: 10px;
+    }
+}
+
+.gridSaibaMais {
+    display: grid;
+    grid-template-columns: 1fr;
+    }
+    
+    .gridFilhoSM { grid-area: 1 / 1 / 2 / 2; }
+    .gridFilhoSB { grid-area: 2 / 1 / 3 / 2; }
+
+.linha {
+    height: 1px;
+    width: auto;
+    background-color: #605f5f;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tituloSaibaMais {
+    font-size: 3vh;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: inherit;
+}
+
+.infoSaibaMais {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333; 
+}
+
+@media (max-width: 768px) {
+    .tituloSaibaMais {
+        font-size: 4vw;
+        margin-bottom: 15px;
+    }
+
+    .infoSaibaMais {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloSaibaMais {
+        font-size: 5vw;
+        margin-bottom: 20px;
+    }
+
+    .infoSaibaMais {
+        font-size: 12px;
+        line-height: 1.3;
     }
 }

@@ -1,4 +1,4 @@
-// As funções abaixo servem para alternar as respostas ao clicar no botão de mais na tela onde mostra a lista dos agendados
+// As funções abaixo servem para alternar as respostas
 
 function mostra() {
     let conteudos = document.getElementsByClassName("conteudo");
@@ -14,8 +14,23 @@ function esconde() {
     }
 }
 
+function mostraID(id) {
+    const conteudo = document.getElementById(id);
+    const menos = document.getElementById(id + "Menos");
 
-// A função foca em mudar a quantidade de ml para 100 ao selecionar o produto hidratante na hora de efetuar um pedido de um produto
+    conteudo.style.display = "block";
+    menos.style.display = "block";
+}
+
+function escondeID(id) {
+    const conteudo = document.getElementById(id);
+    const menos = document.getElementById(id + "Menos");
+
+    conteudo.style.display = "none";
+    menos.style.display = "none";
+}
+
+// A função foca em mudar a quantidade de ml para 100 ao selecionar o produto hidratante
 function atualizarML() {
     const produto = document.getElementById("produto").value;
     const quantidade = document.getElementById("quantidade"); 
