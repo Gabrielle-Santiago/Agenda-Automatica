@@ -11,7 +11,6 @@ from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
 from .utils import validar_agendamento
 
-# Função para registrar o cadastro no BD
 def agenda(request):
     if request.method == 'POST':
         form = CadastroForm(request.POST)

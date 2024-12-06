@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Configuração das datas, retirando o domingo e só marca a partir do dia atual
 document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#appointmentDate", {
         locale: "pt",
