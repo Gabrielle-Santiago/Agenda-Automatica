@@ -35,25 +35,86 @@
                     <h2 class="tituloSaibaMais">Perguntas Frequentes</h2>
 
                     <div onclick="mostraID('procedimento')">Quais os valores dos procedimentos?</div>
-                    <p id="procedimento" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="procedimento" class="conteudo infoSaibaMais">
+                        Design de sobrancelhas COM henna, <strong>R$30,00</strong></br>
+                        Design de sobrancelhas SEM henna, <strong>R$20,00</strong></br>
+                        Depilação de axila, <strong>R$25,00</strong></br>
+                        Estriderme OFF (a cada sessão), <strong>R$200</strong></br>
+                        Henna Labial, <strong>R$25,00</strong></br>
+                        Hidra glós lip <strong>R$250,00</strong></br>
+                        Laminação de sobrancelhas, <strong>R$100,00</strong></br>
+                        Limpeza de pele completa, <strong>R$200,00</strong></br>
+                        Micro henna, <strong>R$350,00</strong></br>
+                        Micropigmentação sobrancelhas/lábios, <strong>R$500,00</strong></br>
+                        Nano fios, <strong>R$250,00</strong></br>
+                        Reconstrução de sobrancelhas <strong>R$100,00</strong></br>
+                        Revitalização facial, <strong>R$100,00</strong></br>                        
+                        Spa Labial, <strong>R$250,00</strong></br> 
+                    </p>
                     <div id="procedimentoMenos" class="conteudo" onclick="escondeID('procedimento')">Ver menos</div>
 
                     <div class="linha"></div>
 
+                    <div onclick="mostraID('pacotes')">Existe a opção de pacotes?</div>
+                    <p id="pacotes" class="conteudo infoSaibaMais">
+                        Sim, alguns procedimentos ao serem realizados juntos minimizam os gastos, abaixo segue as informações: </br>
+                        1° Pacote </br>
+                        Revilitação facial </br>
+                        Design com henna </br>
+                        Depilação do buço </br>
+                        Valor: R$120,00 </br></br>
+
+                        2° Pacote </br>
+                        Laminação dos fios </br>
+                        Hidro glós </br>
+                        Valor: R$200,00 </br></br>
+
+                        3° Pacote </br>
+                        Micro henna </br>
+                        Depilação do buço </br>
+                        Revitalização facial </br>
+                        Valor: R$400,00 </br>
+                    </p>
+                    <div id="pacotesMenos" class="conteudo" onclick="escondeID('pacotes')">Ver menos</div>
+
+                    <div class="linha"></div>
+
                     <div onclick="mostraID('tempoProced')">Quanto tempo leva cada procedimento?</div>
-                    <p id="tempoProced" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="tempoProced" class="conteudo infoSaibaMais">
+                        Depilação, <strong>40 min</strong></br>
+                        Design de sobrancelhas com Henna, <strong>40 min</strong></br>
+                        Design de sobrancelhas sem Henna, <strong>20 min</strong></br>
+                        Estriderme, <strong>2h</strong></br>
+                        Henna Labial, <strong>40 min</strong></br>
+                        Hidra glós, <strong>1:00 h</strong></br>
+                        Laminação de sobrancelhas, <strong>40 min</strong></br>
+                        Limpeza de pele, <strong>1:30 min</strong></br>
+                        Micro henna, <strong>1:30 min</strong></br>
+                        Micropigmentação, <strong></strong></br>
+                        Nano fios, <strong>1:00 h</strong></br>
+                        Peeling, <strong>1:00 h</strong></br>
+                        Reconstrução de sobrancelhas, <strong>1:00 h</strong></br>
+                        Revitalização facial, <strong>50 min</strong></br> 
+                        Spa Labial, <strong>1:00 h</strong></br> 
+                    </p>
                     <div id="tempoProcedMenos" class="conteudo" onclick="escondeID('tempoProced')">Ver menos</div>
 
                     <div class="linha"></div>
 
                     <div onclick="mostraID('pagamento')">Existem quais formas de pagamento?</div>
-                    <p id="pagamento" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="pagamento" class="conteudo infoSaibaMais">
+                        Cartão de débito ou crédito em até 3x sem juros apartir de R$300,00 </br>
+                        Pix ou dinheiro com 5% de desconto. Apartir de R$100,00
+                    </p>
                     <div id="pagamentoMenos" class="conteudo" onclick="escondeID('pagamento')">Ver menos</div>
 
                     <div class="linha"></div>
 
                     <div onclick="mostraID('taxa')">Em caso de não comparecer, existe alguma taxa?</div >
-                    <p id="taxa" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="taxa" class="conteudo infoSaibaMais">
+                        Existe uma taxa extra para retornos não realizados na data prevista, ou sem justificativas até 1:00 hora de antecedência. </br>
+                        O valor pode variar de acordo com o procedimento estético. Acarretando no valor total de 50% do procedimento que seria realizado.
+                    </p>
                     <div id="taxaMenos" class="conteudo" onclick="escondeID('taxa')">Ver menos</div>
                 </div>
         
@@ -61,20 +122,29 @@
                     <h2 class="tituloSaibaMais">Suporte ao Cliente</h2>
                 
                     <div onclick="mostraID('contato')">Meios de contato</div>
-                    <p id="contato" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="contato" class="conteudo infoSaibaMais">
+                        <img src={% static "img/icon/whatsapp.png" %} alt="Logo do whatsapp"> WhatsApp: (73) 98873-4003 </br>
+                        <img src={% static "img/icon/email.png" %} alt="Logo do email"> E-mail: ju.bela.berillo@outlook.com
+                    </p>
                     <div id="contatoMenos" class="conteudo" onclick="escondeID('contato')">Ver menos</div>
                 
                     <div class="linha"></div>
 
                     <div onclick="mostraID('redes')">Redes Sociais</div>
-                    <p id="redes" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <p id="redes" class="conteudo infoSaibaMais">
+                        <img src={% static "img/icon/whatsapp.png" %} alt="Logo do whatsapp"> WhatsApp: (73) 98873-4003 </br>
+                        <img src={% static "img/icon/instagram.png" %} alt="Logo do instagram"> Instagram: BellaBerillo
+                    </p>
                     <div id="redesMenos" class="conteudo" onclick="escondeID('redes')">Ver menos</div>
                 </div>
         
                 <div class="creditos">
                     <h2 class="tituloSaibaMais">Créditos</h2>
-                    <div onclick="mostraID('portfolio')">Portfólio aqui</div>
-                    <p id="portfolio" class="conteudo infoSaibaMais">{% lorem 1 b random %}</p>
+                    <div onclick="mostraID('portfolio')">Portfólio</div>
+                    <p id="portfolio" class="conteudo infoSaibaMais">
+                        <img src={% static 'img' %}>
+                        <a href="{% static 'img/pdf/portfolioJulianaXavier.pdf' %}" target="_blank" style="text-decoration: none; color: #212529;">Portfólio Juliana Xavier</a>
+                    </p>
                     <div id="portfolioMenos" class="conteudo" onclick="escondeID('portfolio')">Ver menos</div>
 
                     <div class="linha"></div>
