@@ -11,61 +11,65 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
 <main class="container mt-3">
   <div class="container text-center form">
     <div class="row">
-       <h1>Agendados</h1>
 
-          <div class="col">
+      <div class="configSinal">
+        <h1 style="margin-right: 40%;">Agendados</h1>
+        <div class="fundoSinal">
+          <div class="sinais" onclick=mostra('conteudo')>
+            <img src="{% static 'img/icon/mais_sinal.png' %}" class="sinal" id="sinalMais" alt="Mais informações">
+          </div>
+        </div>
+
+        <div class="fundoSinal">
+          <div class="sinais" onclick=esconde('conteudo')>
+            <img src="{% static 'img/icon/menos_sinal.png' %}" class="sinal" id="sinalMenos" alt="Menos informações">
+          </div>
+        </div>
+      </div>
+
+          <div id="grid" class="gridAgendado">
+            <div class="col">
               <h2>Nome</h2>
-                {% for cadastro in cadastrados %}
-                  <li>{{ cadastro.username }}</li>
-                {% endfor %}
-          </div>
-
-          <div class="col">
-              <h2>Data</h2>
-                {% for cadastro in cadastrados %}
-                    <li>{{ cadastro.data|date:"d/m/Y" }}</li>
-                {% endfor %}
-          </div>
-
-          <div class="col">
-              <h2>Horário</h2>
-                {% for cadastro in cadastrados %}
-                  <li>{{ cadastro.horario|date:"H:i" }}</li>
-                {% endfor %}
-          </div>
-
-          <div class="col">
-            <h2>Procedimento</h2>
               {% for cadastro in cadastrados %}
-                <li>{{ cadastro.get_proced_display }}</li>
+                <li class="liGrid">{{ cadastro.username }}</li>
               {% endfor %}
-          </div> 
+            </div>
 
-          <div class="col conteudo">
+            <div class="col">
+              <h2>Data</h2>
+              {% for cadastro in cadastrados %}
+                <li class="liGrid">{{ cadastro.data|date:"d/m/Y" }}</li>
+              {% endfor %}
+            </div>
+
+            <div class="col">
+              <h2>Horário</h2>
+              {% for cadastro in cadastrados %}
+                <li class="liGrid">{{ cadastro.horario|date:"H:i" }}</li>
+              {% endfor %}
+            </div>
+
+            <div class="col">
+              <h2>Procedimento</h2>
+              {% for cadastro in cadastrados %}
+                <li class="liGrid">{{ cadastro.get_proced_display }}</li>
+              {% endfor %}
+            </div> 
+
+            <div class="col conteudo">
               <h2>E-mail</h2>
-                {% for cadastro in cadastrados %}
-                  <li>{{ cadastro.email }}</li> 
-                {% endfor %}
-          </div>
+              {% for cadastro in cadastrados %}
+                <li class="liGrid">{{ cadastro.email }}</li> 
+              {% endfor %}
+            </div>
 
-          <div class="col conteudo">
+            <div class="col conteudo">
               <h2>Contato</h2>
-                {% for cadastro in cadastrados %}
-                  <li>{{ cadastro.contact }}</li>
-                {% endfor %}
-          </div>   
-          
-          <div class="fundoSinal">
-            <div class="sinais" onclick=mostra('conteudo')>
-              <img src="{% static 'img/icon/mais_sinal.png' %}" class="sinal" id="sinalMais" alt="Mais informações">
-            </div>
-          </div>
-
-          <div class="fundoSinal">
-            <div class="sinais" onclick=esconde('conteudo')>
-              <img src="{% static 'img/icon/menos_sinal.png' %}" class="sinal" id="sinalMenos" alt="Menos informações">
-            </div>
-          </div>
+              {% for cadastro in cadastrados %}
+                <li class="liGrid">{{ cadastro.contact }}</li>
+              {% endfor %}
+            </div>   
+      </div>      
     </div>
   </div>   
 </main>

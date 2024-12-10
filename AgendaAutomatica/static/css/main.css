@@ -68,3 +68,8 @@
         padding: 0 10px;
     }
 }
+
+.container {
+    overflow: hidden;
+    max-width: 100%
+}
