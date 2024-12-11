@@ -1,21 +1,27 @@
 // As funções abaixo servem para alternar as respostas
 
 function mostra() {
-    const gridContainer = document.getElementById("grid");
+    const grid = document.querySelectorAll(".col");
     let conteudos = document.getElementsByClassName("conteudo");
     for (let i = 0; i < conteudos.length; i++) {
         conteudos[i].style.display = "block";
-    }
-    gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
+    };
+    
+    grid.forEach(grid => {
+        grid.style.gridTemplateColumns = "repeat(7, 1fr)";
+    });
 }
 
 function esconde() {
-    const gridContainer = document.getElementById("grid");
+    const grid = document.querySelectorAll(".col");
     let conteudos = document.getElementsByClassName("conteudo");
     for (let i = 0; i < conteudos.length; i++) {
         conteudos[i].style.display = "none"; 
-    }
-    gridContainer.style.gridTemplateColumns = "repeat(4, 1fr)";
+    };
+    
+    grid.forEach(grid => {
+        grid.style.gridTemplateColumns = "repeat(4, 1fr)";
+    });
 }
 
 function mostraID(id) {
@@ -68,3 +74,5 @@ function atualizarML() {
         });
     }
 }
+
+function excluiPessoa() {}

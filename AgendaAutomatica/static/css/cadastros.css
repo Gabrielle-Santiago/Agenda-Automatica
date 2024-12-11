@@ -121,13 +121,18 @@
 /* Agendados */
 .gridAgendado {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
+    justify-content: space-between;
     }
-    
-    .liGrid {
+
+    .col {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-        gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 7px;
+        align-items: start;
     }
     
+.excluiPessoa {
+    background-color: #6e1919;
+    width: 100px;
+}

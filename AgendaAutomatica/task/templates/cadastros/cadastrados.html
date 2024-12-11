@@ -27,48 +27,34 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
         </div>
       </div>
 
-          <div id="grid" class="gridAgendado">
+        <div class="grid">
+          <div class="gridAgendado">
             <div class="col">
               <h2>Nome</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.username }}</li>
-              {% endfor %}
-            </div>
-
-            <div class="col">
               <h2>Data</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.data|date:"d/m/Y" }}</li>
-              {% endfor %}
-            </div>
-
-            <div class="col">
               <h2>Horário</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.horario|date:"H:i" }}</li>
-              {% endfor %}
+              <h2>Procedimento</h2> 
+              <h2 class="conteudo">E-mail</h2>
+              <h2 class="conteudo">Contato</h2>
+              
             </div>
-
+          
+          {% for cadastro in cadastrados %}
             <div class="col">
-              <h2>Procedimento</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.get_proced_display }}</li>
-              {% endfor %}
-            </div> 
-
-            <div class="col conteudo">
-              <h2>E-mail</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.email }}</li> 
-              {% endfor %}
+              <li>{{ cadastro.username }}</li>
+              <li>{{ cadastro.data|date:"d/m/Y" }}
+              <li>{{ cadastro.horario|date:"H:i" }}</li>
+              <li>{{ cadastro.get_proced_display }}</li>
+              <div class="conteudo">
+                <li>{{ cadastro.email }}</li> 
+              </div>
+              <div class="conteudo">
+                <li>{{ cadastro.contact }}</li>
+              </div>
+              <div class="excluiPessoa conteudo" onclick="excluiPessoa()">Deletar</div>
             </div>
-
-            <div class="col conteudo">
-              <h2>Contato</h2>
-              {% for cadastro in cadastrados %}
-                <li class="liGrid">{{ cadastro.contact }}</li>
-              {% endfor %}
-            </div>   
+          {% endfor %}   
+        </div>        
       </div>      
     </div>
   </div>   
