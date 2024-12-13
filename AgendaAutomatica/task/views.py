@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
@@ -105,6 +105,16 @@ def login_view(request):
 def sair(request):
     logout(request)
     return redirect('cadastros/cadastro')
+
+
+@login_required
+def deletarAgendamento(request, id):
+    cadastro = get_object_or_404(Cadastro, id=id)
+    
+    if request.method == 'POST':
+        cadastro.delete()
+        return redirect('cadastrados')
+    return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)
 
 
 def esqueciSenha(request):

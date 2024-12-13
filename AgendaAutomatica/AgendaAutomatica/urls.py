@@ -16,6 +16,8 @@ urlpatterns = [
     path('login_view/esqueciSenha/', views.esqueciSenha, name='esqueciSenha'),
     path('indisponivel/', views.indisponivel, name='sair'),
     path('saibaMais/', views.saibaMais, name='saibaMais'),
+    path('login_view/cadastros/cadastrados/<int:id>/', views.deletarAgendamento, name='deletarAgendamento'),
+    path('cadastrados/deletarAgendamento/<int:id>/', views.deletarAgendamento, name='deletarAgendamento'),
     path('enviarEmail/', include('enviarEmail.urls')),
     path('enviarEmail/', views.enviarEmail, name='enviarEmail'),
 ]

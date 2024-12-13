@@ -141,7 +141,7 @@ def confirmAgend(request):
 
 def excluirPedido(ID=None):
     try:
-        pedido = modelPerfume.objects.get(id=ID) if ID else modelPerfume.objects.last()
+        pedido = modelPerfume.objects.get(id=ID)
 
         if not pedido:
             print("Nenhum pedido encontrado para exclusão.")
