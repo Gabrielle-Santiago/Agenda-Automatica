@@ -44,3 +44,11 @@ def validar_agendamento(data, horario, proced):
         if horario_inicial < agendamento_fim and horario_final > agendamento_inicio:
             raise ValidationError("Horário indisponível para o procedimento solicitado.")
 
+
+def validarIndisponibilidade(data):
+    agendados =  Cadastro.objects.filter(data=data)
+
+    if agendados.exists():
+        raise ValidationError("agendados")
+    else:
+        raise ValidationError("nao agendados")

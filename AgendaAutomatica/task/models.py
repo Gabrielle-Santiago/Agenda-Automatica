@@ -81,3 +81,10 @@ class modelPerfume(models.Model):
     def __str__(self):
         return f"{self.product} - {self.aroma} - {self.quant} - {self.name} - {self.email} - {self.numberContact}"
     
+
+class modelIndisponibilidade(models.Model):
+    data = models.DateField()
+    horario = models.TimeField()
+
+    def __str__(self):
+        return f"{self.data} - {self.horario}"

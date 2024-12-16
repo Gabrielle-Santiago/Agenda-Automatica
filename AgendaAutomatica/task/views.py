@@ -1,15 +1,14 @@
-from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404, redirect, render
-from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
-from task.forms import CadastroForm, formPerfume
+from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
+from task.forms import CadastroForm, formIndisponibilidade, formPerfume
 from task.models import Cadastro
-from .utils import validar_agendamento
+from .utils import validar_agendamento, validarIndisponibilidade
 
 def agenda(request):
     if request.method == 'POST':
@@ -121,8 +120,26 @@ def esqueciSenha(request):
     return render(request, 'main/esqueciSenha.html')
 
 
-def indisponivel(request):
-    return render(request, 'cadastros/indisponivel.html')
+def indisponibilidade(request):
+    if request.method == 'POST':
+        form = formIndisponibilidade(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data['data']
+
+            try:
+                validarIndisponibilidade(data)
+                form.save()
+
+            except ValidationError as e:
+                return JsonResponse({'success': False, 'message': e.message})
+        else:        
+            return render(request, 'cadastros/indisponivel.html')
+        
+    else:
+        form = formIndisponibilidade()
+
+    return render(request, 'cadastros/indisponivel.html', {'form':form})
 
 
 def saibaMais(request):
