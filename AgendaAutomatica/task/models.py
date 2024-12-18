@@ -82,9 +82,10 @@ class modelPerfume(models.Model):
         return f"{self.product} - {self.aroma} - {self.quant} - {self.name} - {self.email} - {self.numberContact}"
     
 
-class modelIndisponibilidade(models.Model):
+class modelIndisponivel(models.Model):
     data = models.DateField()
-    horario = models.TimeField()
+    horarioInicio = models.TimeField()
+    horarioFim = models.TimeField()
 
     def __str__(self):
-        return f"{self.data} - {self.horario}"
+        return f"{self.data} - {self.horarioInicio} - {self.horarioFim}"

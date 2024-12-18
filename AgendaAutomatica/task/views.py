@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
-from task.forms import CadastroForm, formIndisponibilidade, formPerfume
+from task.forms import CadastroForm, formIndisponivel, formPerfume
 from task.models import Cadastro
 from .utils import validar_agendamento, validarIndisponibilidade
 
@@ -122,22 +122,26 @@ def esqueciSenha(request):
 
 def indisponibilidade(request):
     if request.method == 'POST':
-        form = formIndisponibilidade(request.POST)
+        form = formIndisponivel(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data['data']
+            horarioInicio = form.cleaned_data.get['horarioInicio']
+            horarioFim = form.cleaned_data.get['horarioFim']
 
             try:
-                validarIndisponibilidade(data)
+                validarIndisponibilidade(data, horarioInicio, horarioFim)
                 form.save()
+                return JsonResponse({'success': True, 'message': 'Agendamento salvo com sucesso!'})
 
             except ValidationError as e:
-                return JsonResponse({'success': False, 'message': e.message})
-        else:        
-            return render(request, 'cadastros/indisponivel.html')
+                return JsonResponse({'success': False, 'message': str(e)})
+
+        else:
+            return JsonResponse({'success': False, 'message': 'Formulário inválido. Verifique os campos preenchidos.'})
         
     else:
-        form = formIndisponibilidade()
+        form = formIndisponivel()
 
     return render(request, 'cadastros/indisponivel.html', {'form':form})
 

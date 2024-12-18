@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <main class="container mt-3">
     <div class="container text-center form">
       <div class="row">
@@ -35,9 +36,17 @@
             </div>
             
             <div class="mb-3">
-                <label for="appointmentTime" class="form-label">Horário</label>
-                <input type="time" class="form-control required" name="horario" placeholder="XX:XX" >
+                <label for="appointmentTime" class="form-label">Horário Inicial</label>
+                <input type="time" class="form-control required" name="horarioInicio" placeholder="XX:XX">
+                <span>Esse horário é referente ao inicio do intervalo de indisponibilidade</span>
             </div>  
+
+            <div class="mb-3">
+                <label for="appointmentTime" class="form-label">Horário Final</label>
+                <input type="time" class="form-control required" name="horarioFim" placeholder="XX:XX">
+                <span>Esse horário é referente ao final do intervalo de indisponibilidade</span>
+            </div>
+
             <button id="validarIndisponibilidade" class="myButton" type="submit" onclick="esconde()">Enviar</button>
         </form>           
     </div>
