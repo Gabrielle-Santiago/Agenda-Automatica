@@ -116,35 +116,5 @@ def deletarAgendamento(request, id):
     return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)
 
 
-def esqueciSenha(request):
-    return render(request, 'main/esqueciSenha.html')
-
-
-def indisponibilidade(request):
-    if request.method == 'POST':
-        form = formIndisponivel(request.POST)
-
-        if form.is_valid():
-            data = form.cleaned_data['data']
-            horarioInicio = form.cleaned_data.get['horarioInicio']
-            horarioFim = form.cleaned_data.get['horarioFim']
-
-            try:
-                validarIndisponibilidade(data, horarioInicio, horarioFim)
-                form.save()
-                return JsonResponse({'success': True, 'message': 'Agendamento salvo com sucesso!'})
-
-            except ValidationError as e:
-                return JsonResponse({'success': False, 'message': str(e)})
-
-        else:
-            return JsonResponse({'success': False, 'message': 'Formulário inválido. Verifique os campos preenchidos.'})
-        
-    else:
-        form = formIndisponivel()
-
-    return render(request, 'cadastros/indisponivel.html', {'form':form})
-
-
 def saibaMais(request):
     return render(request, 'auth/saibaMais.html')

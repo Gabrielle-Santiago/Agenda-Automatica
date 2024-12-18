@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cadastro, modelIndisponivel, modelPerfume
+from .models import Cadastro, modelPerfume
 
 class CadastroForm(forms.ModelForm):
     
@@ -13,10 +13,3 @@ class formPerfume(forms.ModelForm):
     class Meta:
         model = modelPerfume
         fields = ['product', 'aroma', 'quant', 'name', 'email', 'numberContact']
-
-
-class formIndisponivel(forms.ModelForm):
-
-    class Meta:
-        model = modelIndisponivel
-        fields = ['data', 'horarioInicio', 'horarioFim']

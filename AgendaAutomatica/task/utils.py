@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
-from pyexpat.errors import messages
 from django.core.exceptions import ValidationError
-from .models import Cadastro, modelIndisponivel
+from .models import Cadastro
 
 PROCEDURE_DURATIONS = {
     "CH": timedelta(minutes=40), # Sobrancelhas COM henna
@@ -44,17 +43,3 @@ def validar_agendamento(data, horario, proced):
 
         if horario_inicial < agendamento_fim and horario_final > agendamento_inicio:
             raise ValidationError("Horário indisponível para o procedimento solicitado.")
-
-
-def validarIndisponibilidade(data):
-    agendados =  Cadastro.objects.filter(data=data)
-    horarioInicio = modelIndisponivel.objects.filter(horarioInicio=horarioInicio)
-    horarioFim = modelIndisponivel.objects.filter(horarioFim=horarioFim)
-
-    if agendados.exists():
-        print("Aqui chama o JS, para informar que deu errado")
-        # return {'success': False, 'message': 'Já existem agendamentos para esta data.'}
-        raise ValidationError("Tem cliente porra")
-    else:
-        if horarioInicio and horarioFim:
-            print(horarioInicio, horarioFim)
