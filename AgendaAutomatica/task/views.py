@@ -5,10 +5,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
+from django.utils.timezone import now
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
-from task.forms import CadastroForm, formIndisponivel, formPerfume
+from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
-from .utils import validar_agendamento, validarIndisponibilidade
+from .utils import validar_agendamento
 
 def agenda(request):
     if request.method == 'POST':
@@ -44,7 +45,11 @@ class visualizarLista(ListView):
     model = Cadastro
     template_name = 'cadastros/cadastrados.html'
     context_object_name = 'cadastrados'
-    
+
+    def get_queryset(self):
+        dataAtual = now().date()
+        Cadastro.objects.filter(data__lt=dataAtual).delete()
+        return super().get_queryset()
 
 def pedidoPerfume(request):
     if request.method == 'POST':
