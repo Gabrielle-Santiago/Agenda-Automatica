@@ -25,6 +25,26 @@
     z-index: -2;
 }
 
+@media (max-width: 2560px) {
+    .wave {
+        bottom: -32vh;
+    }
+
+    .wave2 {
+        right: -36vh;
+    }
+}
+
+@media (max-width: 1440px) {
+    .wave {
+        bottom: -40px;
+    }
+
+    .wave2 {
+        right: -20px;
+    }
+ }
+
 @media (max-width: 800px) {
     .wave {
         bottom: -30vw;

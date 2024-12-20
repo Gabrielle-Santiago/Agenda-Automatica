@@ -16,33 +16,33 @@
 
                     {% csrf_token %}
 
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label class="form-label">Nome</label>
                         <input type="text" class="form-control required" placeholder="Nome Completo" aria-label="Username"
                             aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" oninput="nameValidate()" required>
                         <span class="span-required"></span>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
                         <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@exemplo.com" name="email" oninput="emailValidate()" required>
                         <span class="span-required"></span>
                     </div>
         
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label for="contactNumber" class="form-label">Número de Contato</label>
                         <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
                         <span class="span-required"></span>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label for="appointmentDate" class="form-label">Data</label>
                         <input type="date" class="form-control required" id="appointmentDate" name="data" placeholder="XX/XX/XXXX"  required>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label class="form-label">Procedimento</label>
-                        <select class="form-control required" id="appointmentDate" name="proced" required>
+                        <select class="form-control subtitulos required" id="appointmentDate" name="proced" required>
                             <option selected>Selecione</option>
                             <option value="CH">Design de sobrancelhas COM henna</option>
                             <option value="SH">Design de sobrancelhas SEM henna</option>
@@ -58,7 +58,7 @@
                         </select>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-3 subtitulos">
                         <label for="appointmentTime" class="form-label">Horário</label>
                         <input type="time" class="form-control required" id="appointmentTime" name="horario" placeholder="XX:XX" required>
                     </div>             

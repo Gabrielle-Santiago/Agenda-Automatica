@@ -10,7 +10,7 @@
                     <div class="formPerfume form">
                         <title> Pedido Produto </title>
                 
-                        <h1 class="text-center">Pedido Produto</h1>
+                        <h1 class="text-center subtitulos">Pedido Produto</h1>
                 
                         {{ error }}
                         {% csrf_token %}
@@ -18,8 +18,8 @@
                         <div class="cont" id="gridConsertProduto">
                             <div class="contFilho">
                                 <div class="mb-3">
-                                    <label class="form-label">Produto</label>
-                                    <select id="produto" name="product" class="form-select" aria-label="Default select example" onchange="atualizarML()">
+                                    <label class="form-label subtitulos subtitulos">Produto</label>
+                                    <select id="produto" name="product" class="form-select subtitulos" aria-label="Default select example" onchange="atualizarML()">
                                         <option selected>Selecione</option>
                                         <option value="P">Perfume</option>
                                         <option value="H">Hidratante</option>
@@ -28,8 +28,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Selecione um aroma</label>
-                                    <select class="form-select input-styled" name="aroma">
+                                    <label class="form-label subtitulos">Selecione um aroma</label>
+                                    <select class="form-select subtitulos input-styled" name="aroma">
                                         <option selected>Selecione</option>
                                         <option value="F">Floral</option>
                                         <option value="C">Cítrico</option>
@@ -39,8 +39,8 @@
                                 </div>
                         
                                 <div class="mb-3">
-                                    <label for="appointmentNumber" class="form-label">Quantidade (ml)</label>
-                                    <select class="form-select input-styled" name="quant" id="quantidade" required>
+                                    <label for="appointmentNumber" class="form-label subtitulos">Quantidade (ml)</label>
+                                    <select class="form-select subtitulos input-styled" name="quant" id="quantidade" required>
                                         <option selected>Selecione</option>
                                         <option value="1">10ml</option>
                                         <option value="3">30ml</option>
@@ -51,19 +51,19 @@
 
                             <div class="contFilhoUm">               
                                 <div class="mb-3">
-                                    <label>Nome</label>
+                                    <label class="form-label subtitulos">Nome</label>
                                     <input type="text" class="form-control input-styled required" placeholder="Nome completo" aria-label="Username" aria-describedby="inputGroupPrepend1" id="validationUsername" name="name" oninput="nameValidate()" required>
                                     <span class="span-required"></span>
                                 </div>             
                                 
                                 <div class="mb-3">
-                                    <label for="emailInput" class="form-label">Endereço do Email</label>
+                                    <label for="emailInput" class="form-label subtitulos">Endereço do Email</label>
                                     <input type="email" class="form-control input-styled required" id="emailInput" placeholder="nome@examplo.com" name="email" oninput="emailValidate()" required>
                                     <span class="span-required"></span>
                                 </div>
                             
                                 <div class="mb-3">
-                                    <label for="contactNumber" class="form-label">Número de Contato</label>
+                                    <label for="contactNumber" class="form-label subtitulos">Número de Contato</label>
                                     <input class="form-control input-styled required" type="tel" id="contactNumber" placeholder="(xx) xxxx-xxxx" aria-label="Número de Contato" name="numberContact" oninput="contactValidate()" required>
                                     <span class="span-required"></span>
                                 </div> 
