@@ -1,12 +1,12 @@
-from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404, redirect, render
-from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
+from django.utils.timezone import now
+from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
 from .utils import validar_agendamento
@@ -45,7 +45,11 @@ class visualizarLista(ListView):
     model = Cadastro
     template_name = 'cadastros/cadastrados.html'
     context_object_name = 'cadastrados'
-    
+
+    def get_queryset(self):
+        dataAtual = now().date()
+        Cadastro.objects.filter(data__lt=dataAtual).delete()
+        return super().get_queryset()
 
 def pedidoPerfume(request):
     if request.method == 'POST':
@@ -115,14 +119,6 @@ def deletarAgendamento(request, id):
         cadastro.delete()
         return redirect('cadastrados')
     return JsonResponse({'status': 'error', 'message': 'Requisição inválida'}, status=400)
-
-
-def esqueciSenha(request):
-    return render(request, 'main/esqueciSenha.html')
-
-
-def indisponivel(request):
-    return render(request, 'cadastros/indisponivel.html')
 
 
 def saibaMais(request):
