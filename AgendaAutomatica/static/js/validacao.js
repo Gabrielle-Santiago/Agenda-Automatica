@@ -36,6 +36,7 @@ function emailValidate() {
     }
 }
 
+
 function contactValidate() {
     if (camposInput[2].value.length < 10) {
         setError(2, "Por favor, adicione um número corretamente ex: (73) 95555-4444");  

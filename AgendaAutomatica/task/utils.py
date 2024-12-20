@@ -43,4 +43,3 @@ def validar_agendamento(data, horario, proced):
 
         if horario_inicial < agendamento_fim and horario_final > agendamento_inicio:
             raise ValidationError("Horário indisponível para o procedimento solicitado.")
-

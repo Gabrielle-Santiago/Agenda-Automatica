@@ -4,10 +4,6 @@
 
 {% block content %}
 
-{% comment %} 
-Essa página serve para mostrar os usuários que agendaram um horário, o nome ficou cadastrados sla por qual diacho de motivo, era pra ser "agendados" 
-{% endcomment %}
-
 <main class="container mt-3">
   <div class="container text-center form">
     <div class="row">
@@ -28,7 +24,7 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
       </div>
 
         <div class="grid">
-          <div class="gridAgendado">
+          <div>
             <div class="col">
               <h2>Nome</h2>
               <h2>Data</h2>
@@ -51,7 +47,17 @@ Essa página serve para mostrar os usuários que agendaram um horário, o nome f
               <div class="conteudo">
                 <li>{{ cadastro.contact }}</li>
               </div>
-              <div class="excluiPessoa conteudo" onclick="excluiPessoa()">Deletar</div>
+
+              <form action="{% url 'deletarAgendamento' cadastro.id %}" method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <div class="conteudo">
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este agendamento?');">Deletar</button>
+                </div>
+              </form>
+
             </div>
           {% endfor %}   
         </div>        
