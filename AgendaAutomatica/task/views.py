@@ -9,7 +9,7 @@ from django.utils.timezone import now
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
-from .utils import validar_agendamento
+from .utils import validarAgendamento
 
 def agenda(request):
     if request.method == 'POST':
@@ -21,7 +21,7 @@ def agenda(request):
             proced = form.cleaned_data['proced']
 
             try:
-                validar_agendamento(data, horario, proced)
+                validarAgendamento(data, horario, proced)
                 form.save()
                 confirmAgend(request)
 

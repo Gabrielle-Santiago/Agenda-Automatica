@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
             disabledIntervals.forEach(interval => {
                 if (selectedTime >= interval.from && selectedTime <= interval.to) {
-                    alert("Horário indisponível, escolha outro.");
+                    alert("O horário solicitado coincide com o intervalo da empresa. Tente a partir 16:30min.");
                     instance.clear();
                 }
             });
