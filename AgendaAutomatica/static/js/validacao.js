@@ -44,3 +44,42 @@ function contactValidate() {
         clearError(2);
     }
 }
+
+function procedAvaliacao() {
+    const opcoesAvaliacao = ["SL", "LP", "LA", "PE", "ES", "NF", "RE", "MH"];
+    const procedSelect = document.querySelector('select[name="proced"]');
+    const modal = document.getElementById("divAvaliacao");
+
+    procedSelect.addEventListener("change", function () {
+        const proced = procedSelect.value;
+
+        if (opcoesAvaliacao.includes(proced)) {
+            modal.style.display = "flex";
+        } else {
+            modal.style.display = "none"; 
+        }
+    });
+}
+
+
+function modalSim() {
+    alert("Confirmação que já realizou a avaliação. Termine de preencher o formulário e agende seu procedimento");
+    document.getElementById("divAvaliacao").style.display = "none";
+}
+
+
+function modalNao() {
+    document.getElementById("divAvaliacao").style.display = "none";
+    const avaliacao = document.getElementById("descAvaliacao");
+    avaliacao.style.display = "flex";  
+
+    const descricao = confirm("A avaliação tem duração de 30min, e a profissional informará se é cabível a realização do procedimento posteriormente. Deseja continuar e agendar sua avaliação?");
+
+    if (descricao) {
+        alert("Finalize seu cadastro para sua avaliação ser agendada.");
+    } else {
+        document.querySelector('select[name="proced"]').value = "Select"; 
+    }
+}
+
+

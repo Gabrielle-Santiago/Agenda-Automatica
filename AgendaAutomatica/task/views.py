@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404, redirect, render
@@ -9,7 +10,26 @@ from django.utils.timezone import now
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
-from .utils import validar_agendamento
+from .utils import tempoAvaliacao, validarAgendamento
+
+def cadastrarAgendamento(request):
+    if request.method == 'POST':
+        proced = request.POST.get('proced')
+        horario = datetime.strptime(request.POST.get('horario'), "%H:%M").time()
+        horario_ajustado = tempoAvaliacao(proced, horario)
+
+        Cadastro.objects.create(
+            username=request.POST.get('username'),
+            data=request.POST.get('data'),
+            horario=horario_ajustado,
+            contact=request.POST.get('contact'),
+            proced=proced
+        )
+
+        return JsonResponse({'success': True, 'message': 'Agendamento realizado com sucesso!'})
+
+    return JsonResponse({'success': False, 'message': 'Método inválido.'})
+
 
 def agenda(request):
     if request.method == 'POST':
@@ -21,7 +41,7 @@ def agenda(request):
             proced = form.cleaned_data['proced']
 
             try:
-                validar_agendamento(data, horario, proced)
+                validarAgendamento(data, horario, proced)
                 form.save()
                 confirmAgend(request)
 
@@ -49,7 +69,8 @@ class visualizarLista(ListView):
     def get_queryset(self):
         dataAtual = now().date()
         Cadastro.objects.filter(data__lt=dataAtual).delete()
-        return super().get_queryset()
+        return Cadastro.objects.filter(data__gte=dataAtual).order_by('data')
+
 
 def pedidoPerfume(request):
     if request.method == 'POST':

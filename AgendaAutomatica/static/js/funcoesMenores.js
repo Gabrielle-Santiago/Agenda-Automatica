@@ -40,7 +40,7 @@ function escondeID(id) {
     menos.style.display = "none";
 }
 
-// A função foca em mudar a quantidade de ml para 100 ao selecionar o produto hidratante
+
 function atualizarML() {
     const produto = document.getElementById("produto").value;
     const quantidade = document.getElementById("quantidade"); 
