@@ -16,7 +16,6 @@ def cadastrarAgendamento(request):
     if request.method == 'POST':
         proced = request.POST.get('proced')
         horario = datetime.strptime(request.POST.get('horario'), "%H:%M").time()
-        
         horario_ajustado = tempoAvaliacao(proced, horario)
 
         Cadastro.objects.create(
@@ -31,7 +30,6 @@ def cadastrarAgendamento(request):
 
     return JsonResponse({'success': False, 'message': 'Método inválido.'})
 
-    
 
 def agenda(request):
     if request.method == 'POST':
@@ -71,7 +69,8 @@ class visualizarLista(ListView):
     def get_queryset(self):
         dataAtual = now().date()
         Cadastro.objects.filter(data__lt=dataAtual).delete()
-        return super().get_queryset()
+        return Cadastro.objects.filter(data__gte=dataAtual).order_by('data')
+
 
 def pedidoPerfume(request):
     if request.method == 'POST':
