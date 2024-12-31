@@ -88,3 +88,13 @@ def validarPausa(data, horario_inicial, horario_final):
 
     if horario_inicial < pausa_fim and horario_final > pausa_inicio:
         raise ValidationError("O horário solicitado coincide com o intervalo da empresa. Tente a partir de 16:30.")
+
+
+def tempoAvaliacao(proced, horario):
+    opcoesAvaliacao = ["SL", "LP", "LA", "PE", "ES", "NF", "RE", "MH"]
+    
+    if proced in opcoesAvaliacao:
+        horario_ajustado = (datetime.combine(datetime.today(), horario) + timedelta(minutes=30)).time()
+        return horario_ajustado
+    
+    return horario

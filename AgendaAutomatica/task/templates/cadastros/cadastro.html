@@ -6,8 +6,19 @@
 
     <main class="container mt-1">
         <div class="col-md-5 offset-md-4"> 
+
+            <div id="divAvaliacao" style="display: none;">
+                <div>
+                    <p>Esse procedimento necessita de avaliação prévia. Você já realizou a avaliação?</p>
+                    <button id="modalSim" class="btn btn-success" onclick="modalSim()">Sim</button>
+                    <button id="modalNao" name="modelNao" value="false" class="btn btn-danger" onclick="modalNao()">Não</button>
+                </div>    
+            </div>
+
+            <div id="descAvaliacao" style="display: none;"></div>
+
             <form id="formulario" method="POST" class="card card-body needs-validation formulario" novalidate>
-                <div class="form">
+                <div class="form">                            
                     <title>Agendamento</title>
                     
                     <h1 class="text-center">Agendamento</h1>
@@ -15,7 +26,7 @@
                     {{ error }}
 
                     {% csrf_token %}
-
+                    
                     <div class="mb-3">
                         <label class="form-label">Nome</label>
                         <input type="text" class="form-control required" placeholder="Nome Completo" aria-label="Username"
@@ -42,8 +53,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Procedimento</label>
-                        <select class="form-control required" id="appointmentDate" name="proced" required>
-                            <option selected>Selecione</option>
+                        <select class="form-control required" id="appointmentDate" name="proced"  onclick="procedAvaliacao()" required>
+                            <option value="Select" selected>Selecione</option>
                             <option value="CH">Design de sobrancelhas COM henna</option>
                             <option value="SH">Design de sobrancelhas SEM henna</option>
                             <option value="MH">Micro henna</option>
@@ -54,7 +65,7 @@
                             <option value="PE">Peeling facial superficial</option>            
                             <option value="ES">Estriderme</option>
                             <option value="NF">Nano fios</option>
-                            <option value="RF">Revitalização facial</option>
+                            <option value="RE">Revitalização facial</option>
                         </select>
                     </div>
                     

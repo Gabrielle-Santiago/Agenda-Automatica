@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.http import JsonResponse
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404, redirect, render
@@ -9,7 +10,28 @@ from django.utils.timezone import now
 from enviarEmail.views import confirmAgend, emailCliente, enviarEmail, excluirPedido
 from task.forms import CadastroForm, formPerfume
 from task.models import Cadastro
-from .utils import validarAgendamento
+from .utils import tempoAvaliacao, validarAgendamento
+
+def cadastrarAgendamento(request):
+    if request.method == 'POST':
+        proced = request.POST.get('proced')
+        horario = datetime.strptime(request.POST.get('horario'), "%H:%M").time()
+        
+        horario_ajustado = tempoAvaliacao(proced, horario)
+
+        Cadastro.objects.create(
+            username=request.POST.get('username'),
+            data=request.POST.get('data'),
+            horario=horario_ajustado,
+            contact=request.POST.get('contact'),
+            proced=proced
+        )
+
+        return JsonResponse({'success': True, 'message': 'Agendamento realizado com sucesso!'})
+
+    return JsonResponse({'success': False, 'message': 'Método inválido.'})
+
+    
 
 def agenda(request):
     if request.method == 'POST':
