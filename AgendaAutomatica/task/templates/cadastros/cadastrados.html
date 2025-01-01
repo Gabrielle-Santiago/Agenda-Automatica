@@ -7,32 +7,29 @@
 <main class="container mt-3">
   <div class="container text-center form">
     <div class="row subtitulos">
-
+      <h1>Agendados</h1>
       <div class="configSinal">
-        <h1 style="margin-right: 40%;">Agendados</h1>
         <div class="fundoSinal">
-          <div class="sinais" onclick=mostra('conteudo')>
+          <div class="sinais clicavel" onclick=mostra('conteudo')>
             <img src="{% static 'img/icon/mais_sinal.png' %}" class="sinal" id="sinalMais" alt="Mais informações">
           </div>
         </div>
 
         <div class="fundoSinal">
-          <div class="sinais" onclick=esconde('conteudo')>
+          <div class="sinais clicavel" onclick=esconde('conteudo')>
             <img src="{% static 'img/icon/menos_sinal.png' %}" class="sinal" id="sinalMenos" alt="Menos informações">
           </div>
         </div>
       </div>
 
         <div class="grid">
-          <div>
-            <div class="col">
+            <div class="col removeTitulo">
               <h2>Nome</h2>
               <h2>Data</h2>
               <h2>Horário</h2>
               <h2>Procedimento</h2> 
               <h2 class="conteudo">E-mail</h2>
-              <h2 class="conteudo">Contato</h2>
-              
+              <h2 class="conteudo">Contato</h2>          
             </div>
           
           {% for cadastro in cadastrados %}
@@ -54,7 +51,7 @@
                 {{ form.as_p }}
 
                 <div class="conteudo">
-                  <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este agendamento?');">Deletar</button>
+                  <button type="submit" class="btn btn-danger btnDeletar" onclick="return confirm('Tem certeza que deseja excluir este agendamento?');">Deletar</button>
                 </div>
               </form>
 

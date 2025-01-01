@@ -69,10 +69,6 @@ nav a {
     }
 }
 
-.boldTitulo {
-    font-weight: 500;
-}
-
 .formulario {
     display: flex; 
     align-items: center; 

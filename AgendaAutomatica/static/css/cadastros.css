@@ -141,15 +141,52 @@
     transition: all 0.3s ease;
 }
 
-.gridAgendado {
+.grid {
     display: grid;
-    justify-content: space-between;
+    gap: 12px;
+}
+
+.col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 7px;
+    align-items: start;
+}
+
+.btnDeletar {
+    background-color: #651818;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
     }
 
     .col {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        padding: 7px;
-        align-items: start;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
     }
+
+    .col li {
+        padding: 4px 0;
+        font-size: 0.9rem;
+        list-style-type: none;
+    }
+
+    .removeTitulo{
+        display: none;
+    }
+
+    .btnDeletar{
+        font-size: 13px;
+        height: 6vh;
+        padding-bottom: 20px;
+        border: none;
+    }
+}
+
+    
