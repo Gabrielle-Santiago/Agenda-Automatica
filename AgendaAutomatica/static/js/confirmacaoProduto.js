@@ -26,6 +26,9 @@ function confirmacaoProduto() {
 
             if (result.success) {
                 form.reset();
+                setTimeout(() => {
+                    window.location.reload();                  
+                }, 4000);
             }
     
         } catch (error) {

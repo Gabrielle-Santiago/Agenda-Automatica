@@ -26,6 +26,9 @@ function confirmacao() {
 
             if (result.success) {
                 form.reset();
+                setTimeout(() => {
+                    window.location.reload();
+                }, 5000)
             }
     
         } catch (error) {
