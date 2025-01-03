@@ -4,91 +4,91 @@
 
 {% block content %}
 
-    <main class="container mt-1">
-        <div class="col-md-5 offset-md-4"> 
+<main class="container mt-1">
+    <div class="col-md-5 offset-md-4"> 
 
-            <div id="divAvaliacao" style="display: none;">
-                <div>
-                    <p>Esse procedimento necessita de avaliação prévia. Você já realizou a avaliação?</p>
-                    <button id="modalSim" class="btn btn-success" onclick="modalSim()">Sim</button>
-                    <button id="modalNao" name="modelNao" value="false" class="btn btn-danger" onclick="modalNao()">Não</button>
-                </div>    
-            </div>
+        <div id="divAvaliacao" style="display: none;">
+            <div id="avisoProced">
+                <p class="subtitulos">Esse procedimento necessita de avaliação prévia. Você já realizou a avaliação?</p>
+                <button id="modalSim" class="btn btn-success" onclick="modalSim()">Sim</button>
+                <button id="modalNao" name="modelNao" value="false" class="btn btn-danger" onclick="modalNao()">Não</button>
+            </div>    
+        </div>
 
-            <div id="descAvaliacao" style="display: none;"></div>
+        <div id="descAvaliacao" style="display: none;"></div>
 
-            <form id="formulario" method="POST" class="card card-body needs-validation formulario" novalidate>
-                <div class="form">                            
-                    <title>Agendamento</title>
-                    
-                    <h1 class="text-center">Agendamento</h1>
-                    
-                    {{ error }}
+        <form id="formulario" method="POST" class="card card-body needs-validation formulario" novalidate>
+            <div class="form">                            
+                <title>Agendamento</title>
+                
+                <h1 class="text-center">Agendamento</h1>
+                
+                {{ error }}
 
-                    {% csrf_token %}
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Nome</label>
-                        <input type="text" class="form-control required" placeholder="Nome Completo" aria-label="Username"
-                            aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" oninput="nameValidate()" required>
-                        <span class="span-required"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
-                        <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@exemplo.com" name="email" oninput="emailValidate()" required>
-                        <span class="span-required"></span>
-                    </div>
-        
-                    <div class="mb-3">
-                        <label for="contactNumber" class="form-label">Número de Contato</label>
-                        <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
-                        <span class="span-required"></span>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="appointmentDate" class="form-label">Data</label>
-                        <input type="date" class="form-control required" id="appointmentDate" name="data" placeholder="XX/XX/XXXX"  required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Procedimento</label>
-                        <select class="form-control clicavel required" id="appointmentDate" name="proced" onclick="procedAvaliacao()" required>
-                            <option value="Select" selected>Selecione</option>
-                            <option value="CH">Design de sobrancelhas COM henna</option>
-                            <option value="SH">Design de sobrancelhas SEM henna</option>
-                            <option value="MH">Micro henna</option>
-                            <option value="LP">Limpeza de pele</option>
-                            <option value="SL">SPA labial</option>
-                            <option value="DE"> Depilação Buço e Axila</option>
-                            <option value="LA">Laminação dos fios</option>
-                            <option value="PE">Peeling facial superficial</option>            
-                            <option value="ES">Estriderme</option>
-                            <option value="NF">Nano fios</option>
-                            <option value="RE">Revitalização facial</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="appointmentTime" class="form-label">Horário</label>
-                        <input type="time" class="form-control required" id="appointmentTime" name="horario" placeholder="XX:XX" required>
-                    </div>             
-
-                    <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick="confirmacao()">       
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control required" placeholder="Nome Completo" aria-label="Username"
+                        aria-describedby="inputGroupPrepend3" id="validationUsername" name="username" oninput="nameValidate()" required>
+                    <span class="span-required"></span>
                 </div>
-            </form> 
 
-            <div id="confirmacaoPrompt" class="confirmacaoPrompt" style="display: none;">
-                <div id="loading" style="display: none;">
-                    <p>Processando... Aguarde!</p>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Endereço do Email</label>
+                    <input type="email" class="form-control required" id="exampleFormControlInput1" placeholder="nome@exemplo.com" name="email" oninput="emailValidate()" required>
+                    <span class="span-required"></span>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="contactNumber" class="form-label">Número de Contato</label>
+                    <input type="tel" class="form-control required" id="contactNumber" placeholder="(XX) XXXXX-XXXX" name="contact" oninput="contactValidate()" required>
+                    <span class="span-required"></span>
                 </div>
                 
-                <div id="responseMessage" style="display: none;">
-                    <p id="messageText"></p>
+                <div class="mb-3">
+                    <label for="appointmentDate" class="form-label">Data</label>
+                    <input type="date" class="form-control required" id="appointmentDate" name="data" placeholder="XX/XX/XXXX"  required>
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Procedimento</label>
+                    <select class="form-control clicavel required" id="appointmentDate" name="proced" onclick="procedAvaliacao()" required>
+                        <option value="Select" selected>Selecione</option>
+                        <option value="CH">Design de sobrancelhas COM henna</option>
+                        <option value="SH">Design de sobrancelhas SEM henna</option>
+                        <option value="MH">Micro henna</option>
+                        <option value="LP">Limpeza de pele</option>
+                        <option value="SL">SPA labial</option>
+                        <option value="DE"> Depilação Buço e Axila</option>
+                        <option value="LA">Laminação dos fios</option>
+                        <option value="PE">Peeling facial superficial</option>            
+                        <option value="ES">Estriderme</option>
+                        <option value="NF">Nano fios</option>
+                        <option value="RE">Revitalização facial</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="appointmentTime" class="form-label">Horário</label>
+                    <input type="time" class="form-control required" id="appointmentTime" name="horario" placeholder="XX:XX" required>
+                </div>             
+
+                <input class="myButton btn btn-primary" type="submit" value="Agendar" onclick="confirmacao()">       
+            </div>
+        </form> 
+
+        <div id="confirmacaoPrompt" class="confirmacaoPrompt" style="display: none;">
+            <div id="loading" style="display: none;">
+                <p>Processando... Aguarde!</p>
+            </div>
+            
+            <div id="responseMessage" style="display: none;">
+                <p id="messageText"></p>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
 <div class="conserto">
     <div class="camada">
