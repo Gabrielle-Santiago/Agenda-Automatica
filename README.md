@@ -2,6 +2,19 @@
 ## Objetivo
 <p> A aplicação visa gerenciar e otimizar o agendamento de serviços, integrando tecnologias como Python, Django, e JavaScript para uma experiência de usuário eficiente e automatizada. O sistema permite aos clientes agendarem compromissos e envia automaticamente um e-mail. As datas passadas são removidas automaticamente, mantendo uma agenda organizada. O proprietário também pode remover clientes manualmente conforme necessário, reduzindo notificações desnecessárias aos clientes e facilitando a administração. O projeto busca automatizar e otimizar o processo de agendamento, garantindo eficiência operacional, escalabilidade e uma experiência de usuário superior. </p>
 
+## Vídeo Demonstrativo
+
+https://github.com/user-attachments/assets/536fa507-37ec-411c-a880-8549259630f2
+
+## Conteúdo dos E-mails Enviados
+Os e-mails enviados pela aplicação incluem:
+
+Confirmação de agendamentos com detalhes como horário, serviço selecionado e contatos do profissional.
+
+Informações sobre pedidos, incluindo descrição dos itens, valores e forma de pagamento.
+
+Regras e políticas importantes, como tempo de tolerância, taxas aplicáveis em caso de atraso, e orientações para cancelamento de pedidos ou horários agendados.
+
 ## Automatizações
 
 ### Formulário para Agendar um Horário com Procedimento
